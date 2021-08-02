@@ -6,12 +6,20 @@
    
    <!-- 뉴스 작성 -->
    <insert id="insert">
+   	   insert into news(news_index,news_title,news_contents,news_kategorie,news_url) 
+   values (NEWS_INDEX_SEQ.nextval,#{news_title},#{news_contents},#{news_kategorie},#{news_url});
    	
-   	insert into news(news_index,news_title) values(news_index_seq.nextval,#{news_title})
    </insert>
+
    
    <select id="list" resultType="kr.co.summary.domain.NewsVO">
-   	select news_index,news_title from news order by news_index desc
+   	select news_index
+   	,news_title
+   	,news_contents
+   	,news_count
+   	,news_date
+   	,news_kategorie
+   	from news order by news_index desc
    	
    </select>
    

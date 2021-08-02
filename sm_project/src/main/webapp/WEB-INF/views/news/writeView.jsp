@@ -2,13 +2,13 @@
     pageEncoding="UTF-8"%>
 <html>
 	<head>
-	 	<title>게시판</title>
+	 	<title>뉴스게시판</title>
 	</head>
 	<body>
 	
 		<div id="root">
 			<header>
-				<h1> 게시판</h1>
+				<h1>뉴스 게시판</h1>
 			</header>
 			<hr />		 
 			<nav>
@@ -22,8 +22,29 @@
 							<tr>
 								<td>
 									<label for="title">뉴스제목</label><input type="text" id="news_title" name="news_title" />
+									
 								</td>
-							</tr>	
+							</tr>
+							<tr>
+								<td>
+									<label for="content">내용</label><textarea id="news_content" name="news_content" ></textarea>
+									
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<label for="title">카테고리</label><input type="text" id="news_kategorie" name="news_kategorie" />
+									
+								</td>
+							</tr>
+								<tr>
+								<td>
+									<label for="title">뉴스url</label><input type="text" id="news_url" name="news_url" />
+									
+								</td>
+							</tr>
+												
 							
 							<tr>
 								<td>						

@@ -24,7 +24,9 @@
 						<th>뉴스제목</th>
 						<th>뉴스내용</th>
 						<th>등록일</th>
-						<th>뉴스제목</th>
+						<th>원본기사</th>
+						<th>카테고리</th>
+						
 						
 						
 						</tr>
@@ -33,6 +35,10 @@
 							<tr>
 								<td><c:out value="${list.news_index}" /></td>
 								<td><c:out value="${list.news_title}" /></td>
+								<td><c:out value="${list.news_contents}" /></td>
+								<td><c:out value="${list.news_count}" /></td>
+								<td><fmt:formatDate value="${list.news_date}" pattern="yyyy-MM-dd"/></td>
+								<td><c:out value="${list.news_kategorie}" /></td>
 								
 								
 							</tr>
