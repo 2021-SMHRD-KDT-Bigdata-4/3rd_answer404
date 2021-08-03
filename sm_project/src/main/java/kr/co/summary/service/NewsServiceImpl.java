@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import kr.co.summary.dao.NewsDAO;
 import kr.co.summary.domain.Criteria;
 import kr.co.summary.domain.NewsVO;
+import kr.co.summary.domain.SearchCriteria;
 
 
 // 구현부인 NewsServiceImpl를 작성
@@ -32,15 +33,15 @@ public class NewsServiceImpl implements NewsService{
 	//  여기서dao.list(); 는 dao에있는 list()함수를 호출해서 반환하겠다는 것
 	// 뉴스 목록 조회
 	@Override
-	public List<NewsVO> list(Criteria cri) throws Exception {
+	public List<NewsVO> list(SearchCriteria scri) throws Exception {
 		
-		return dao.list(cri);
+		return dao.list(scri);
 	}
 	// 뉴스 총 갯수
 	@Override
-	public int listCount() throws Exception {
+	public int listCount(SearchCriteria scri) throws Exception {
 		
-		return dao.listCount();
+		return dao.listCount(scri);
 	}
 
 	

@@ -25,16 +25,23 @@
 		  select news_index,news_title,news_contents,news_date,news_count,news_kategorie
 	from( select news_index,news_title,news_contents,news_date,news_count,news_kategorie,
 	row_number() over(order by news_index desc) as rNum from news 
+	where 1=1<include refid="search"></include>
 	)ns
 	where rNum between #{rowStart} and #{rowEnd} order by news_index desc
    </select>
    
    <!-- 게시물개수 -->
    <select id="listCount" resultType="int">
-   <![CDATA[
-		select count(news_index) from news where news_index >0
-	]]>
+   select count(news_index) from news where 1=1<include refid="search"></include> and news_index > 0
    
    </select>
+   
+   <sql id="search">
+   		<if test="searchType != null">
+   			<if test="searchType == 't'.toString()">and news_title like '%' || #{keyword} || '%'</if>
+   			<if test="searchType == 'c'.toString()">and news_contents like '%' || #{keyword} || '%'</if>
+   		</if>
+   
+   </sql>
    
 </mapper>
