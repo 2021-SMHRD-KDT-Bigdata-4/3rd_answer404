@@ -8,7 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kr.co.summary.domain.Criteria;
 import kr.co.summary.domain.NewsVO;
+import kr.co.summary.domain.PageMaker;
 import kr.co.summary.service.NewsService;
 
 @Controller
@@ -43,15 +45,29 @@ private static final org.slf4j.Logger logger =  LoggerFactory.getLogger(NewsCont
 	// model은 데이터를 담을 그릇이고 addAttribute("list",service.list())는 service.list()에 담긴 데이터를 "list"라는 이름으로 담을거다!
 	// 라고생각하면된다
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String list(Model model) throws Exception{
+	public String list(Model model, Criteria cri) throws Exception{
 		logger.info("list");
 			
-		model.addAttribute("list",service.list());
+		model.addAttribute("list",service.list(cri));
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.listCount());
+		
+		model.addAttribute("pageMaker", pageMaker);
 			
 			
 		return "news/list";
 			
 		}
+	
+	@RequestMapping(value="/detailView", method = RequestMethod.GET)
+	public String detail(NewsVO newsVO, Model model) throws Exception{
+		logger.info("detail");
+		model.addAttribute("detail", service.detail(newsVO.getNews_index()));
+		
+		return "news/detailView";
+	}
 	
 	
 }

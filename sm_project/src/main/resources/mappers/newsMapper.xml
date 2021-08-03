@@ -10,17 +10,31 @@
    values (NEWS_INDEX_SEQ.nextval,#{news_title},#{news_contents},#{news_kategorie},#{news_url});
    	
    </insert>
-
+	
+	<!-- 상세보기 -->
+	<select id="detail" parameterType="int" resultType="kr.co.summary.domain.NewsVO">
+		select news_index,news_title,news_contents,news_date,news_count,news_kategorie
+		from news where news_index = #{news_index}
+	
+	</select>
    
-   <select id="list" resultType="kr.co.summary.domain.NewsVO">
-   	select news_index
-   	,news_title
-   	,news_contents
-   	,news_count
-   	,news_date
-   	,news_kategorie
-   	from news order by news_index desc
-   	
+  
+   <!-- 페이지네이션 -->
+   <select id="listpage" resultType="kr.co.summary.domain.NewsVO" parameterType="kr.co.summary.domain.Criteria">
+   
+		  select news_index,news_title,news_contents,news_date,news_count,news_kategorie
+	from( select news_index,news_title,news_contents,news_date,news_count,news_kategorie,
+	row_number() over(order by news_index desc) as rNum from news 
+	)ns
+	where rNum between #{rowStart} and #{rowEnd} order by news_index desc
+   </select>
+   
+   <!-- 게시물개수 -->
+   <select id="listCount" resultType="int">
+   <![CDATA[
+		select count(news_index) from news where news_index >0
+	]]>
+   
    </select>
    
 </mapper>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 	<head>
 	 	<title>뉴스게시판</title>
@@ -30,6 +31,13 @@
 									<label for="content">내용</label><textarea id="news_content" name="news_content" ></textarea>
 									
 								</td>
+							</tr>
+							
+							<tr>
+							<td>
+									<label for="date">작성날짜</label>
+									<fmt:formatDate value="${news_date}" pattern="yyyy-MM-dd"/>					
+							</td>
 							</tr>
 							
 							<tr>
