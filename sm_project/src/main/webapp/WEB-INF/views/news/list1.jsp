@@ -22,6 +22,7 @@
 							+ encodeURIComponent($('#keywordInput').val());
 				});
 	});
+<<<<<<< HEAD
 	
 	
 function signUp(){
@@ -92,6 +93,40 @@ li {
 						<th>등록일</th>
 						<th>조회수</th>
 						<th>카테고리</th>
+=======
+</script>
+
+<style type="text/css">
+li {
+	list-style: none;
+	float: left;
+	padding: 6px;
+}
+</style>
+</head>
+<body>
+	<div id="root">
+		<header>
+			<h1>게시판</h1>
+		</header>
+		<hr />
+
+		<nav>홈 - 글 작성</nav>
+		<hr />
+		<section id="container">
+			<form role="form" method="get" action="/news/write">
+				<table border="1">
+					<tr>
+						<th>번호</th>
+						<th>뉴스제목</th>
+						<th>뉴스내용</th>
+						<th>등록일</th>
+						<th>조회수</th>
+						<th>카테고리</th>
+
+
+
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_answer404.git
 					</tr>
 
 					<c:forEach items="${list}" var="list">
