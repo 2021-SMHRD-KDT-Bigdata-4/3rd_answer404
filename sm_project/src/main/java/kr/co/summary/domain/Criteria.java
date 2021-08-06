@@ -48,7 +48,7 @@ public class Criteria {
 	}
 	
 	public int getRowEnd() {
-		rowEnd = rowStart + perPageNum - 1;
+		rowEnd = rowStart + perPageNum -3;
 		return rowEnd;
 	}
 

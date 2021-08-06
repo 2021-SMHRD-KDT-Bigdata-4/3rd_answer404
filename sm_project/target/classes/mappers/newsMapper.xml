@@ -6,14 +6,14 @@
    
    <!-- 뉴스 작성 -->
    <insert id="insert">
-   	   insert into news(news_index,news_title,news_contents,news_kategorie,news_url) 
-   values (NEWS_INDEX_SEQ.nextval,#{news_title},#{news_contents},#{news_kategorie},#{news_url});
+   	   insert into news(news_index,news_title,news_contents,news_categorie,news_url) 
+   values (NEWS_INDEX_SEQ.nextval,#{news_title},#{news_contents},#{news_categorie},#{news_url});
    	
    </insert>
 	
 	<!-- 상세보기 -->
 	<select id="detail" parameterType="int" resultType="kr.co.summary.domain.NewsVO">
-		select news_index,news_title,news_contents,news_date,news_count,news_kategorie
+		select news_index,news_title,news_contents,news_date,news_count,news_categorie
 		from news where news_index = #{news_index}
 	
 	</select>
@@ -22,8 +22,8 @@
    <!-- 페이지네이션 -->
    <select id="listpage" resultType="kr.co.summary.domain.NewsVO" parameterType="kr.co.summary.domain.Criteria">
    
-		  select news_index,news_title,news_contents,news_date,news_count,news_kategorie
-	from( select news_index,news_title,news_contents,news_date,news_count,news_kategorie,
+		  select news_index,news_title,news_contents,news_date,news_count,news_categorie,news_image,news_url,news_company
+	from( select news_index,news_title,news_contents,news_date,news_count,news_categorie,news_image,news_url,news_company,
 	row_number() over(order by news_index desc) as rNum from news 
 	where 1=1<include refid="search"></include>
 	)ns
