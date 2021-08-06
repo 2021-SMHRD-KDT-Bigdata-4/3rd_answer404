@@ -22,6 +22,25 @@
 							+ encodeURIComponent($('#keywordInput').val());
 				});
 	});
+	
+	
+function signUp(){
+	location.href="/member/signUp"
+}
+	
+	$(document).ready(function(){
+		$("#logoutBtn").on("click", function(){
+			location.href="/member/logout";
+		})
+		
+})
+
+	$(document).ready(function(){
+		$("#mypage").on("click", function(){
+			location.href="/member/myPage";
+		})
+		
+})
 </script>
 
 <style type="text/css">
@@ -38,9 +57,31 @@ li {
 			<h1>게시판</h1>
 		</header>
 		<hr />
-
 		<nav>홈 - 글 작성</nav>
 		<hr />
+		<div>
+		<form name='login' method="post" action="/member/Login">
+			<c:if test="${member == null}">
+				<input type="text" id="member_id" name="member_id" placeholder="ID">
+				<input type="password" id="member_password" name="member_password" placeholder="PW">
+			
+				<button id ="loginBtn" type="submit">로그인</button>
+				<button onclick ="signUp()" type="button">회원가입</button>	
+			</c:if>
+		</form>
+		</div>	
+		<c:if test="${member != null }">
+			<div>
+				<p>${member.member_id}님 환영 합니다.</p>
+				<button id="logoutBtn" type="button">로그아웃</button>
+				<button id="mypage" type="button">마이페이지(임시)</button>
+			</div>
+		</c:if>
+	
+		<c:if test="${msg == false}">
+			<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
+		</c:if>
+		
 		<section id="container">
 			<form role="form" method="get" action="/news/write">
 				<table border="1">
@@ -51,9 +92,6 @@ li {
 						<th>등록일</th>
 						<th>조회수</th>
 						<th>카테고리</th>
-
-
-
 					</tr>
 
 					<c:forEach items="${list}" var="list">

@@ -7,7 +7,9 @@ import kr.co.summary.domain.MemberVO;
 @Service
 public interface MemberService {
 	
-	//회원 가입
+	//Controller가 구현하는 서비스 
 	public void signUp(MemberVO memberVO) throws Exception;
+	
+	public MemberVO memberLogin(MemberVO memberVO) throws Exception;
 	
 }

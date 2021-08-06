@@ -14,8 +14,12 @@ public class MemberServiceimpl implements MemberService{
 	private MemberDAO dao;
 	
 	@Override
-	public void signUp(MemberVO membervo) throws Exception{
-		System.out.println("2");
-		dao.signUp(membervo);
+	public void signUp(MemberVO memberVO) throws Exception{
+		dao.signUp(memberVO);
+	}
+	
+	@Override
+	public MemberVO memberLogin(MemberVO memberVO) throws Exception {
+		return dao.memberLogin(memberVO);
 	}
 }

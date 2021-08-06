@@ -34,13 +34,10 @@
  }
 </style>
 <script type="text/javascript">
-
 		$(document).ready(function(){
 			// 취소
-			$(".cencle").on("click", function(){
-				
-				location.href = "/login";
-						    
+			$(".cencle").on("click", function(){				
+				location.href = "/login";						    
 			})
 		
 			$("#submit").on("click", function(){
@@ -64,17 +61,13 @@
 					$("#member_name").focus();
 					return false;
 				}
-			});
-			
-				
-			
+			});			
 		})
 </script>
 	
 		<body>
 			<section id="container">
-				<h2>회원가입이올시다</h2>
-				<h2>경진맨화이팅!!</h2>			
+				<h2>회원가입이올시다</h2>		
 				<form action="/member/signUp" method="post">
 						<div class="form-group has-feedback">
 							<label class="control-label" for="member_id">ID</label>
@@ -110,8 +103,8 @@
 							<input class="form-control" type="text" id="member_phone" name="member_phone">
 						</div>
 						<div class="form-group has-feedback">
-						<button class="btn btn-success" type="submit" id="submit">회원가입</button>
-						<button class="cencle btn btn-danger" type="button" >취소</button>
+							<button class="btn btn-success" type="submit" id="submit">회원가입</button>
+							<button class="cencle btn btn-danger" type="button" >취소</button>
 						</div>
 				</form>
 			</section>
