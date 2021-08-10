@@ -50,4 +50,8 @@
    
    </select>
    
+   <update id="plusCnt" parameterType="int">
+  UPDATE news SET news_count = news_count + 1 WHERE news_index = #{news_index}
+</update>
+   
 </mapper>
