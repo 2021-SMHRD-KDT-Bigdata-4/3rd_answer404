@@ -76,14 +76,30 @@
 	background-color: #f40;
 }
 </style>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-
+	function list() {		
+		$.ajax({ //서버로 요청하기위해 꼭 써야됨
+			url : "/news/list", //여기로 보내주셈
+			type : "get", //JSON = dic : {"idx":1,"name":"홍길동"}
+			data: 
+			success : function(data){
+				if(data.)
+				
+			}, //성공하면 콜백함수로
+			dataType : "json",
+			error : function() {
+				error("error");
+			}
+		});
+	}
+	
 	
 
-
+</div>
 	function callBack(data) {
-		var view+= "<div class='row featured_filter'>";
+		var view+= "<div class='row featured__filter'>";
 		$.each(data,(index,obj=>{
 			
 			views+="<div class='col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood'>";
@@ -95,14 +111,14 @@
 			views+="</div>";
 			views+="<div class='featured__item__text'>";
 			views+="<h5><a href='/news/detailViews?news_index="+obj.news_index+"'><c:out value='"+obj.news_title+"'/></a>";
-			views+="</h5>";
+			views+="</5>";
 			views+="</div>";
 			views+="</div>";
 			views+="</div>";
 						
 					
 			
-}))
+		}))
 		
 		
 		
@@ -110,8 +126,6 @@
 		
 		
 		}
-	
-	
 </script>
 
 
@@ -295,13 +309,13 @@
 					<div class="hero__search">
 						<div class="hero__search__form">
 							<form action="#">
-								
-								<input type="text" placeholder="검색할 뉴스를 입력하세요">
-								<button type="submit" class="site-btn">검색</button>
+								<div class="hero__search__categories">
+									All Categories <span class="arrow_carrot-down"></span>
+								</div>
+								<input type="text" placeholder="What do yo u need?">
+								<button type="submit" class="site-btn">SEARCH</button>
 							</form>
 						</div>
-						
-						
 						<div class="hero__search__phone">
 							<div class="hero__search__phone__icon">
 								<i class="fa fa-phone"></i>
@@ -382,24 +396,7 @@
 		</div>
 	</section>
 	<!-- Categories Section End -->
-<script type="text/javascript">
-function ajaxCall() {		
-		$.ajax({ 
-			url : "/news/ajaxlist", //여기로 보내주셈
-			type : "post",
-			cache : false,
-			data: {"select"} : select},
-			headers: {"cache-control":"no-cache","pragma":"no-cache"},
-			success : function(data){
-				console.log(data);
-				$('body').html(data);
-			}, 
-			error : function() {
-				error("error");
-			}
-		});
-	}
-	</script>
+
 	<!-- Featured Section Begin -->
 	<section class="featured spad">
 		<div class="container">
@@ -411,15 +408,14 @@ function ajaxCall() {
 					<div class="featured__controls">
 						<ul>
 
-							<li data-filter=".fresh-meat" id="ajaxCall"  onclick="ajaxCall(1)">경제</li>
-							<li data-filter=".fresh-meat" id="ajaxCall"  onclick="ajaxCall(2)">사회</li>
-							<li data-filter=".vegetables" id="ajaxCall"  onclick="ajaxCall(3)">정치</li>
-							<li data-filter=".fastfood"   id="ajaxCall"  onclick="ajaxCall(4)">IT/과학</li>
+							<li data-filter=".fresh-meat" onclick="ajaxCall(1)">경제</li>
+							<li data-filter=".fresh-meat" onclick="ajaxCall(2)">사회</li>
+							<li data-filter=".vegetables" onclick="ajaxCall(3)">정치</li>
+							<li data-filter=".fastfood" onclick="ajaxCall(4)">IT/과학</li>
 						</ul>
 					</div>
 				</div>
 			</div>
-			
 			<div class="row featured__filter">
 
 				<c:forEach var="list" items="${list}">
@@ -437,8 +433,6 @@ function ajaxCall() {
 									<a href="/news/detailView?news_index=${list.news_index}"> <c:out
 											value="${list.news_title}" /></a>
 								</h5>
-								
-								
 							</div>
 						</div>
 					</div>

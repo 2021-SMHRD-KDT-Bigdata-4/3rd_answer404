@@ -79,7 +79,8 @@ li {
 							<c:out value="${scri.searchType eq 't' ? 'selected' : ''}"/>>제목</option>
 						<option value="c"
 							<c:out value="${scri.searchType eq 'c' ? 'selected' : ''}"/>>내용</option>
-					</select> <input type="text" name="keyword" id="keywordInput"
+					</select> 
+					<input type="text" name="keyword" id="keywordInput"
 						value="${scri.keyword}" />
 
 					<button id="searchBtn" type="button">검색</button>

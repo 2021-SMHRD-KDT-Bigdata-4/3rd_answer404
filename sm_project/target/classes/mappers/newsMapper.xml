@@ -13,7 +13,8 @@
 	
 	<!-- 상세보기 -->
 	<select id="detail" parameterType="int" resultType="kr.co.summary.domain.NewsVO">
-		select news_index,news_title,news_contents,news_date,news_count,news_categorie
+		select news_index,news_title,news_contents,news_summary,news_keyword,news_company,news_count,news_date,news_url,
+		news_categorie,news_image
 		from news where news_index = #{news_index}
 	
 	</select>
@@ -43,5 +44,10 @@
    		</if>
    
    </sql>
+   
+   <select id="newsAjaxList" resultType="kr.co.summary.domain.NewsVO">
+   	select * from news where news_categorie ='사회'
+   
+   </select>
    
 </mapper>

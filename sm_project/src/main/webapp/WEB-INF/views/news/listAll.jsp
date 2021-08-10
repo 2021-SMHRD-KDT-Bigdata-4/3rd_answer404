@@ -1,5 +1,9 @@
-<!DOCTYPE html>
-<html lang="zxx">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:set var="cpath" value="${pageContext.request.contextPath}" />
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -13,14 +17,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="${cpath}/resources/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="${cpath}/resources/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="${cpath}/resources/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="${cpath}/resources/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="${cpath}/resources/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="${cpath}/resources/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="${cpath}/resources/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="${cpath}/resources/css/style.css" type="text/css">
 </head>
 
 <body>
@@ -259,7 +263,7 @@
                                 <tr>
                                     <td class="shoping__cart__item">
                                         <img src="img/cart/cart-1.jpg" alt="">
-                                        <h5>Vegetable’s Package</h5>
+                                        <h5>Vegetableâs Package</h5>
                                     </td>
                                     <td class="shoping__cart__price">
                                         $55.00
@@ -430,14 +434,14 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="${cpath}/resources/js/jquery-3.3.1.min.js"></script>
+    <script src="${cpath}/resources/js/bootstrap.min.js"></script>
+    <script src="${cpath}/resources/js/jquery.nice-select.min.js"></script>
+    <script src="${cpath}/resources/js/jquery-ui.min.js"></script>
+    <script src="${cpath}/resources/js/jquery.slicknav.js"></script>
+    <script src="${cpath}/resources/js/mixitup.min.js"></script>
+    <script src="${cpath}/resources/js/owl.carousel.min.js"></script>
+    <script src="${cpath}/resources/js/main.js"></script>
 
 
 </body>

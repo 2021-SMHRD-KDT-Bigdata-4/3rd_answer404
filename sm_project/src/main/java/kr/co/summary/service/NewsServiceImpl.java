@@ -45,6 +45,13 @@ public class NewsServiceImpl implements NewsService{
 	}
 
 	
+	@Override
+	public int plusCnt(int news_index) throws Exception {
+		
+		return dao.plusCnt(news_index);
+	}
+
+	
 	
 	
 }

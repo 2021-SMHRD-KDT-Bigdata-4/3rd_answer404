@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
-import kr.co.summary.domain.Criteria;
 import kr.co.summary.domain.NewsVO;
 import kr.co.summary.domain.SearchCriteria;
 
@@ -47,7 +46,22 @@ public class NewsDAOImpl implements NewsDAO{
 		
 		return sqlSession.selectOne("newsMapper.listCount",scri);
 	}
+	public List<NewsVO> newsAjaxList() {
+		
+	    //	mapper에있는 id를 찾아가서 sql문을 처리함 namespace나 id값으로할수잇음
+	    List<NewsVO>list = sqlSession.selectList("newsAjaxList"); 
+	    sqlSession.close(); // 반납
+	   
+	    
+	    return list;
+	}
+	@Override
+	public int plusCnt(int news_index) throws Exception {
+		
+		return sqlSession.update("newsMapper.plusCnt",news_index);
+	}
 	
+
 	
 
 }
