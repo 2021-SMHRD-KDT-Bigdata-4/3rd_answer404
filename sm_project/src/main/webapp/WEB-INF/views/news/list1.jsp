@@ -12,7 +12,8 @@
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script>
+   
+<script type="text/javascript">
 	$(function() {
 		$('#searchBtn').click(
 				function() {
@@ -22,7 +23,6 @@
 							+ encodeURIComponent($('#keywordInput').val());
 				});
 	});
-<<<<<<< HEAD
 	
 	
 function signUp(){
@@ -79,7 +79,7 @@ li {
 			</div>
 		</c:if>
 	
-		<c:if test="${msg == false}">
+		<c:if test="${msg != null}">
 			<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
 		</c:if>
 		

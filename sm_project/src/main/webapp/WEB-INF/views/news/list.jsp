@@ -76,6 +76,25 @@
 }
 </style>
 
+<script type="text/javascript">
+
+function loginPopUp(){
+	window.open("/member/login", "login", "width=500, height=550, left=700, top=250");
+}
+
+function logout(){
+	location.href="/member/logout";
+}
+
+function check(){
+	location.href="/member/test";
+}
+
+function scrap(){
+	location.href="/member/scrap?member_id=${member.member_id}&&pagingNum=1"
+}
+
+</script>
 
 <body>
 	<!-- Page Preloder -->
@@ -108,9 +127,32 @@
 					<li><a href="#">English</a></li>
 				</ul>
 			</div>
-			<div class="header__top__right__auth">
-				<a href="#"><i class="fa fa-user"></i> Login</a>
-			</div>
+		
+			
+			<c:if test="${member == null}">
+				<div class="header__top__right__auth">
+					<a href="#" onclick ="loginPopUp()"><i class="fa fa-user"></i> Login</a>
+				</div>
+			</c:if>
+			
+			<c:if test="${member != null}">
+				<div class="header__top__right__auth">
+					<a href="#" onclick ="logout()"><i class="fa fa-user"></i> Logout</a>
+				</div>
+			</c:if>
+			
+			<c:if test="${member != null}">
+								<div class="header__top__right__auth">
+									<a href="#" onclick ="scrap()">  <i class="fa fa-user"></i>Scrap(임시)</a>
+								</div>
+							</c:if>
+			
+			<c:if test="${msg != null}">
+					<div class="header__top__right__auth">
+						<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
+					</div>
+			</c:if>
+			
 		</div>
 		<nav class="humberger__menu__nav mobile-menu">
 			<ul>
@@ -172,9 +214,31 @@
 									<li><a href="#">English</a></li>
 								</ul>
 							</div>
-							<div class="header__top__right__auth">
-								<a href="#"><i class="fa fa-user"></i> Login</a>
-							</div>
+							
+							<c:if test="${member == null}">
+								<div class="header__top__right__auth">
+									<a href="#" onclick ="loginPopUp()"><i class="fa fa-user"></i> Login</a>
+								</div>
+							</c:if>
+							
+							<c:if test="${member != null}">
+								<div class="header__top__right__auth">
+									<a href="#" onclick ="logout()"><i class="fa fa-user"></i> Logout</a>
+								</div>
+							</c:if>
+							
+							<c:if test="${member != null}">
+								<div class="header__top__right__auth">
+									<a href="#" onclick ="scrap()">  <i class="fa fa-user"></i>Scrap(임시)</a>
+								</div>
+							</c:if>
+							
+							<c:if test="${msg != null}">
+								<div class="header__top__right__auth">
+									<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
+								</div>
+							</c:if>
+							
 						</div>
 					</div>
 				</div>
@@ -184,7 +248,7 @@
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="header__logo">
-						<a href="./index.html"><img
+						<a href="./list"><img
 							src="${cpath}/resources/img/logo.png" alt=""></a>
 					</div>
 				</div>
