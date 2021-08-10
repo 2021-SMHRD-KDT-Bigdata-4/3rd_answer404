@@ -75,8 +75,15 @@
 	border: 1px solid #f40;
 	background-color: #f40;
 }
+
+.nice-select {
+	height: 48px;
+	border-radius: 0;
+	
+}
 </style>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 
 	
@@ -120,6 +127,16 @@
 
 
 <script type="text/javascript">
+$(function() {
+	$('#searchBtn').click(
+			function() {
+				self.location = "list" + '${pageMaker.makeQuery(1)}'
+						+ "&searchType="
+						+ $("select option:selected").val() + "&keyword="
+						+ encodeURIComponent($('#keywordInput').val());
+			});
+});
+
 
 function loginPopUp(){
 	window.open("/member/login", "login", "width=500, height=550, left=700, top=250");
@@ -170,32 +187,35 @@ function scrap(){
 					<li><a href="#">English</a></li>
 				</ul>
 			</div>
-		
-			
+
+
 			<c:if test="${member == null}">
 				<div class="header__top__right__auth">
-					<a href="#" onclick ="loginPopUp()"><i class="fa fa-user"></i> Login</a>
+					<a href="#" onclick="loginPopUp()"><i class="fa fa-user"></i>
+						Login</a>
 				</div>
 			</c:if>
-			
+
 			<c:if test="${member != null}">
 				<div class="header__top__right__auth">
-					<a href="#" onclick ="logout()"><i class="fa fa-user"></i> Logout</a>
+					<a href="#" onclick="logout()"><i class="fa fa-user"></i>
+						Logout</a>
 				</div>
 			</c:if>
-			
+
 			<c:if test="${member != null}">
-								<div class="header__top__right__auth">
-									<a href="#" onclick ="scrap()">  <i class="fa fa-user"></i>Scrap(임시)</a>
-								</div>
-							</c:if>
-			
-			<c:if test="${msg != null}">
-					<div class="header__top__right__auth">
-						<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
-					</div>
+				<div class="header__top__right__auth">
+					<a href="#" onclick="scrap()"> <i class="fa fa-user"></i>Scrap(임시)
+					</a>
+				</div>
 			</c:if>
-			
+
+			<c:if test="${msg != null}">
+				<div class="header__top__right__auth">
+					<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
+				</div>
+			</c:if>
+
 		</div>
 		<nav class="humberger__menu__nav mobile-menu">
 			<ul>
@@ -257,31 +277,34 @@ function scrap(){
 									<li><a href="#">English</a></li>
 								</ul>
 							</div>
-							
+
 							<c:if test="${member == null}">
 								<div class="header__top__right__auth">
-									<a href="#" onclick ="loginPopUp()"><i class="fa fa-user"></i> Login</a>
+									<a href="#" onclick="loginPopUp()"><i class="fa fa-user"></i>
+										Login</a>
 								</div>
 							</c:if>
-							
+
 							<c:if test="${member != null}">
 								<div class="header__top__right__auth">
-									<a href="#" onclick ="logout()"><i class="fa fa-user"></i> Logout</a>
+									<a href="#" onclick="logout()"><i class="fa fa-user"></i>
+										Logout</a>
 								</div>
 							</c:if>
-							
+
 							<c:if test="${member != null}">
 								<div class="header__top__right__auth">
-									<a href="#" onclick ="scrap()">  <i class="fa fa-user"></i>Scrap(임시)</a>
+									<a href="#" onclick="scrap()"> <i class="fa fa-user"></i>Scrap(임시)
+									</a>
 								</div>
 							</c:if>
-							
+
 							<c:if test="${msg != null}">
 								<div class="header__top__right__auth">
 									<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
 								</div>
 							</c:if>
-							
+
 						</div>
 					</div>
 				</div>
@@ -291,8 +314,8 @@ function scrap(){
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="header__logo">
-						<a href="./list"><img
-							src="${cpath}/resources/img/logo.png" alt=""></a>
+						<a href="./list"><img src="${cpath}/resources/img/logo.png"
+							alt=""></a>
 					</div>
 				</div>
 				<div class="col-lg-6">
@@ -356,25 +379,24 @@ function scrap(){
 					</div>
 				</div>
 				<div class="col-lg-9">
-					<div class="hero__search">
-						<div class="hero__search__form">
-							<form action="#">
-								
-								<input type="text" placeholder="검색할 뉴스를 입력하세요">
-								<button type="submit" class="site-btn">검색</button>
-							</form>
-						</div>
-						
-						
-						<div class="hero__search__phone">
-							<div class="hero__search__phone__icon">
-								<i class="fa fa-phone"></i>
+
+					<div class="hero__search__form">
+						<form action="listAll">
+							<select name="searchType">
+								<option value="t"
+									<c:out value="${scri.searchType eq 't' ? 'selected' : ''}"/>>제목</option>
+								<option value="c"
+									<c:out value="${scri.searchType eq 'c' ? 'selected' : ''}"/>>내용</option>
+							</select>
+
+							<div>
+								<input type="text" name="keyword" id=keywordInput
+									value="${scri.keyword}" placeholder="검색할 뉴스를 입력해주세요" />
+								<button type="submit" id="searchBtn" class="site-btn">검색</button>
 							</div>
-							<div class="hero__search__phone__text">
-								<h5>+65 11.188.888</h5>
-								<span>support 24/7 time</span>
-							</div>
-						</div>
+						</form>
+
+
 					</div>
 					<div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
 						<div class="hero__text">
@@ -446,7 +468,7 @@ function scrap(){
 		</div>
 	</section>
 	<!-- Categories Section End -->
-<script type="text/javascript">
+	<script type="text/javascript">
 function ajaxCall() {		
 		$.ajax({ 
 			url : "/news/ajaxlist", //여기로 보내주셈
@@ -475,15 +497,15 @@ function ajaxCall() {
 					<div class="featured__controls">
 						<ul>
 
-							<li data-filter=".fresh-meat" id="ajaxCall"  onclick="ajaxCall(1)">경제</li>
-							<li data-filter=".fresh-meat" id="ajaxCall"  onclick="ajaxCall(2)">사회</li>
-							<li data-filter=".vegetables" id="ajaxCall"  onclick="ajaxCall(3)">정치</li>
-							<li data-filter=".fastfood"   id="ajaxCall"  onclick="ajaxCall(4)">IT/과학</li>
+							<li data-filter=".fresh-meat" id="ajaxCall" onclick="ajaxCall(1)">경제</li>
+							<li data-filter=".fresh-meat" id="ajaxCall" onclick="ajaxCall(2)">사회</li>
+							<li data-filter=".vegetables" id="ajaxCall" onclick="ajaxCall(3)">정치</li>
+							<li data-filter=".fastfood" id="ajaxCall" onclick="ajaxCall(4)">IT/과학</li>
 						</ul>
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="row featured__filter">
 
 				<c:forEach var="list" items="${list}">
@@ -501,8 +523,8 @@ function ajaxCall() {
 									<a href="/news/detailView?news_index=${list.news_index}"> <c:out
 											value="${list.news_title}" /></a>
 								</h5>
-								
-								
+
+
 							</div>
 						</div>
 					</div>
