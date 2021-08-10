@@ -25,7 +25,7 @@
      position:absolute;
      border: 2px solid coral;
      width:500px;
-     height : 500px;
+     height : 550px;
      left:0;
      top:0;
      right:0;
@@ -34,13 +34,10 @@
  }
 </style>
 <script type="text/javascript">
-
 		$(document).ready(function(){
 			// 취소
-			$(".cencle").on("click", function(){
-				
-				location.href = "/login";
-						    
+			$(".cencle").on("click", function(){				
+				location.href = "/member/login";						    
 			})
 		
 			$("#submit").on("click", function(){
@@ -64,17 +61,13 @@
 					$("#member_name").focus();
 					return false;
 				}
-			});
-			
-				
-			
+			});			
 		})
 </script>
 	
 		<body>
 			<section id="container">
-				<h2>회원가입이올시다</h2>
-				<h2>경진맨화이팅!!</h2>			
+				<h5>   -----   회원가입   -----   </h5>		
 				<form action="/member/signUp" method="post">
 						<div class="form-group has-feedback">
 							<label class="control-label" for="member_id">ID</label>
@@ -91,6 +84,7 @@
 							<input class="form-control" type="text"	id="member_name" name="member_name"/>
 						</div>
 						<div>
+						<label class="control-label" for="member_name">연령대</label><br>
 							<select id="member_age_range" name="member_age_range">
 								<option value="청소년">청소년</option>
 								<option value="20대">20대</option>
@@ -101,17 +95,24 @@
 								<option value="70대이상">70대이상</option>
 							</select>
 						</div>
+						
+						<br>
+						
 						<div>
-							  <input type = "radio" id="member_gender" name = "member_gender" value = "male">남자<br>
-							  <input type = "radio" id="member_gender" name = "member_gender" value = "female">여자<br>
+							<label class="control-label" for="member_name"> 성별</label><br>
+							  <input type = "radio" id="member_gender" name = "member_gender" value = "남자">남자<br>
+							  <input type = "radio" id="member_gender" name = "member_gender" value = "여자">여자<br>
 						</div>
+						
+						<br>
+						
 						<div class="form-group has-feedback">
 							<label class="control-label" for="member_phone">핸드폰 번호</label>
 							<input class="form-control" type="text" id="member_phone" name="member_phone">
 						</div>
 						<div class="form-group has-feedback">
-						<button class="btn btn-success" type="submit" id="submit">회원가입</button>
-						<button class="cencle btn btn-danger" type="button" >취소</button>
+							<button class="btn btn-success" type="submit" id="submit">회원가입</button>
+							<button class="cencle btn btn-danger" type="button" >취소</button>
 						</div>
 				</form>
 			</section>
