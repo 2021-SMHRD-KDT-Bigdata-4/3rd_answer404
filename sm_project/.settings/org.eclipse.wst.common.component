@@ -3,10 +3,6 @@
     
     
     <wb-module deploy-name="summary-1.0.0-BUILD-SNAPSHOT">
-                                
-        
-        
-        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
                         		
         
         
@@ -23,7 +19,7 @@
         
         
         <property name="java-output-path" value="target/classes"/>
-        <property name="context-root" value="/"/>
+        <property name="context-root" value="summary"/>
                         	
     
     

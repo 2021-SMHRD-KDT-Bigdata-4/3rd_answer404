@@ -7,32 +7,23 @@
 <head>
 <title>게시판</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <title>회원가입</title>
+
+<link rel="stylesheet" href="${cpath}/resources/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="${cpath}/resources/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="${cpath}/resources/css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="${cpath}/resources/css/nice-select.css" type="text/css">
+<link rel="stylesheet" href="${cpath}/resources/css/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="${cpath}/resources/css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="${cpath}/resources/css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="${cpath}/resources/css/style.css" type="text/css">
+
 </head>
 
-<style>
-.form-control{
-		width: 80%;
-	}
-#container{
-     position:absolute;
-     border: 2px solid coral;
-     width:500px;
-     height : 550px;
-     left:0;
-     top:0;
-     right:0;
-     bottom:0;
-     margin: auto;
- }
-</style>
 <script type="text/javascript">
 		$(document).ready(function(){
 			// 취소
@@ -66,25 +57,29 @@
 </script>
 	
 		<body>
-			<section id="container">
-				<h5>   -----   회원가입   -----   </h5>		
+
 				<form action="/member/signUp" method="post">
-						<div class="form-group has-feedback">
-							<label class="control-label" for="member_id">ID</label>
-							<input class="form-control" type="text"	id="member_id" name="member_id"/>
-						</div>
-						
-						<div class="form-group has-feedback">
-							<label class="control-label" for="member_password">PW</label>
-							<input class="form-control" type="password"	id="member_password" name="member_password"/>
-						</div>
-						
-						<div class="form-group has-feedback">
-							<label class="control-label" for="member_name">Name</label>
-							<input class="form-control" type="text"	id="member_name" name="member_name"/>
-						</div>
-						<div>
-						<label class="control-label" for="member_name">연령대</label><br>
+						<div class="col-lg-8 col-md-6">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>ID<span>*</span></p>
+										<input class="form-control" type="text"	id="member_id" name="member_id"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>PW<span>*</span></p>
+                                        <input class="form-control" type="password"	id="member_password" name="member_password"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkout__input">
+                                <p>Name<span>*</span></p>
+                                <input class="form-control" type="text"	id="member_name" name="member_name"/>
+                            </div>
+                            <div class="checkout__input">
+                                <p>연령대<span>*</span></p>
 							<select id="member_age_range" name="member_age_range">
 								<option value="청소년">청소년</option>
 								<option value="20대">20대</option>
@@ -94,27 +89,69 @@
 								<option value="60대">60대</option>
 								<option value="70대이상">70대이상</option>
 							</select>
-						</div>
-						
-						<br>
-						
-						<div>
-							<label class="control-label" for="member_name"> 성별</label><br>
-							  <input type = "radio" id="member_gender" name = "member_gender" value = "남자">남자<br>
-							  <input type = "radio" id="member_gender" name = "member_gender" value = "여자">여자<br>
-						</div>
-						
-						<br>
-						
-						<div class="form-group has-feedback">
-							<label class="control-label" for="member_phone">핸드폰 번호</label>
-							<input class="form-control" type="text" id="member_phone" name="member_phone">
-						</div>
-						<div class="form-group has-feedback">
-							<button class="btn btn-success" type="submit" id="submit">회원가입</button>
-							<button class="cencle btn btn-danger" type="button" >취소</button>
-						</div>
+                            </div>
+                            <div class="checkout__input">
+                                <p>Town/City<span>*</span></p>
+                                <input type="text">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Country/State<span>*</span></p>
+                                <input type="text">
+                            </div>
+                            <div class="checkout__input">
+                                <p>Postcode / ZIP<span>*</span></p>
+                                <input type="text">
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Phone<span>*</span></p>
+                                        <input type="text">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="checkout__input">
+                                        <p>Email<span>*</span></p>
+                                        <input type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="checkout__input__checkbox">
+                                <label for="acc">
+                                    Create an account?
+                                    <input type="checkbox" id="acc">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <p>Create an account by entering the information below. If you are a returning customer
+                                please login at the top of the page</p>
+                            <div class="checkout__input">
+                                <p>Account Password<span>*</span></p>
+                                <input type="text">
+                            </div>
+                            <div class="checkout__input__checkbox">
+                                <label for="diff-acc">
+                                    Ship to a different address?
+                                    <input type="checkbox" id="diff-acc">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <div class="checkout__input">
+                                <p>Order notes<span>*</span></p>
+                                <input type="text"
+                                    placeholder="Notes about your order, e.g. special notes for delivery.">
+                            </div>
+                        </div>
 				</form>
-			</section>
+
+	<script src="${cpath}/resources/js/jquery-3.3.1.min.js"></script>
+	<script src="${cpath}/resources/js/bootstrap.min.js"></script>
+	<script src="${cpath}/resources/js/jquery.nice-select.min.js"></script>
+	<script src="${cpath}/resources/js/jquery-ui.min.js"></script>
+	<script src="${cpath}/resources/js/jquery.slicknav.js"></script>
+	<script src="${cpath}/resources/js/mixitup.min.js"></script>
+	<script src="${cpath}/resources/js/owl.carousel.min.js"></script>
+	<script src="${cpath}/resources/js/main.js"></script>	
+			
 		</body>
 </html>
