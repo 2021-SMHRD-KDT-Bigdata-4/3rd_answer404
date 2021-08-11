@@ -18,7 +18,6 @@
 2.  Helper Css
 3.  Header Section
 4.  Hero Section
-5.  Service Section
 6.  Categories Section
 7.  Featured Section
 8.  Latest Product Section
@@ -678,7 +677,17 @@ transparent;
 	float: left;
 }
 
-.hero__search__form form .hero__search__categories {
+.hero__search__form form .hero__search__categories{
+	width: 30%;
+	float: left;
+	font-size: 16px;
+	color: #1c1c1c;
+	font-weight: 700;
+	padding-left: 18px;
+	padding-top: 11px;
+	position: relative;
+}
+.hero__search__form form #hero__search__categories{
 	width: 30%;
 	float: left;
 	font-size: 16px;

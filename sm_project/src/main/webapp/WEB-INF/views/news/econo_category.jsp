@@ -3,7 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:set var="cpath" value="${pageContext.request.contextPath}" />
-<html>
+<!DOCTYPE html>
+<html lang="zxx">
 
 <head>
 <meta charset="UTF-8">
@@ -35,6 +36,8 @@
 	type="text/css">
 <link rel="stylesheet" href="${cpath}/resources/css/style.css"
 	type="text/css">
+
+
 </head>
 <style>
 .pagenation ul {
@@ -75,13 +78,7 @@
 	border: 1px solid #f40;
 	background-color: #f40;
 }
-.nice-select {
-	height: 48px;
-	border-radius: 0;
-	
-}
 </style>
-
 <body>
 	<!-- Page Preloder -->
 	<div id="preloder">
@@ -92,7 +89,7 @@
 	<div class="humberger__menu__overlay"></div>
 	<div class="humberger__menu__wrapper">
 		<div class="humberger__menu__logo">
-			<a href="#"><img src="img/logo.png" alt=""></a>
+			<a href="#"><img src="${cpath}/resources/img/logo.png" alt=""></a>
 		</div>
 		<div class="humberger__menu__cart">
 			<ul>
@@ -105,7 +102,7 @@
 		</div>
 		<div class="humberger__menu__widget">
 			<div class="header__top__right__language">
-				<img src="img/language.png" alt="">
+				<img src="${cpath}/resources/img/language.png" alt="">
 				<div>English</div>
 				<span class="arrow_carrot-down"></span>
 				<ul>
@@ -169,7 +166,7 @@
 									class="fa fa-pinterest-p"></i></a>
 							</div>
 							<div class="header__top__right__language">
-								<img src="img/language.png" alt="">
+								<img src="${cpath}/resources/img/language.png" alt="">
 								<div>English</div>
 								<span class="arrow_carrot-down"></span>
 								<ul>
@@ -189,23 +186,20 @@
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="header__logo">
-						<a href="./index.html"><img src="img/logo.png" alt=""></a>
+						<a href="./list"><img src="${cpath}/resources/img/logo.png"
+							alt=""></a>
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<nav class="header__menu">
 						<ul>
-							<li><a href="./index.html">Home</a></li>
-							<li class="active"><a href="./shop-grid.html">Shop</a></li>
-							<li><a href="#">Pages</a>
-								<ul class="header__menu__dropdown">
-									<li><a href="./shop-details.html">Shop Details</a></li>
-									<li><a href="./shoping-cart.html">Shoping Cart</a></li>
-									<li><a href="./checkout.html">Check Out</a></li>
-									<li><a href="./blog-details.html">Blog Details</a></li>
-								</ul></li>
-							<li><a href="./blog.html">Blog</a></li>
-							<li><a href="./contact.html">Contact</a></li>
+							<li><a href="./list">Home</a></li>
+							<li class="active"><a
+								href="${capth}./econo_category?news_categorie=경제">경제</a></li>
+							<li><a href="${capth}./society_category?news_categorie=사회">사회</a></li>
+							<li><a href="${capth}./politics_category?news_categorie=정치">정치</a></li>
+							<li><a
+								href="${capth}./ITscience_category?news_categorie=IT/과학">IT/과학</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -253,23 +247,25 @@
 					</div>
 				</div>
 				<div class="col-lg-9">
-					<div class="hero__search__form">
-						<form action="listAll">
-							<select name="searchType">
-								<option value="t"
-									<c:out value="${scri.searchType eq 't' ? 'selected' : ''}"/>>제목</option>
-								<option value="c"
-									<c:out value="${scri.searchType eq 'c' ? 'selected' : ''}"/>>내용</option>
-							</select>
-
-							<div>
-								<input type="text" name="keyword" id=keywordInput
-									value="${scri.keyword}" placeholder="검색할 뉴스를 입력해주세요" />
-								<button type="submit" id="searchBtn" class="site-btn">검색</button>
+					<div class="hero__search">
+						<div class="hero__search__form">
+							<form action="#">
+								<div class="hero__search__categories">
+									All Categories <span class="arrow_carrot-down"></span>
+								</div>
+								<input type="text" placeholder="What do yo u need?">
+								<button type="submit" class="site-btn">SEARCH</button>
+							</form>
+						</div>
+						<div class="hero__search__phone">
+							<div class="hero__search__phone__icon">
+								<i class="fa fa-phone"></i>
 							</div>
-						</form>
-
-
+							<div class="hero__search__phone__text">
+								<h5>+65 11.188.888</h5>
+								<span>support 24/7 time</span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -284,9 +280,9 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="breadcrumb__text">
-						<h2>검색결과</h2>
+						<h2>일일 경제 뉴스</h2>
 						<div class="breadcrumb__option">
-							<a href="./index.html">Home</a> <span>Shopping Cart</span>
+							<a href="./index.html">응답하라</a> <span>404</span>
 						</div>
 					</div>
 				</div>
@@ -295,94 +291,226 @@
 	</section>
 	<!-- Breadcrumb Section End -->
 
-	<!-- Shoping Cart Section Begin -->
-	<section class="shoping-cart spad">
+	<!-- Product Section Begin -->
+	<section class="product spad">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-12">
-					<div class="shoping__cart__table">
+				<div class="col-lg-3 col-md-5">
+					<div class="sidebar">
+						<div class="sidebar__item">
+							<h4>Department</h4>
+							<ul>
+								<li><a href="#">Fresh Meat</a></li>
+								<li><a href="#">Vegetables</a></li>
+								<li><a href="#">Fruit & Nut Gifts</a></li>
+								<li><a href="#">Fresh Berries</a></li>
+								<li><a href="#">Ocean Foods</a></li>
+								<li><a href="#">Butter & Eggs</a></li>
+								<li><a href="#">Fastfood</a></li>
+								<li><a href="#">Fresh Onion</a></li>
+								<li><a href="#">Papayaya & Crisps</a></li>
+								<li><a href="#">Oatmeal</a></li>
+							</ul>
+						</div>
+						<div class="sidebar__item">
+							<h4>Price</h4>
+							<div class="price-range-wrap">
+								<div
+									class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+									data-min="10" data-max="540">
+									<div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+									<span tabindex="0"
+										class="ui-slider-handle ui-corner-all ui-state-default"></span>
+									<span tabindex="0"
+										class="ui-slider-handle ui-corner-all ui-state-default"></span>
+								</div>
+								<div class="range-slider">
+									<div class="price-input">
+										<input type="text" id="minamount"> <input type="text"
+											id="maxamount">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="sidebar__item sidebar__item__color--option">
+							<h4>Colors</h4>
+							<div class="sidebar__item__color sidebar__item__color--white">
+								<label for="white"> White <input type="radio" id="white">
+								</label>
+							</div>
+							<div class="sidebar__item__color sidebar__item__color--gray">
+								<label for="gray"> Gray <input type="radio" id="gray">
+								</label>
+							</div>
+							<div class="sidebar__item__color sidebar__item__color--red">
+								<label for="red"> Red <input type="radio" id="red">
+								</label>
+							</div>
+							<div class="sidebar__item__color sidebar__item__color--black">
+								<label for="black"> Black <input type="radio" id="black">
+								</label>
+							</div>
+							<div class="sidebar__item__color sidebar__item__color--blue">
+								<label for="blue"> Blue <input type="radio" id="blue">
+								</label>
+							</div>
+							<div class="sidebar__item__color sidebar__item__color--green">
+								<label for="green"> Green <input type="radio" id="green">
+								</label>
+							</div>
+						</div>
+						<div class="sidebar__item">
+							<h4>Popular Size</h4>
+							<div class="sidebar__item__size">
+								<label for="large"> Large <input type="radio" id="large">
+								</label>
+							</div>
+							<div class="sidebar__item__size">
+								<label for="medium"> Medium <input type="radio"
+									id="medium">
+								</label>
+							</div>
+							<div class="sidebar__item__size">
+								<label for="small"> Small <input type="radio" id="small">
+								</label>
+							</div>
+							<div class="sidebar__item__size">
+								<label for="tiny"> Tiny <input type="radio" id="tiny">
+								</label>
+							</div>
+						</div>
+						<div class="sidebar__item">
+							<div class="latest-product__text">
+								<h4>Latest Products</h4>
+								<div class="latest-product__slider owl-carousel">
+									<div class="latest-prdouct__slider__item">
+										<a href="#" class="latest-product__item">
+											<div class="latest-product__item__pic">
+												<img src="${cpath}/resources/img/latest-product/lp-1.jpg"
+													alt="">
+											</div>
+											<div class="latest-product__item__text">
+												<h6>Crab Pool Security</h6>
+												<span>$30.00</span>
+											</div>
+										</a> <a href="#" class="latest-product__item">
+											<div class="latest-product__item__pic">
+												<img src="${cpath}/resources/img/latest-product/lp-2.jpg"
+													alt="">
+											</div>
+											<div class="latest-product__item__text">
+												<h6>Crab Pool Security</h6>
+												<span>$30.00</span>
+											</div>
+										</a> <a href="#" class="latest-product__item">
+											<div class="latest-product__item__pic">
+												<img src="${cpath}/resources/img/latest-product/lp-3.jpg"
+													alt="">
+											</div>
+											<div class="latest-product__item__text">
+												<h6>Crab Pool Security</h6>
+												<span>$30.00</span>
+											</div>
+										</a>
+									</div>
+									<div class="latest-prdouct__slider__item">
+										<a href="#" class="latest-product__item">
+											<div class="latest-product__item__pic">
+												<img src="${cpath}/resources/img/latest-product/lp-1.jpg"
+													alt="">
+											</div>
+											<div class="latest-product__item__text">
+												<h6>Crab Pool Security</h6>
+												<span>$30.00</span>
+											</div>
+										</a> <a href="#" class="latest-product__item">
+											<div class="latest-product__item__pic">
+												<img src="${cpath}/resources/img/latest-product/lp-2.jpg"
+													alt="">
+											</div>
+											<div class="latest-product__item__text">
+												<h6>Crab Pool Security</h6>
+												<span>$30.00</span>
+											</div>
+										</a> <a href="#" class="latest-product__item">
+											<div class="latest-product__item__pic">
+												<img src="${cpath}/resources/img/latest-product/lp-3.jpg"
+													alt="">
+											</div>
+											<div class="latest-product__item__text">
+												<h6>Crab Pool Security</h6>
+												<span>$30.00</span>
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-9 col-md-7">
 
-						<table>
-							<thead>
-								<tr>
-									<th class="shoping__product">제목</th>
-									<th>조회수</th>
-								</tr>
-							</thead>
-							<c:forEach var="list" items="${list}">
-								<tbody>
-									<tr>
-										<td class="shoping__cart__item"><img
-											style="max-width: 15%; height: auto;"
-											src="${list.news_image}">
-											<h5>
-												<a href="/news/detailView?news_index=${list.news_index}">
-													<c:out value="${list.news_title}" />
-												</a>
-											</h5></td>
-										<td class="shoping__cart__total"><c:out
-												value="${list.news_count}" /></td>
-									</tr>
-								</tbody>
-							</c:forEach>
-						</table>
+					<div class="filter__item">
+						<div class="row">
+
+							<div class="col-lg-4 col-md-4">
+								<h5>경제 뉴스</h5>
+								<div class="filter__found">
+									<h6>
+										<span></span>
+									</h6>
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<div class="row">
+						<c:forEach var="list" items="${categorie}">
+							<div class="col-lg-4 col-md-6 col-sm-6">
+								<div class="product__item">
+									<div class="product__item__pic set-bg"
+										data-setbg="${list.news_image}">
+										<ul class="product__item__pic__hover">
+											<li><a href="#"><i class="fa fa-heart"></i></a></li>
+										</ul>
+									</div>
+									<div class="product__item__text">
+										<h6></h6>
+										<h5>
+											<a href="/news/detailView?news_index=${list.news_index}">
+												<c:out value="${list.news_title}" />
+											</a>
+										</h5>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+
+
 						<div class="pagenation">
 							<ul>
 								<c:if test="${pageMaker.prev}">
 									<li><a style="width: 50px !important"
-										href="listAll${pageMaker.makeSearch(pageMaker.startPage - 1)}">이전</a></li>
+										href="econo_category${pageMaker.makeSearch(pageMaker.startPage - 1)}">이전</a></li>
 								</c:if>
 
 								<c:forEach begin="${pageMaker.startPage}"
 									end="${pageMaker.endPage}" var="idx">
-									<li><a href="listAll${pageMaker.makeSearch(idx)}">${idx}</a></li>
+									<li><a href="econo_category${pageMaker.makeSearch(idx)}">${idx}</a></li>
 								</c:forEach>
 
 								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
 									<li><a style="width: 50px !important"
-										href="listAll${pageMaker.makeSearch(pageMaker.endPage + 1)}">다음</a></li>
+										href="econo_category${pageMaker.makeSearch(pageMaker.endPage + 1)}">다음</a></li>
 								</c:if>
 							</ul>
 						</div>
 
-
-
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="shoping__cart__btns">
-						<a href="#" class="primary-btn cart-btn">CONTINUE SHOPPING</a> <a
-							href="#" class="primary-btn cart-btn cart-btn-right"><span
-							class="icon_loading"></span> Upadate Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="shoping__continue">
-						<div class="shoping__discount">
-							<h5>Discount Codes</h5>
-							<form action="#">
-								<input type="text" placeholder="Enter your coupon code">
-								<button type="submit" class="site-btn">APPLY COUPON</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="shoping__checkout">
-						<h5>Cart Total</h5>
-						<ul>
-							<li>Subtotal <span>$454.98</span></li>
-							<li>Total <span>$454.98</span></li>
-						</ul>
-						<a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
-					</div>
-				</div>
-			</div>
-		</div>
 	</section>
-	<!-- Shoping Cart Section End -->
+	<!-- Product Section End -->
 
 	<!-- Footer Section Begin -->
 	<footer class="footer spad">
@@ -446,9 +574,7 @@
 							<p>
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 								Copyright &copy;
-								<script>
-									document.write(new Date().getFullYear());
-								</script>
+								<script>document.write(new Date().getFullYear());</script>
 								All rights reserved | This template is made with <i
 									class="fa fa-heart" aria-hidden="true"></i> by <a
 									href="https://colorlib.com" target="_blank">Colorlib</a>
@@ -474,6 +600,7 @@
 	<script src="${cpath}/resources/js/mixitup.min.js"></script>
 	<script src="${cpath}/resources/js/owl.carousel.min.js"></script>
 	<script src="${cpath}/resources/js/main.js"></script>
+
 
 
 </body>
