@@ -5,11 +5,13 @@
    
 <html>
 <head>
-<title>--------- 응답하라 404 회원가입 --------- </title>
+<title>게시판</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<title>회원가입</title>
 
 <link rel="stylesheet" href="${cpath}/resources/css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="${cpath}/resources/css/font-awesome.min.css" type="text/css">
@@ -73,25 +75,24 @@
                                 </div>
                             </div>
                             <div class="checkout__input">
-                                <p>이름<span>*</span></p>
+                                <p>Name<span>*</span></p>
                                 <input class="form-control" type="text"	id="member_name" name="member_name"/>
                             </div>
                             <div class="checkout__input">
                                 <p>연령대<span>*</span></p>
-							<select id="choose-select" name="choose-select">
-								<option value="20대 이하 ">20대 이하</option>
+							<select id="member_age_range" name="member_age_range">
+								<option value="청소년">청소년</option>
+								<option value="20대">20대</option>
 								<option value="30대">30대</option>
 								<option value="40대">40대</option>
 								<option value="50대">50대</option>
-								<option value="60대 이상">60대 이상</option>
+								<option value="60대">60대</option>
+								<option value="70대이상">70대이상</option>
 							</select>
-							<br>
                             </div>
-                            <br>
                             <div class="checkout__input">
-                                <p>성별<span>*</span></p>
-                                <input type = "radio" id="member_gender" name = "member_gender" value = "남자">남자<br>
-							    <input type = "radio" id="member_gender" name = "member_gender" value = "여자">여자<br>
+                                <p>Town/City<span>*</span></p>
+                                <input type="text">
                             </div>
                             <div class="checkout__input">
                                 <p>Country/State<span>*</span></p>
