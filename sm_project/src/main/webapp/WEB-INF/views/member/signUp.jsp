@@ -5,13 +5,11 @@
    
 <html>
 <head>
-<title>게시판</title>
+<title>--------- 응답하라 404 회원가입 --------- </title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-<title>회원가입</title>
 
 <link rel="stylesheet" href="${cpath}/resources/css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="${cpath}/resources/css/font-awesome.min.css" type="text/css">
@@ -82,14 +80,14 @@
                                 <p>연령대<span>*</span></p>
 							<select id="member_age_range" name="member_age_range">
 								<option value="청소년">청소년</option>
-								<option value="20대">20대</option>
+								<option value="20대 이하 ">20대 이하</option>
 								<option value="30대">30대</option>
 								<option value="40대">40대</option>
 								<option value="50대">50대</option>
-								<option value="60대">60대</option>
-								<option value="70대이상">70대이상</option>
+								<option value="60대 이상">60대 이상</option>
 							</select>
                             </div>
+                            <br>
                             <div class="checkout__input">
                                 <p>Town/City<span>*</span></p>
                                 <input type="text">
