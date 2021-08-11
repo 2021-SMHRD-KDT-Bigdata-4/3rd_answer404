@@ -18,6 +18,13 @@
 		from news where news_index = #{news_index}
 	
 	</select>
+	
+	<!-- 카테고리별 뉴스 가져오기 -->
+	<select id="categorie" resultType="kr.co.summary.domain.NewsVO">
+		select
+		news_index,news_title,news_contents,news_count,news_date,news_categorie,news_image
+		from news where news_categorie = #{news_categorie}
+	</select>
    
   
    <!-- 페이지네이션 -->

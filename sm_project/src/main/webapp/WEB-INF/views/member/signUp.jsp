@@ -73,24 +73,25 @@
                                 </div>
                             </div>
                             <div class="checkout__input">
-                                <p>Name<span>*</span></p>
+                                <p>이름<span>*</span></p>
                                 <input class="form-control" type="text"	id="member_name" name="member_name"/>
                             </div>
                             <div class="checkout__input">
                                 <p>연령대<span>*</span></p>
-							<select id="member_age_range" name="member_age_range">
-								<option value="청소년">청소년</option>
+							<select id="choose-select" name="choose-select">
 								<option value="20대 이하 ">20대 이하</option>
 								<option value="30대">30대</option>
 								<option value="40대">40대</option>
 								<option value="50대">50대</option>
 								<option value="60대 이상">60대 이상</option>
 							</select>
+							<br>
                             </div>
                             <br>
                             <div class="checkout__input">
-                                <p>Town/City<span>*</span></p>
-                                <input type="text">
+                                <p>성별<span>*</span></p>
+                                <input type = "radio" id="member_gender" name = "member_gender" value = "남자">남자<br>
+							    <input type = "radio" id="member_gender" name = "member_gender" value = "여자">여자<br>
                             </div>
                             <div class="checkout__input">
                                 <p>Country/State<span>*</span></p>

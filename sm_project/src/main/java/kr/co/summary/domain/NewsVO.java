@@ -21,9 +21,12 @@ public class NewsVO {
 	private int news_index;
 	private String news_title;
 	private String news_contents;
+	private String news_summary;
+	private String news_keyword;
+	private String news_company;
 	private int news_count;
 	private Date news_date;
 	private String news_url;
-	private String news_kategorie;
+	private String news_categorie;
 	private String news_image;
 }

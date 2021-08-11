@@ -29,6 +29,11 @@ public class NewsDAOImpl implements NewsDAO{
 		return sqlSession.selectOne("newsMapper.detail",news_index);
 	}
 	
+	// 카테고리별 뉴스
+		public List<NewsVO> categorie(String news_categorie) throws Exception{
+			return sqlSession.selectList("newsMapper.categorie",news_categorie);
+		}
+	
 	// 뉴스 목록 조회
 	// 구현부인 NewsDAOImpl에서는 인터페이스 newsDAO에 정의된 멤버들을 클래스 대신 구현해야한다.
 	// return sqlSession.selectList("newsMapper.list"); 이것은 newsMapper.xml 에서 mapper의 namespace가 newsMapper이고
