@@ -322,7 +322,7 @@ function scrap(){
 					<nav class="header__menu">
 						<ul>
 							<li class="active"><a href="./list">Home</a></li>
-                     <li><a href="${capth}./econo_category?news_categorie=경제">경제</a></li>
+                     <li><a href="${capth}./econo_category?news_categorie=경제&&pagingNum=1">경제</a></li>
                      <li><a href="${capth}./society_category?news_categorie=사회">사회</a></li>
                      <li><a href="${capth}./politics_category?news_categorie=정치">정치</a></li>
                      <li><a href="${capth}./ITscience_category?news_categorie=IT/과학">IT/과학</a></li>
