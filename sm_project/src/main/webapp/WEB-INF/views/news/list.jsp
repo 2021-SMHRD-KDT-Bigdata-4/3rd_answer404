@@ -321,17 +321,11 @@ function scrap(){
 				<div class="col-lg-6">
 					<nav class="header__menu">
 						<ul>
-							<li class="active"><a href="./index.html">Home</a></li>
-							<li><a href="./shop-grid.html">Shop</a></li>
-							<li><a href="#">Pages</a>
-								<ul class="header__menu__dropdown">
-									<li><a href="./shop-details.html">Shop Details</a></li>
-									<li><a href="./shoping-cart.html">Shoping Cart</a></li>
-									<li><a href="./checkout.html">Check Out</a></li>
-									<li><a href="./blog-details.html">Blog Details</a></li>
-								</ul></li>
-							<li><a href="./blog.html">Blog</a></li>
-							<li><a href="./contact.html">Contact</a></li>
+							<li class="active"><a href="./list">Home</a></li>
+                     <li><a href="${capth}./econo_category?news_categorie=경제">경제</a></li>
+                     <li><a href="${capth}./society_category?news_categorie=사회">사회</a></li>
+                     <li><a href="${capth}./politics_category?news_categorie=정치">정치</a></li>
+                     <li><a href="${capth}./ITscience_category?news_categorie=IT/과학">IT/과학</a></li>
 						</ul>
 					</nav>
 				</div>

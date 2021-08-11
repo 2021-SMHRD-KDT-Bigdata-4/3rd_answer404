@@ -24,6 +24,11 @@ public class NewsServiceImpl implements NewsService{
 		dao.newswrite(newsVO);
 	}
 	
+	// 카테고리별 뉴스
+		public List<NewsVO> categorie(String news_categorie) throws Exception{
+			return dao.categorie(news_categorie);
+		}
+	
 	// 뉴스 상세보기
 	@Override
 	public NewsVO detail(int news_index) throws Exception {

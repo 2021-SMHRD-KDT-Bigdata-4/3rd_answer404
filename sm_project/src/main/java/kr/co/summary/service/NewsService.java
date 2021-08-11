@@ -26,6 +26,9 @@ public interface NewsService {
 	// 뉴스 총 갯수
 	public int listCount(SearchCriteria scri) throws Exception;
 	
+	// 카테고리별 뉴스
+	public List<NewsVO> categorie(String news_categorie) throws Exception;
+	
 	// 조회수 +1
 	public int plusCnt(int news_index) throws Exception;
 	
