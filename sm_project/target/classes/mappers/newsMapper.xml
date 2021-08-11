@@ -21,9 +21,11 @@
 	
 	<!-- 카테고리별 뉴스 가져오기 -->
 	<select id="categorie" resultType="kr.co.summary.domain.NewsVO">
-		select
-		news_index,news_title,news_contents,news_count,news_date,news_categorie,news_image
-		from news where news_categorie = #{news_categorie}
+		select * from
+		(select rownum as rnum, n.* 
+		from news n where news_categorie = #{news_categorie} 
+		order by n.news_index desc)
+		where rnum between #{displayPost} and #{displayPostEnd}
 	</select>
    
   
@@ -58,7 +60,12 @@
    </select>
    
    <update id="plusCnt" parameterType="int">
-  UPDATE news SET news_count = news_count + 1 WHERE news_index = #{news_index}
-</update>
+ 	 UPDATE news SET news_count = news_count + 1 WHERE news_index = #{news_index}
+	</update>
+	
+   <select id="categorieCount" resultType="int">
+   		select count(news_index) from news where news_categorie = #{news_categorie}   
+   </select>
+	
    
 </mapper>

@@ -130,9 +130,13 @@ private static final org.slf4j.Logger logger =  LoggerFactory.getLogger(NewsCont
 	//스크랩햇던것들을 전부 보여주기 +페이징
 	@RequestMapping("scrap")
 	public String scrap(Model model, String member_id, @RequestParam("pagingNum") int pagingNum) throws Exception{
+		
 		logger.info("scrap");
 		// @RequestParam 으로 받아온 paingNum은 현재 보여줄 페이지번호에 해당
 		//게시물수 카운트
+		
+		
+		
 		int count = memberservice.scrapCount();
 		model.addAttribute("count", count);
 		
@@ -140,6 +144,7 @@ private static final org.slf4j.Logger logger =  LoggerFactory.getLogger(NewsCont
 		int displayPost = (pagingNum -1) * postNum +1; //0부터 시작  1 => 
 		int displayPostEnd =  pagingNum * postNum; //6으로 끝남
 		// 컨트롤러 -> 서비스 -> DAO ->Mapper ->DAO ->서비스 -> 컨트롤러
+		
 		List<ScrapVO> list = memberservice.scrapShow(member_id,displayPost,displayPostEnd);
 		
 		model.addAttribute("list", list); // 객체바인딩->ModelAndView->Model(*)
@@ -149,7 +154,7 @@ private static final org.slf4j.Logger logger =  LoggerFactory.getLogger(NewsCont
 		//------------------------------ 페이징 번호 구현 -------------------------------------
 		
 		int pageNum_cnt =10; // 한번에 표시할 페이징 번호 갯수
-		int endPageNum = (int)Math.ceil((double)pagingNum/(double)postNum * pageNum_cnt);
+		int endPageNum = (int)(Math.ceil((double)pagingNum / (double)pageNum_cnt) * pageNum_cnt);
 		System.out.println("------------------"+endPageNum+"------------------");
 		// endPageNum 표시되는 페이징 마지막 수 ex)) 4페이지라면 10을
 		int startPageNum =1;

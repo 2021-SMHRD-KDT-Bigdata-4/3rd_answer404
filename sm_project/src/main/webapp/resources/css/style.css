@@ -1631,6 +1631,7 @@ ol {
 .product__pagination,
 .blog__pagination {
 	padding-top: 10px;
+	text-align: center;
 }
 
 .product__pagination a,
@@ -1654,8 +1655,8 @@ ol {
 
 .product__pagination a:hover,
 .blog__pagination a:hover {
-	background: #7fad39;
-	border-color: #7fad39;
+	background: #001871;
+	border-color: #001871;
 	color: #ffffff;
 }
 
@@ -2115,7 +2116,7 @@ ol {
 }
 
 .checkout__input {
-	margin-bottom: 24px;
+	margin-bottom: 12px;
 }
 
 .checkout__input p {
@@ -2200,7 +2201,7 @@ ol {
 .checkout__order {
 	background: #f5f5f5;
 	padding: 40px;
-	padding-top: 30px;
+	padding-top: 17px;
 }
 
 .checkout__order h4 {
