@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://Java.sun.com/xml/ns/javaee https://Java.sun.com/xml/ns/javaee/web-app_2_5.xsd http://Java.sun.com/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee" version="2.5">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://Java.sun.com/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>/WEB-INF/spring/root-context.xml</param-value>
@@ -18,7 +18,6 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>appServlet</servlet-name>
-    
     <url-pattern>/</url-pattern>
   </servlet-mapping>
   <filter>
@@ -48,5 +47,15 @@
   <servlet-mapping>
     <servlet-name>ex01</servlet-name>
     <url-pattern>/ex01</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>news_kind</display-name>
+    <servlet-name>news_kind</servlet-name>
+    <servlet-class>kr.co.summary.controller.news_kind</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>news_kind</servlet-name>
+    <url-pattern>/news_kind</url-pattern>
   </servlet-mapping>
 </web-app>

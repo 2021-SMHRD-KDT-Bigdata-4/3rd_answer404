@@ -84,6 +84,7 @@ public class NewsDAOImpl implements NewsDAO{
 		return sqlSession.selectOne("newsMapper. detailViewStatistics",member_id);
 	}
 
+
 	public void StatisticsUpdate(String membervo_age_range,String membervo_gender,String news_keyword) throws Exception{
 		
 		HashMap data = new HashMap();
@@ -94,5 +95,8 @@ public class NewsDAOImpl implements NewsDAO{
 		sqlSession.insert("newsMapper. StatisticsUpdate",data);
 		
 	}	
+
+	
+	
 
 }
