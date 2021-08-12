@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.NewsVO;
 import kr.co.summary.domain.PageMaker;
 import kr.co.summary.domain.SearchCriteria;
@@ -40,6 +41,8 @@ public class NewsController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list(Model model, @ModelAttribute("scri") SearchCriteria scri) throws Exception {
 		logger.info("list");
+		
+		System.out.println("call");
 
 		model.addAttribute("list", service.list(scri));
 
@@ -72,14 +75,40 @@ public class NewsController {
 	@RequestMapping(value = "/detailView", method = RequestMethod.GET)
 	public String detail(NewsVO newsVO, Model model) throws Exception {
 		logger.info("detail");
+		
 		model.addAttribute("detail", service.detail(newsVO.getNews_index()));
+		
 
 		service.plusCnt(newsVO.getNews_index());
 
 		return "news/detailView";
 	}
+	
+	@RequestMapping(value = "/detailViewStatistics", method = RequestMethod.GET)
+	public String detailViewStatistics(NewsVO newsVO,String member_id, Model model) throws Exception {
+		logger.info("detail");
+		
+		model.addAttribute("detail", service.detail(newsVO.getNews_index()));
+		service.plusCnt(newsVO.getNews_index());
+		String keyword = newsVO.getNews_keyword();
+		
+		MemberVO membervo = new MemberVO();
+		
+		membervo = service.detailViewStatistics(member_id); // 멤버 아이디로 age-range랑, gender를 가져와 준다.
+		String membervo_age_range= membervo.getMember_age_range();
+		String membervo_gender = membervo.getMember_gender();
+		
+		String[] keywordSplit = keyword.split(".");
+		for(int i=0; i< keywordSplit.length; i++) {
+			service.StatisticsUpdate(membervo_age_range, membervo_gender, keywordSplit[i]);
+		}
+		
+		return "news/detailView";
+	}
+	
+	
 
-// 큰 카테고리중 경제카테고리 
+// 큰 카테고리중 경제카테고리  detailViewStatistics
 	// 페이지네이션을 적용
 	// econo_category 로 경제 눌렀을때 open되게 바꿈.
 	@RequestMapping(value = "/econo_category", method = RequestMethod.GET)

@@ -76,49 +76,10 @@
 	background-color: #f40;
 }
 </style>
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
-
-   
-
-
-   function callBack(data) {
-      var view+= "<div class='row featured_filter'>";
-      $.each(data,(index,obj=>{
-         
-         views+="<div class='col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood'>";
-         views+="<div class='featured__item'>";
-         views+="<div class='featured__item__pic set-bg data-setbg="+obj.news_image+"'>";
-         views+="<ul class='featured__item__pic__hover'>";
-         views+="<li><a href='#'><i class='fa fa-heart'></i></a></li>";
-         views+="</ul>";
-         views+="</div>";
-         views+="<div class='featured__item__text'>";
-         views+="<h5><a href='/news/detailViews?news_index="+obj.news_index+"'><c:out value='"+obj.news_title+"'/></a>";
-         views+="</h5>";
-         views+="</div>";
-         views+="</div>";
-         views+="</div>";
-                  
-      
-}))
-
-      }
-   
-   
-</script>
-
-
-
-
-
-
-<script type="text/javascript">
-
-
-   
-   
    $('#searchBtn').click(
          function() {
             self.location = "list" + '${pageMaker.makeQuery(1)}'
@@ -126,9 +87,49 @@
                   + $("select option:selected").val() + "&keyword="
                   + encodeURIComponent($('#keywordInput').val());
          });
-});
 
-
+   function ajaxlist(data){
+		alert(data);
+	
+		$.ajax({
+			 url : '/ajax/test', // 이 주소로 
+             type : "post", // 포스트 방식으로 보내는데
+             data : {"data" : data}, // kind를 kind로 명명하여 보내겠다
+             success : function(data){ 
+			alert(data);					
+			var views = "<div class='row featured_filter'>";
+			
+           	$.each(data,(index,obj)=>{
+           				            			
+           	views+="<div class='col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood'>";
+           	views+="<div class='featured__item'>";
+           	views+="<div class='featured__item__pic set-bg' data-setbg='"+obj.news_image+"'>";
+           	views+="<ul class='featured__item__pic__hover'>";
+           	views+="<li><a href='#'><i class='fa fa-heart'></i></a></li>";
+           	views+="</ul>";
+           	views+="</div>";
+           	views+="<div class='featured__item__text'>";
+           	views+="<c:if test='${member == null}'>";
+           	views+="<h5><a href='/news/detailViews?news_index="+obj.news_index+"'<c:out value='"+obj.news_title+"'/></a>";
+           	views+="</h5>";
+           	views+="</c:if>";
+           	views+="<c:if test='${member !=null}'>";
+           	views+="<h5><a href='/news/detailViewsStatistics?news_index="+obj.news_index+"&&member_id=${member.member_id}'>";
+           	views+="<c:out value="+obj.news_title+"/>";
+           	views+="</a>";
+           	views+="</h5>";
+           	views+="</c:if>";
+           	views+="</div>";
+           	views+="</div>";
+           	views+="</div>";	            									
+           	});
+           	views+="</div>"	;
+           	$("#categorielist").html(views);
+           	
+             },
+             error : function(data){ alert('error');}
+		});
+}
 </script>
 
 <body>
@@ -236,7 +237,6 @@
 					<nav class="header__menu">
 						<ul>
 							<li class="active"><a href="./list">Home</a></li>
-
 							<li><a
 								href="${capth}./econo_category?news_categorie=경제&&pagingNum=1">경제</a></li>
 							<li><a href="${capth}./society_category?news_categorie=사회">사회</a></li>
@@ -254,6 +254,7 @@
 						</div>
 					</c:if>
 
+
 					<c:if test="${member != null}">
 						<div class="header__top__right__auth">
 							<a href="#" onclick="logout()"><i class="fa fa-user"></i>
@@ -267,7 +268,6 @@
 							</a>
 						</div>
 					</c:if>
-
 					<c:if test="${msg != null}">
 						<div class="header__top__right__auth">
 							<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
@@ -327,10 +327,11 @@
 						data-setbg="https://imgnews.pstatic.net/image/023/2021/08/11/0003632999_001_20210811144003855.jpg?type=w647">
 						<div class="hero__text">
 							<span>배너</span> <a
-								href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=023&aid=0003632999&rankingType=RANKING"><h3
-									style="color: white; opacity: 0.8;">
+								href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=023&aid=0003632999&rankingType=RANKING">
+								<h3 style="color: white; opacity: 0.8;">
 									文대통령, 확진자 2000명 넘어서자<br> “세계적인 현상”
-								</h3></a> <a href="#" class="primary-btn">임시로해놨음</a>
+								</h3>
+							</a> <a href="#" class="primary-btn">임시로해놨음</a>
 						</div>
 					</div>
 				</div>
@@ -340,7 +341,6 @@
 	<!-- Hero Section End -->
 
 	<!-- Categories Section Begin -->
-
 	<section class="categories">
 		<div class="section-title">
 			<h2>헤드라인 뉴스</h2>
@@ -393,24 +393,7 @@
 		</div>
 	</section>
 	<!-- Categories Section End -->
-	<script type="text/javascript">
-function ajaxCall() {      
-      $.ajax({ 
-         url : "/news/ajaxlist", //여기로 보내주셈
-         type : "post",
-         cache : false,
-         data: {"select"} : select},
-         headers: {"cache-control":"no-cache","pragma":"no-cache"},
-         success : function(data){
-            console.log(data);
-            $('body').html(data);
-         }, 
-         error : function() {
-            error("error");
-         }
-      });
-   }
-   </script>
+
 	<!-- Featured Section Begin -->
 	<section class="featured spad">
 		<div class="container">
@@ -422,45 +405,17 @@ function ajaxCall() {
 					<div class="featured__controls">
 						<ul>
 
-							<li data-filter=".fresh-meat" id="ajaxCall" onclick="ajaxCall(1)">경제</li>
-							<li data-filter=".fresh-meat" id="ajaxCall" onclick="ajaxCall(2)">사회</li>
-							<li data-filter=".vegetables" id="ajaxCall" onclick="ajaxCall(3)">정치</li>
-							<li data-filter=".fastfood" id="ajaxCall" onclick="ajaxCall(4)">IT/과학</li>
+							<li data-filter=".fresh-meat" onclick="ajaxlist('경제')">경제</li>
+							<li data-filter=".oranges" onclick="ajaxlist('사회')">사회</li>
+							<li data-filter=".vegetables" onclick="ajaxlist('정치')">정치</li>
+							<li data-filter=".fastfood" onclick="ajaxlist('IT/과학')">IT/과학</li>
+
 						</ul>
 					</div>
 				</div>
 			</div>
-
-			<div class="row featured__filter">
-
-				<c:forEach var="list" items="${list}">
-					<div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-						<div class="featured__item">
-							<div class="featured__item__pic set-bg"
-								data-setbg="${list.news_image}">
-								<ul class="featured__item__pic__hover">
-									<li><a href="#"><i class="fa fa-heart"></i></a></li>
-								</ul>
-							</div>
-							<div class="featured__item__text">
-								<h6></h6>
-								<h5>
-									<a href="/news/detailView?news_index=${list.news_index}"> <c:out
-											value="${list.news_title}" /></a>
-								</h5>
-
-
-							</div>
-						</div>
-					</div>
-				</c:forEach>
-
-
-
-			</div>
+			<div id="categorielist"></div>
 		</div>
-
-
 
 	</section>
 	<!-- Featured Section End -->
@@ -694,76 +649,6 @@ function ajaxCall() {
 	</section>
 	<!-- Latest Product Section End -->
 
-	<!-- Blog Section Begin -->
-	<section class="from-blog spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="section-title from-blog__title">
-						<h2>From The Blog</h2>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="blog__item">
-						<div class="blog__item__pic">
-							<img src="img/blog/blog-1.jpg" alt="">
-						</div>
-						<div class="blog__item__text">
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-							<h5>
-								<a href="#">Cooking tips make cooking simple</a>
-							</h5>
-							<p>Sed quia non numquam modi tempora indunt ut labore et
-								dolore magnam aliquam quaerat</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="blog__item">
-						<div class="blog__item__pic">
-							<img src="img/blog/blog-2.jpg" alt="">
-						</div>
-						<div class="blog__item__text">
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-							<h5>
-								<a href="#">6 ways to prepare breakfast for 30</a>
-							</h5>
-							<p>Sed quia non numquam modi tempora indunt ut labore et
-								dolore magnam aliquam quaerat</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="blog__item">
-						<div class="blog__item__pic">
-							<img src="img/blog/blog-3.jpg" alt="">
-						</div>
-						<div class="blog__item__text">
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-							<h5>
-								<a href="#">Visit the clean farm in the US</a>
-							</h5>
-							<p>Sed quia non numquam modi tempora indunt ut labore et
-								dolore magnam aliquam quaerat</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Blog Section End -->
-
 	<!-- Footer Section Begin -->
 	<footer class="footer spad">
 		<div class="container">
@@ -855,7 +740,7 @@ function ajaxCall() {
 	<script src="${cpath}/resources/js/mixitup.min.js"></script>
 	<script src="${cpath}/resources/js/owl.carousel.min.js"></script>
 	<script src="${cpath}/resources/js/main.js"></script>
-	
+
 	<script type="text/javascript">
 
 	function loginPopUp(){
@@ -874,7 +759,6 @@ function ajaxCall() {
 	   location.href="/member/scrap?member_id=${member.member_id}&&pagingNum=1"
 	}
 	</script>
-
 
 
 </body>

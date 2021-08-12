@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.NewsVO;
 import kr.co.summary.domain.SearchCriteria;
 
@@ -57,15 +58,7 @@ public class NewsDAOImpl implements NewsDAO{
 		
 		return sqlSession.selectOne("newsMapper.listCount",scri);
 	}
-	public List<NewsVO> newsAjaxList() {
-		
-	    //	mapper에있는 id를 찾아가서 sql문을 처리함 namespace나 id값으로할수잇음
-	    List<NewsVO>list = sqlSession.selectList("newsAjaxList"); 
-	    sqlSession.close(); // 반납
-	   
-	    
-	    return list;
-	}
+	
 	@Override
 	public int plusCnt(int news_index) throws Exception {
 		
@@ -78,6 +71,30 @@ public class NewsDAOImpl implements NewsDAO{
 		return sqlSession.selectOne("newsMapper.categorieCount",news_categorie);
 	}
 	
+	public MemberVO detailViewStatistics(String member_id) throws Exception{
+		
+		return sqlSession.selectOne("newsMapper. detailViewStatistics",member_id);
+	}
+
+
+	public void StatisticsUpdate(String membervo_age_range,String membervo_gender,String news_keyword) throws Exception{
+		
+		HashMap data = new HashMap();
+		data.put("membervo_age_range", membervo_age_range);
+		data.put("membervo_gender", membervo_gender);
+		data.put("news_keyword", news_keyword);
+		
+		sqlSession.insert("newsMapper. StatisticsUpdate",data);
+		
+	}
+	
+	// 카테고리 ajax 
+	@Override
+	public List<NewsVO> selectCategorie(String news_categorie) throws Exception {
+	
+		
+		return sqlSession.selectList("newsMapper.selectCategorie",news_categorie);
+	}	
 
 	
 	
