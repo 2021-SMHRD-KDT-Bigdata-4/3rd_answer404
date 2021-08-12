@@ -1,5 +1,6 @@
 package kr.co.summary.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -30,8 +31,13 @@ public class NewsDAOImpl implements NewsDAO{
 	}
 	
 	// 카테고리별 뉴스
-		public List<NewsVO> categorie(String news_categorie) throws Exception{
-			return sqlSession.selectList("newsMapper.categorie",news_categorie);
+	public List<NewsVO> categorie(String news_categorie,int displayPost,int displayPostEnd) throws Exception{
+			HashMap data = new HashMap();
+			data.put("news_categorie", news_categorie);
+			data.put("displayPost", displayPost);
+			data.put("displayPostEnd", displayPostEnd);
+		
+			return sqlSession.selectList("newsMapper.categorie",data);
 		}
 	
 	// 뉴스 목록 조회
@@ -66,7 +72,14 @@ public class NewsDAOImpl implements NewsDAO{
 		return sqlSession.update("newsMapper.plusCnt",news_index);
 	}
 	
+	@Override
+	public int categorieCount(String news_categorie) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("newsMapper.categorieCount",news_categorie);
+	}
+	
 
+	
 	
 
 }

@@ -465,7 +465,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<c:forEach var="list" items="${categorie}">
+						<c:forEach var="list" items="${news_categorie}">
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="product__item">
 									<div class="product__item__pic set-bg"
@@ -486,27 +486,30 @@
 							</div>
 						</c:forEach>
 
-
-						<div class="pagenation">
-							<ul>
-								<c:if test="${pageMaker.prev}">
-									<li><a style="width: 50px !important"
-										href="econo_category${pageMaker.makeSearch(pageMaker.startPage - 1)}">이전</a></li>
-								</c:if>
-
-								<c:forEach begin="${pageMaker.startPage}"
-									end="${pageMaker.endPage}" var="idx">
-									<li><a href="econo_category${pageMaker.makeSearch(idx)}">${idx}</a></li>
-								</c:forEach>
-
-								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-									<li><a style="width: 50px !important"
-										href="econo_category${pageMaker.makeSearch(pageMaker.endPage + 1)}">다음</a></li>
-								</c:if>
-							</ul>
-						</div>
-
 					</div>
+					<div class="col-lg-12">                        
+                            <div class="product__pagination blog__pagination">
+                            
+                             <c:if test="${prev}">
+                            	<a href="/news/econo_category?news_categorie=${categorie}&&pagingNum=${startPageNum - 1}"><i class="fa fa-long-arrow-left"></i></a>
+                             </c:if>
+                             
+                            <c:forEach begin="${startPageNum}" end="${endPageNum}" var="num"> 	
+									<c:if test="${select != num}">
+										<a href="/news/econo_category?news_categorie=${categorie}&&pagingNum=${num}">${num}</a>
+									</c:if>
+									
+									<c:if test="${select == num}">
+										[<a>${num}</a>]
+									</c:if>
+                             </c:forEach>   
+                                                                
+                             <c:if test="${next}">   
+                                <a href="/news/econo_category?news_categorie=${categorie}&&pagingNum=${endPageNum + 1}"><i class="fa fa-long-arrow-right"></i></a>
+                             </c:if>
+                                
+                            </div>                            
+                     </div>
 				</div>
 			</div>
 	</section>

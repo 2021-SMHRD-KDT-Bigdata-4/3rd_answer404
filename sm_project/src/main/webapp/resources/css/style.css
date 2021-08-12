@@ -693,7 +693,11 @@ transparent;
 }
 
 .hero__search__form {
+<<<<<<< HEAD
 	width: 100%;
+=======
+	width: 850px;
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_answer404.git
 	height: 50px;
 	border: 1px solid #ebebeb;
 	position: relative;
@@ -1682,6 +1686,7 @@ transparent;
 
 .product__pagination, .blog__pagination {
 	padding-top: 10px;
+	text-align: center;
 }
 
 .product__pagination a, .blog__pagination a {
@@ -1702,9 +1707,16 @@ transparent;
 	transition: all, 0.3s;
 }
 
+<<<<<<< HEAD
 .product__pagination a:hover, .blog__pagination a:hover {
 	background: #0857C3;
 	border-color: #0857C3;
+=======
+.product__pagination a:hover,
+.blog__pagination a:hover {
+	background: #001871;
+	border-color: #001871;
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_answer404.git
 	color: #ffffff;
 }
 
@@ -2164,7 +2176,7 @@ transparent;
 }
 
 .checkout__input {
-	margin-bottom: 24px;
+	margin-bottom: 12px;
 }
 
 .checkout__input p {
@@ -2249,7 +2261,7 @@ transparent;
 .checkout__order {
 	background: #f5f5f5;
 	padding: 40px;
-	padding-top: 30px;
+	padding-top: 17px;
 }
 
 .checkout__order h4 {

@@ -25,8 +25,8 @@ public class NewsServiceImpl implements NewsService{
 	}
 	
 	// 카테고리별 뉴스
-		public List<NewsVO> categorie(String news_categorie) throws Exception{
-			return dao.categorie(news_categorie);
+	public List<NewsVO> categorie(String news_categorie,int displayPost,int displayPostEnd) throws Exception{
+			return dao.categorie(news_categorie,displayPost,displayPostEnd);
 		}
 	
 	// 뉴스 상세보기
@@ -54,6 +54,11 @@ public class NewsServiceImpl implements NewsService{
 	public int plusCnt(int news_index) throws Exception {
 		
 		return dao.plusCnt(news_index);
+	}
+
+	@Override
+	public int categorieCount(String news_categorie) throws Exception {
+		return dao.categorieCount(news_categorie);
 	}
 
 	

@@ -11,7 +11,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-<title>회원가입</title>
+<title>===== 회원 가입 =====</title>
 
 <link rel="stylesheet" href="${cpath}/resources/css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" href="${cpath}/resources/css/font-awesome.min.css" type="text/css">
@@ -75,73 +75,40 @@
                                 </div>
                             </div>
                             <div class="checkout__input">
-                                <p>Name<span>*</span></p>
+                                <p>이름<span>*</span></p>
                                 <input class="form-control" type="text"	id="member_name" name="member_name"/>
                             </div>
+                            
                             <div class="checkout__input">
-                                <p>연령대<span>*</span></p>
-							<select id="member_age_range" name="member_age_range">
-								<option value="청소년">청소년</option>
-								<option value="20대">20대</option>
-								<option value="30대">30대</option>
-								<option value="40대">40대</option>
-								<option value="50대">50대</option>
-								<option value="60대">60대</option>
-								<option value="70대이상">70대이상</option>
-							</select>
+                                <p>핸드폰 번호<span>*</span></p>
+                                <input class="form-control" type="text"	id="member_phone" name="member_phone"/>
                             </div>
+
                             <div class="checkout__input">
-                                <p>Town/City<span>*</span></p>
-                                <input type="text">
+                                <p>연령대<span>*</span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                                성별<span>*</span></p>
                             </div>
-                            <div class="checkout__input">
-                                <p>Country/State<span>*</span></p>
-                                <input type="text">
+                                               	
+                            <div class="checkout__input" style="display: flex;">
+                            
+								<select class= "select" id="member_age_range" name="member_age_range">
+									<option value="20대 이하">20대 이하</option>
+									<option value="30대">30대</option>
+									<option value="40대">40대</option>
+									<option value="50대">50대</option>
+									<option value="60대 이상">60대 이상</option>
+								</select>
+								&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+								
+								<select class="select" id="member_gender" name="member_gender">
+										<option value="남자">남자</option>
+										<option value="여자">여자</option>
+								</select>
+							
                             </div>
-                            <div class="checkout__input">
-                                <p>Postcode / ZIP<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Phone<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Email<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="acc">
-                                    Create an account?
-                                    <input type="checkbox" id="acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <p>Create an account by entering the information below. If you are a returning customer
-                                please login at the top of the page</p>
-                            <div class="checkout__input">
-                                <p>Account Password<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="diff-acc">
-                                    Ship to a different address?
-                                    <input type="checkbox" id="diff-acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Order notes<span>*</span></p>
-                                <input type="text"
-                                    placeholder="Notes about your order, e.g. special notes for delivery.">
-                            </div>
+                            <button id ="loginBtn" type="submit" class="site-btn">회원가입</button>
                         </div>
+                        
 				</form>
 
 	<script src="${cpath}/resources/js/jquery-3.3.1.min.js"></script>

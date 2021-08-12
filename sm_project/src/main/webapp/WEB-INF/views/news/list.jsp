@@ -106,15 +106,9 @@
 			views+="</div>";
 			views+="</div>";
 						
-					
-			
+		
 }))
-		
-		
-		
-		
-		
-		
+
 		}
 	
 	
@@ -126,7 +120,34 @@
 
 
 <script type="text/javascript">
+
+
+
 $(function() {
+	
+	$(function(){
+    	$("button").on('click',function(){
+    			var kind = $(this).val();  //버튼이 클릭 되었을 때 그 버튼의 value를 var kind로 가져와서	
+    			$.ajax({
+    				 url : './bbs_kind.nhn', // 이 주소로 
+    	              type : "post", // 포스트 방식으로 보내는데
+    	              cache: false,
+    	              headers: {"cache-control":"no-cache", "pragma": "no-cache"},
+    	              data : {"kind" : kind}, // kind를 kind로 명명하여 보내겠다
+    	              success : function(data){ 
+    	                 console.log(data);
+    	                
+    	                 $('body').html(data); //성공할시에 body부분에 data라는 html문장들을 다 적용시키겠다
+    	              },
+    	              error : function(data){
+    	            	 alert('error');
+    	               
+    	              }//error
+    			})//ajax
+    		});//click
+    });//ready
+	
+	
 	$('#searchBtn').click(
 			function() {
 				self.location = "list" + '${pageMaker.makeQuery(1)}'
@@ -135,6 +156,8 @@ $(function() {
 						+ encodeURIComponent($('#keywordInput').val());
 			});
 });
+
+
 
 
 function loginPopUp(){
@@ -260,11 +283,19 @@ function scrap(){
 					<nav class="header__menu">
 						<ul>
 							<li class="active"><a href="./list">Home</a></li>
+<<<<<<< HEAD
 							<li><a href="${capth}./econo_category?news_categorie=경제">경제</a></li>
 							<li><a href="${capth}./society_category?news_categorie=사회">사회</a></li>
 							<li><a href="${capth}./politics_category?news_categorie=정치">정치</a></li>
 							<li><a
 								href="${capth}./ITscience_category?news_categorie=IT/과학">IT/과학</a></li>
+=======
+
+                     <li><a href="${capth}./econo_category?news_categorie=경제&&pagingNum=1">경제</a></li>
+                     <li><a href="${capth}./society_category?news_categorie=사회">사회</a></li>
+                     <li><a href="${capth}./politics_category?news_categorie=정치">정치</a></li>
+                     <li><a href="${capth}./ITscience_category?news_categorie=IT/과학">IT/과학</a></li>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_answer404.git
 						</ul>
 					</nav>
 				</div>
@@ -281,6 +312,7 @@ function scrap(){
 	<section class="hero">
 		<div class="container">
 			<div class="row">
+<<<<<<< HEAD
 				<div class="col-lg-3"></div>
 				<div class="col-lg-6">
 					<div class="hero__search__form">
@@ -296,8 +328,63 @@ function scrap(){
 								<input type="text" name="keyword" id=keywordInput
 									value="${scri.keyword}" placeholder="검색할 뉴스를 입력해주세요" />
 								<button type="submit" id="searchBtn" class="site-btn">검색</button>
+=======
+				<div class="col-lg-3">
+					<div class="hero__categories">
+						<div class="hero__categories__all">
+							<i class="fa fa-bars"></i> <span>All departments</span>
+						</div>
+						<ul>
+							<li><a href="#">Fresh Meat</a></li>
+							<li><a href="#">Vegetables</a></li>
+							<li><a href="#">Fruit & Nut Gifts</a></li>
+							<li><a href="#">Fresh Berries</a></li>
+							<li><a href="#">Ocean Foods</a></li>
+							<li><a href="#">Butter & Eggs</a></li>
+							<li><a href="#">Fastfood</a></li>
+							<li><a href="#">Fresh Onion</a></li>
+							<li><a href="#">Papayaya & Crisps</a></li>
+							<li><a href="#">Oatmeal</a></li>
+							<li><a href="#">Fresh Bananas</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-9">
+					<div>
+						<div class="hero__search__form">
+							<form action="listAll">
+								<select name="searchType">
+									<option value="t"
+										<c:out value="${scri.searchType eq 't' ? 'selected' : ''}"/>>제목</option>
+									<option value="c"
+										<c:out value="${scri.searchType eq 'c' ? 'selected' : ''}"/>>내용</option>
+								</select>
+
+								<div>
+									<input type="text" name="keyword" id=keywordInput
+										value="${scri.keyword}" placeholder="검색할 뉴스를 입력해주세요" />
+									<button type="submit" id="searchBtn" class="site-btn">검색</button>
+								</div>
+							</form>
+							<div class="hero__item set-bg"
+								data-setbg="https://imgnews.pstatic.net/image/023/2021/08/11/0003632999_001_20210811144003855.jpg?type=w647">
+								<div class="hero__text">
+									<span>배너</span> <a
+										href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=023&aid=0003632999&rankingType=RANKING"><h3
+											style="color: white; opacity: 0.8;">
+											文대통령, 확진자 2000명 넘어서자<br> “세계적인 현상”
+										</h3></a> <a href="#" class="primary-btn">임시로해놨음</a>
+								</div>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_answer404.git
 							</div>
+<<<<<<< HEAD
 						</form>
+=======
+
+						</div>
+
+
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_answer404.git
 					</div>
 				</div>
 				<div class="col-lg-3"></div>
