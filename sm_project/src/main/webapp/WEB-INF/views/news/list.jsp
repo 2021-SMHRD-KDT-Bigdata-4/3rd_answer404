@@ -106,9 +106,7 @@
 			views+="</div>";
 			views+="</div>";
 			views+="</div>";
-						
-					
-			
+									
 }))
 		
 		
@@ -513,10 +511,20 @@ function ajaxCall() {
 							</div>
 							<div class="featured__item__text">
 								<h6></h6>
+								
+							<c:if test="${member == null}">	
 								<h5>
 									<a href="/news/detailView?news_index=${list.news_index}"> <c:out
 											value="${list.news_title}" /></a>
 								</h5>
+							</c:if>	
+							
+							<c:if test="${member != null}">
+								<h5>
+									<a href="/news/detailViewStatistics?news_index=${list.news_index}&&member_id=${member.member_id}"> <c:out
+											value="${list.news_title}" /></a>
+								</h5>
+							</c:if>
 
 
 							</div>

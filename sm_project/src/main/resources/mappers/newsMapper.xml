@@ -66,6 +66,13 @@
    <select id="categorieCount" resultType="int">
    		select count(news_index) from news where news_categorie = #{news_categorie}   
    </select>
-	
    
+   <select id="detailViewStatistics" resultType="kr.co.summary.domain.MemberVO">
+   		select * from member where member_id = #{member_id}  
+   </select>
+
+	 <insert id="StatisticsUpdate">
+   		insert into member(statistics_index ,member_age_range, member_gender, news_keyword)
+		values(STATISTICS_INDEX_SEQ.nextval,#{membervo_age_range},#{membervo_gender},#{news_keyword})
+   	</insert>
 </mapper>

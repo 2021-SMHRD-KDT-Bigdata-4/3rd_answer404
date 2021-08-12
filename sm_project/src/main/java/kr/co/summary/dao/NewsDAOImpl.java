@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.NewsVO;
 import kr.co.summary.domain.SearchCriteria;
 
@@ -78,7 +79,20 @@ public class NewsDAOImpl implements NewsDAO{
 		return sqlSession.selectOne("newsMapper.categorieCount",news_categorie);
 	}
 	
+	public MemberVO detailViewStatistics(String member_id) throws Exception{
+		
+		return sqlSession.selectOne("newsMapper. detailViewStatistics",member_id);
+	}
 
-	
+	public void StatisticsUpdate(String membervo_age_range,String membervo_gender,String news_keyword) throws Exception{
+		
+		HashMap data = new HashMap();
+		data.put("membervo_age_range", membervo_age_range);
+		data.put("membervo_gender", membervo_gender);
+		data.put("news_keyword", news_keyword);
+		
+		sqlSession.insert("newsMapper. StatisticsUpdate",data);
+		
+	}	
 
 }

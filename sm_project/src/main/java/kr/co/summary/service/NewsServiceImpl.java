@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.summary.dao.NewsDAO;
 import kr.co.summary.domain.Criteria;
+import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.NewsVO;
 import kr.co.summary.domain.SearchCriteria;
 
@@ -60,8 +61,13 @@ public class NewsServiceImpl implements NewsService{
 	public int categorieCount(String news_categorie) throws Exception {
 		return dao.categorieCount(news_categorie);
 	}
-
 	
+	public MemberVO detailViewStatistics(String member_id) throws Exception{		
+		return dao.detailViewStatistics(member_id);
+	}
 	
+	public void StatisticsUpdate(String membervo_age_range,String membervo_gender,String news_keyword) throws Exception{
+		dao.StatisticsUpdate(membervo_age_range,membervo_gender,news_keyword);
+	}
 	
 }
