@@ -69,5 +69,12 @@ public class NewsServiceImpl implements NewsService{
 	public void StatisticsUpdate(String membervo_age_range,String membervo_gender,String news_keyword) throws Exception{
 		dao.StatisticsUpdate(membervo_age_range,membervo_gender,news_keyword);
 	}
+
+	@Override
+	public List<NewsVO> selectCategorie(String news_categorie) throws Exception {
+		
+		
+		return dao.selectCategorie(news_categorie);
+	}
 	
 }

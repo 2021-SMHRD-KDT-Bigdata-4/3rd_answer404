@@ -58,15 +58,7 @@ public class NewsDAOImpl implements NewsDAO{
 		
 		return sqlSession.selectOne("newsMapper.listCount",scri);
 	}
-	public List<NewsVO> newsAjaxList() {
-		
-	    //	mapper에있는 id를 찾아가서 sql문을 처리함 namespace나 id값으로할수잇음
-	    List<NewsVO>list = sqlSession.selectList("newsAjaxList"); 
-	    sqlSession.close(); // 반납
-	   
-	    
-	    return list;
-	}
+	
 	@Override
 	public int plusCnt(int news_index) throws Exception {
 		
@@ -94,6 +86,14 @@ public class NewsDAOImpl implements NewsDAO{
 		
 		sqlSession.insert("newsMapper. StatisticsUpdate",data);
 		
+	}
+	
+	// 카테고리 ajax 
+	@Override
+	public List<NewsVO> selectCategorie(String news_categorie) throws Exception {
+	
+		
+		return sqlSession.selectList("newsMapper.selectCategorie",news_categorie);
 	}	
 
 	

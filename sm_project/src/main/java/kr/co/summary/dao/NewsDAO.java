@@ -24,7 +24,8 @@ public interface NewsDAO {
 	
 	// 뉴스 총 갯수
 	public int listCount(SearchCriteria scri) throws Exception;
-
+	
+	//조회수
 	public int plusCnt(int news_index) throws Exception;
 
 	public int categorieCount(String news_categorie) throws Exception;
@@ -32,6 +33,8 @@ public interface NewsDAO {
 	public MemberVO detailViewStatistics(String member_id) throws Exception;
 	
 	public void StatisticsUpdate(String membervo_age_range,String membervo_gender,String news_keyword) throws Exception;
+	
+	public List<NewsVO> selectCategorie(String news_categorie) throws Exception;
 
 	
 }

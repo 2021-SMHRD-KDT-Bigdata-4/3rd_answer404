@@ -41,6 +41,8 @@ public class NewsController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list(Model model, @ModelAttribute("scri") SearchCriteria scri) throws Exception {
 		logger.info("list");
+		
+		System.out.println("call");
 
 		model.addAttribute("list", service.list(scri));
 

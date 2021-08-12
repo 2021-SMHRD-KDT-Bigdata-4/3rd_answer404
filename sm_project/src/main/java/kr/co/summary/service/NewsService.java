@@ -40,5 +40,7 @@ public interface NewsService {
 	
 	public void StatisticsUpdate(String membervo_age_range,String membervo_gender,String news_keyword) throws Exception;
 	
+	public List<NewsVO> selectCategorie(String news_categorie) throws Exception;
+	
 	
 }
