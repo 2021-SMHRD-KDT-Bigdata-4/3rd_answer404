@@ -283,19 +283,12 @@ function scrap(){
 					<nav class="header__menu">
 						<ul>
 							<li class="active"><a href="./list">Home</a></li>
-<<<<<<< HEAD
-							<li><a href="${capth}./econo_category?news_categorie=경제">경제</a></li>
+							<li><a
+								href="${capth}./econo_category?news_categorie=경제&&pagingNum=1">경제</a></li>
 							<li><a href="${capth}./society_category?news_categorie=사회">사회</a></li>
 							<li><a href="${capth}./politics_category?news_categorie=정치">정치</a></li>
 							<li><a
 								href="${capth}./ITscience_category?news_categorie=IT/과학">IT/과학</a></li>
-=======
-
-                     <li><a href="${capth}./econo_category?news_categorie=경제&&pagingNum=1">경제</a></li>
-                     <li><a href="${capth}./society_category?news_categorie=사회">사회</a></li>
-                     <li><a href="${capth}./politics_category?news_categorie=정치">정치</a></li>
-                     <li><a href="${capth}./ITscience_category?news_categorie=IT/과학">IT/과학</a></li>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_answer404.git
 						</ul>
 					</nav>
 				</div>
@@ -312,23 +305,6 @@ function scrap(){
 	<section class="hero">
 		<div class="container">
 			<div class="row">
-<<<<<<< HEAD
-				<div class="col-lg-3"></div>
-				<div class="col-lg-6">
-					<div class="hero__search__form">
-						<form action="listAll">
-							<select name="searchType">
-								<option value="t"
-									<c:out value="${scri.searchType eq 't' ? 'selected' : ''}"/>>제목</option>
-								<option value="c"
-									<c:out value="${scri.searchType eq 'c' ? 'selected' : ''}"/>>내용</option>
-							</select>
-
-							<div>
-								<input type="text" name="keyword" id=keywordInput
-									value="${scri.keyword}" placeholder="검색할 뉴스를 입력해주세요" />
-								<button type="submit" id="searchBtn" class="site-btn">검색</button>
-=======
 				<div class="col-lg-3">
 					<div class="hero__categories">
 						<div class="hero__categories__all">
@@ -375,16 +351,11 @@ function scrap(){
 											文대통령, 확진자 2000명 넘어서자<br> “세계적인 현상”
 										</h3></a> <a href="#" class="primary-btn">임시로해놨음</a>
 								</div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_answer404.git
 							</div>
-<<<<<<< HEAD
-						</form>
-=======
+							</form>
 
 						</div>
 
-
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_answer404.git
 					</div>
 				</div>
 				<div class="col-lg-3"></div>
