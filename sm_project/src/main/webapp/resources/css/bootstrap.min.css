@@ -591,6 +591,7 @@ pre code {
 	margin-right: -15px;
 	margin-left: -15px;
 	margin-top: 30px;
+	justify-content: center;
 }
 
 .no-gutters {

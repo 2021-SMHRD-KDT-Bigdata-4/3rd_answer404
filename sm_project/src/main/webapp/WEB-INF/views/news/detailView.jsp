@@ -35,22 +35,22 @@
 	type="text/css">
 <link rel="stylesheet" href="${cpath}/resources/css/style.css"
 	type="text/css">
+<link rel="stylesheet" href="${cpath}/resources/css/floatMenu.css"
+	type="text/css">
 </head>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-
-function viewStyle(obj){
-    while(true){
-      if((obj=obj.nextSibling).nodeName=="DIV"){
-        obj.style.display=(obj.style.display!='block')?'block':'none';
-        obj.style.fontSize = "18px"; 
-        break;
-      }
-    }
-  }
-
-
-
+	function viewStyle(obj) {
+		while (true) {
+			if ((obj = obj.nextSibling).nodeName == "DIV") {
+				obj.style.display = (obj.style.display != 'block') ? 'block'
+						: 'none';
+				obj.style.fontSize = "18px";
+				break;
+			}
+		}
+	}
 </script>
 
 <body>
@@ -118,79 +118,74 @@ function viewStyle(obj){
 	</div>
 	<!-- Humberger End -->
 
+	<!-- 플로팅 메뉴 -->
+	<div id="floatMenu">
+		<div class="col-lg-3">
+			<div class="hero__search__form">
+				<form action="listAll">
+					<div>
+						<input type="text" name="keyword" id=keywordInput
+							value="${scri.keyword}" placeholder="검색할 뉴스를 입력해주세요" />
+						<button type="submit" id="searchBtn" class="site-btn">검색</button>
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+	<!-- 플로팅 메뉴 -->
+
 	<!-- Header Section Begin -->
 	<header class="header">
-		<div class="header__top">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="header__top__left">
-							<ul>
-								<li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-								<li>Free Shipping for all Order of $99</li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="header__top__right">
-							<div class="header__top__right__social">
-								<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
-									class="fa fa-twitter"></i></a> <a href="#"><i
-									class="fa fa-linkedin"></i></a> <a href="#"><i
-									class="fa fa-pinterest-p"></i></a>
-							</div>
-							<div class="header__top__right__language">
-								<img src="img/language.png" alt="">
-								<div>English</div>
-								<span class="arrow_carrot-down"></span>
-								<ul>
-									<li><a href="#">Spanis</a></li>
-									<li><a href="#">English</a></li>
-								</ul>
-							</div>
-							<div class="header__top__right__auth">
-								<a href="#"><i class="fa fa-user"></i> Login</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="header__logo">
-						<a href="/news/list"><img
-							src="${cpath}/resources/img/logo.png" alt=""></a>
+						<a href="./list"><img src="${cpath}/resources/img/logo.png"
+							alt=""></a>
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<nav class="header__menu">
 						<ul>
-							<li><a href="./index.html">Home</a></li>
-							<li><a href="./shop-grid.html">Shop</a></li>
-							<li><a href="#">Pages</a>
-								<ul class="header__menu__dropdown">
-									<li><a href="./shop-details.html">Shop Details</a></li>
-									<li><a href="./shoping-cart.html">Shoping Cart</a></li>
-									<li><a href="./checkout.html">Check Out</a></li>
-									<li><a href="./blog-details.html">Blog Details</a></li>
-								</ul></li>
-							<li class="active"><a href="./blog.html">Blog</a></li>
-							<li><a href="./contact.html">Contact</a></li>
+							<li class="active"><a href="./list">Home</a></li>
+
+							<li><a
+								href="${capth}./econo_category?news_categorie=경제&&pagingNum=1">경제</a></li>
+							<li><a href="${capth}./society_category?news_categorie=사회">사회</a></li>
+							<li><a href="${capth}./politics_category?news_categorie=정치">정치</a></li>
+							<li><a
+								href="${capth}./ITscience_category?news_categorie=IT/과학">IT/과학</a></li>
 						</ul>
 					</nav>
 				</div>
 				<div class="col-lg-3">
-					<div class="header__cart">
-						<ul>
-							<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-							<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-						</ul>
-						<div class="header__cart__price">
-							item: <span>$150.00</span>
+					<c:if test="${member == null}">
+						<div class="header__top__right__auth">
+							<a href="#" onclick="loginPopUp()"><i class="fa fa-user"></i>
+								Login</a>
 						</div>
-					</div>
+					</c:if>
+
+					<c:if test="${member != null}">
+						<div class="header__top__right__auth">
+							<a href="#" onclick="logout()"><i class="fa fa-user"></i>
+								Logout</a>
+						</div>
+					</c:if>
+
+					<c:if test="${member != null}">
+						<div class="header__top__right__auth">
+							<a href="#" onclick="scrap()"> <i class="fa fa-user"></i>Scrap(임시)
+							</a>
+						</div>
+					</c:if>
+
+					<c:if test="${msg != null}">
+						<div class="header__top__right__auth">
+							<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
+						</div>
+					</c:if>
 				</div>
 			</div>
 			<div class="humberger__open">
@@ -225,25 +220,21 @@ function viewStyle(obj){
 					</div>
 				</div>
 				<div class="col-lg-9">
-					<div class="hero__search">
-						<div class="hero__search__form">
-							<form action="#">
-								<div class="hero__search__categories">
-									All Categories <span class="arrow_carrot-down"></span>
-								</div>
-								<input type="text" placeholder="What do yo u need?">
-								<button type="submit" class="site-btn">SEARCH</button>
-							</form>
-						</div>
-						<div class="hero__search__phone">
-							<div class="hero__search__phone__icon">
-								<i class="fa fa-phone"></i>
+					<div class="hero__search__form">
+						<form action="listAll">
+							<select name="searchType">
+								<option value="t"
+									<c:out value="${scri.searchType eq 't' ? 'selected' : ''}"/>>제목</option>
+								<option value="c"
+									<c:out value="${scri.searchType eq 'c' ? 'selected' : ''}"/>>내용</option>
+							</select>
+
+							<div>
+								<input type="text" name="keyword" id=keywordInput
+									value="${scri.keyword}" placeholder="검색할 뉴스를 입력해주세요" />
+								<button type="submit" id="searchBtn" class="site-btn">검색</button>
 							</div>
-							<div class="hero__search__phone__text">
-								<h5>+65 11.188.888</h5>
-								<span>support 24/7 time</span>
-							</div>
-						</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -260,14 +251,6 @@ function viewStyle(obj){
 			<div class="row">
 				<div class="col-lg-4 col-md-5 order-md-1 order-2">
 					<div class="blog__sidebar">
-						<div class="blog__sidebar__search">
-							<form action="#">
-								<input type="text" placeholder="Search...">
-								<button type="submit">
-									<span class="icon_search"></span>
-								</button>
-							</form>
-						</div>
 						<div class="blog__sidebar__item">
 							<h4>Categories</h4>
 							<ul>
@@ -339,10 +322,12 @@ function viewStyle(obj){
 							<img src="${detail.news_image}">
 							<hr>
 						</div>
-						 <a href='#' onclick="viewStyle(this);return false">본문보기</a>
-						<DIV style="display: none"><c:out value="${detail.news_contents}" /></DIV>
-						
-						
+						<a href='#' onclick="viewStyle(this);return false">본문보기</a>
+						<DIV style="display: none">
+							<c:out value="${detail.news_contents}" />
+						</DIV>
+
+
 					</div>
 					<div class="blog__details__content">
 						<div class="row">
@@ -459,7 +444,7 @@ function viewStyle(obj){
 					<div class="footer__about">
 						<div class="footer__about__logo">
 							<a href="./index.html"><img
-								src="${cpath}/resources/img/logo.png" alt=""></a>
+								src="${cpath}/resources/img/logo_trans.png" alt=""></a>
 						</div>
 						<ul>
 							<li>Address: 60-49 Road 11378 New York</li>
@@ -544,6 +529,47 @@ function viewStyle(obj){
 	<script src="${cpath}/resources/js/main.js"></script>
 
 
+	<script type="text/javascript">
+		//로그인 버튼 펑션
+		function loginPopUp() {
+			window.open("/member/login", "login",
+					"width=500, height=643, left=660, top=200");
+		}
+
+		function logout() {
+			location.href = "/member/logout";
+		}
+
+		function check() {
+			location.href = "/member/test";
+		}
+
+		function scrap() {
+			location.href = "/member/scrap?member_id=${member.member_id}&&pagingNum=1"
+		}
+
+		//플로팅 배너 펑션
+		$(function() {
+
+			var $w = $(window)
+			// var $detailsHei = $('blog-details').outerHeight()
+			var footerHei = $('footer').outerHeight()
+			var $floatMenu = $('#floatMenu');
+
+			$w.on('scroll', function() {
+
+				var sT = $w.scrollTop();
+				var val = $(document).height() - $w.height() - footerHei;
+
+				if (sT >= val)
+					$floatMenu.addClass('on')
+				else
+					$floatMenu.removeClass('on')
+
+			});
+
+		});
+	</script>
 
 </body>
 

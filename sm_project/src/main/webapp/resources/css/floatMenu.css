@@ -1,0 +1,13 @@
+#floatMenu {
+  position: fixed;
+  right:60px;
+  bottom: 50px;
+  width: 240px;
+  height: 360px;
+  background: salmon;
+}
+
+#floatMenu.on {
+  position: absolute;
+  bottom: 350px;
+}

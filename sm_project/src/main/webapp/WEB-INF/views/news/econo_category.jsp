@@ -146,42 +146,6 @@
 
 	<!-- Header Section Begin -->
 	<header class="header">
-		<div class="header__top">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="header__top__left">
-							<ul>
-								<li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-								<li>Free Shipping for all Order of $99</li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="header__top__right">
-							<div class="header__top__right__social">
-								<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
-									class="fa fa-twitter"></i></a> <a href="#"><i
-									class="fa fa-linkedin"></i></a> <a href="#"><i
-									class="fa fa-pinterest-p"></i></a>
-							</div>
-							<div class="header__top__right__language">
-								<img src="${cpath}/resources/img/language.png" alt="">
-								<div>English</div>
-								<span class="arrow_carrot-down"></span>
-								<ul>
-									<li><a href="#">Spanis</a></li>
-									<li><a href="#">English</a></li>
-								</ul>
-							</div>
-							<div class="header__top__right__auth">
-								<a href="#"><i class="fa fa-user"></i> Login</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3">
@@ -204,15 +168,33 @@
 					</nav>
 				</div>
 				<div class="col-lg-3">
-					<div class="header__cart">
-						<ul>
-							<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-							<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-						</ul>
-						<div class="header__cart__price">
-							item: <span>$150.00</span>
+
+					<c:if test="${member == null}">
+						<div class="header__top__right__auth">
+							<a href="#" onclick="loginPopUp()"><i class="fa fa-user"></i>
+								Login</a>
 						</div>
-					</div>
+					</c:if>
+
+					<c:if test="${member != null}">
+						<div class="header__top__right__auth">
+							<a href="#" onclick="logout()"><i class="fa fa-user"></i>
+								Logout</a>
+						</div>
+					</c:if>
+
+					<c:if test="${member != null}">
+						<div class="header__top__right__auth">
+							<a href="#" onclick="scrap()"> <i class="fa fa-user"></i>Scrap(임시)
+							</a>
+						</div>
+					</c:if>
+
+					<c:if test="${msg != null}">
+						<div class="header__top__right__auth">
+							<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
+						</div>
+					</c:if>
 				</div>
 			</div>
 			<div class="humberger__open">
@@ -247,25 +229,20 @@
 					</div>
 				</div>
 				<div class="col-lg-9">
-					<div class="hero__search">
-						<div class="hero__search__form">
-							<form action="#">
-								<div class="hero__search__categories">
-									All Categories <span class="arrow_carrot-down"></span>
-								</div>
-								<input type="text" placeholder="What do yo u need?">
-								<button type="submit" class="site-btn">SEARCH</button>
-							</form>
-						</div>
-						<div class="hero__search__phone">
-							<div class="hero__search__phone__icon">
-								<i class="fa fa-phone"></i>
+					<div class="hero__search__form">
+						<form action="listAll">
+							<select name="searchType">
+								<option value="t"
+									<c:out value="${scri.searchType eq 't' ? 'selected' : ''}"/>>제목</option>
+								<option value="c"
+									<c:out value="${scri.searchType eq 'c' ? 'selected' : ''}"/>>내용</option>
+							</select>
+							<div>
+								<input type="text" name="keyword" id=keywordInput
+									value="${scri.keyword}" placeholder="검색할 뉴스를 입력해주세요" />
+								<button type="submit" id="searchBtn" class="site-btn">검색</button>
 							</div>
-							<div class="hero__search__phone__text">
-								<h5>+65 11.188.888</h5>
-								<span>support 24/7 time</span>
-							</div>
-						</div>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -275,7 +252,7 @@
 
 	<!-- Breadcrumb Section Begin -->
 	<section class="breadcrumb-section set-bg"
-		data-setbg="${cpath}/resources/img/breadcrumb.jpg">
+		data-setbg="${cpath}/resources/img/finance.png">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
@@ -452,16 +429,11 @@
 
 					<div class="filter__item">
 						<div class="row">
-
 							<div class="col-lg-4 col-md-4">
-								<h5>경제 뉴스</h5>
-								<div class="filter__found">
-									<h6>
-										<span></span>
-									</h6>
+								<div class="section-title">
+									<h2>헤드라인 뉴스</h2>
 								</div>
 							</div>
-
 						</div>
 					</div>
 					<div class="row">
@@ -487,42 +459,47 @@
 						</c:forEach>
 
 					</div>
-					<div class="col-lg-12">                        
-                            <div class="product__pagination blog__pagination">
-                            
-                             <c:if test="${prev}">
-                            	<a href="/news/econo_category?news_categorie=${categorie}&&pagingNum=${startPageNum - 1}"><i class="fa fa-long-arrow-left"></i></a>
-                             </c:if>
-                             
-                            <c:forEach begin="${startPageNum}" end="${endPageNum}" var="num"> 	
-									<c:if test="${select != num}">
-										<a href="/news/econo_category?news_categorie=${categorie}&&pagingNum=${num}">${num}</a>
-									</c:if>
-									
-									<c:if test="${select == num}">
-										[<a>${num}</a>]
-									</c:if>
-                             </c:forEach>   
-                                                                
-                             <c:if test="${next}">   
-                                <a href="/news/econo_category?news_categorie=${categorie}&&pagingNum=${endPageNum + 1}"><i class="fa fa-long-arrow-right"></i></a>
-                             </c:if>
-                                
-                            </div>                            
-                     </div>
+					<div class="col-lg-12">
+						<div class="product__pagination blog__pagination">
+
+							<c:if test="${prev}">
+								<a
+									href="/news/econo_category?news_categorie=${categorie}&&pagingNum=${startPageNum - 1}"><i
+									class="fa fa-long-arrow-left"></i></a>
+							</c:if>
+
+							<c:forEach begin="${startPageNum}" end="${endPageNum}" var="num">
+								<c:if test="${select != num}">
+									<a
+										href="/news/econo_category?news_categorie=${categorie}&&pagingNum=${num}">${num}</a>
+								</c:if>
+
+								<c:if test="${select == num}">
+									<a>${num}</a>
+								</c:if>
+							</c:forEach>
+
+							<c:if test="${next}">
+								<a
+									href="/news/econo_category?news_categorie=${categorie}&&pagingNum=${endPageNum + 1}"><i
+									class="fa fa-long-arrow-right"></i></a>
+							</c:if>
+
+						</div>
+					</div>
 				</div>
 			</div>
 	</section>
 	<!-- Product Section End -->
 
-	<!-- Footer Section Begin -->
 	<footer class="footer spad">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="footer__about">
 						<div class="footer__about__logo">
-							<a href="./index.html"><img src="img/logo.png" alt=""></a>
+							<a href="./index.html"><img
+								src="${cpath}/resources/img/logo_trans.png" alt=""></a>
 						</div>
 						<ul>
 							<li>Address: 60-49 Road 11378 New York</li>
@@ -577,7 +554,9 @@
 							<p>
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 								Copyright &copy;
-								<script>document.write(new Date().getFullYear());</script>
+								<script>
+									document.write(new Date().getFullYear());
+								</script>
 								All rights reserved | This template is made with <i
 									class="fa fa-heart" aria-hidden="true"></i> by <a
 									href="https://colorlib.com" target="_blank">Colorlib</a>
@@ -604,6 +583,25 @@
 	<script src="${cpath}/resources/js/owl.carousel.min.js"></script>
 	<script src="${cpath}/resources/js/main.js"></script>
 
+
+	<script type="text/javascript">
+		function loginPopUp() {
+			window.open("/member/login", "login",
+					"width=500, height=643, left=660, top=200");
+		}
+
+		function logout() {
+			location.href = "/member/logout";
+		}
+
+		function check() {
+			location.href = "/member/test";
+		}
+
+		function scrap() {
+			location.href = "/member/scrap?member_id=${member.member_id}&&pagingNum=1"
+		}
+	</script>
 
 
 </body>
