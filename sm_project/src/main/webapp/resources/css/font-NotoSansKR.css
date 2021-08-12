@@ -1,0 +1,32 @@
+@font-face {font-family:'NotoSansKR';
+			font-display:auto;
+			font-style:normal;
+			font-weight:400;
+			src: 	url(./fonts/NotoSansKR-Bold.woff2) format('woff2'),
+					url(./fonts/NotoSansKR-Bold.woff) format('woff'),
+					url(./fonts/NotoSansKR-Bold.otf) format('opentype';)
+					}
+	
+@font-face {font-family:'NotoSansKR';
+			font-display:auto;
+			font-style:normal;
+			font-weight:500;
+			src: 	url(./fonts/NotoSansKR-Medium.woff2) format('woff2'),
+					url(./fonts/NotoSansKR-Medium.woff) format('woff'),
+					url(./fonts/NotoSansKR-Medium.otf) format('opentype';)
+					}
+	
+@font-face {font-family:'NotoSansKR';
+			font-display:auto;
+			font-style:bold;
+			font-weight:700;
+			src: 	url(./fonts/NotoSansKR-Bold.woff2) format('woff2'),
+					url(./fonts/NotoSansKR-Bold.woff) format('woff'),
+					url(./fonts/NotoSansKR-Bold.otf) format('opentype';)
+					}
+@font-face {
+    font-family: 'IBMPlexSansKR-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
