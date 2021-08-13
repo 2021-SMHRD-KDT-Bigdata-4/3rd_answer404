@@ -89,7 +89,7 @@
          });
 
    function ajaxlist(data){
-		alert(data);
+		
 	
 		$.ajax({
 			 url : '/ajax/test', // 이 주소로 
@@ -98,14 +98,15 @@
              cache : false,
              data : {"data" : data}, // kind를 kind로 명명하여 보내겠다
              success : function(data){ 
-			alert(data);					
+								
 			var views = "<div class='row featured_filter'>";
 			
            	$.each(data,(index,obj)=>{
            				            			
            	views+="<div class='col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood'>";
            	views+="<div class='featured__item'>";
-           	views+="<div class='featured__item__pic set-bg' data-setbg='"+obj.news_image+"'>";
+           	views+="<div class='featured__item__pic set-bg'>";
+     		views+="<img class='featured__item__pic' src='"+obj.news_image+"'>"
            	views+="<ul class='featured__item__pic__hover'>";
            	views+="<li><a href='#'><i class='fa fa-heart'></i></a></li>";
            	views+="</ul>";
@@ -346,57 +347,20 @@
 
 	<!-- Categories Section Begin -->
 	<section class="categories">
-		<div class="section-title">
-			<h2>헤드라인 뉴스</h2>
-			
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="categories__slider owl-carousel">
-					<div class="col-lg-3">
-						<div class="categories__item set-bg"
-							data-setbg="${cpath}/resources/img/categories/cat-1.jpg">
-							<h5>
-								<a href="#">Fresh Fruit</a>
-							</h5>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="categories__item set-bg"
-							data-setbg="${cpath}/resources/img/categories/cat-2.jpg">
-							<h5>
-								<a href="#">Dried Fruit</a>
-							</h5>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="categories__item set-bg"
-							data-setbg="${cpath}/resources/img/categories/cat-3.jpg">
-							<h5>
-								<a href="#">Vegetables</a>
-							</h5>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="categories__item set-bg"
-							data-setbg="${cpath}/resources/img/categories/cat-4.jpg">
-							<h5>
-								<a href="#">drink fruits</a>
-							</h5>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="categories__item set-bg"
-							data-setbg="${cpath}/resources/img/categories/cat-5.jpg">
-							<h5>
-								<a href="#">drink fruits</a>
-							</h5>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+        <div class="container">
+            <div class="row">
+                <div class="categories__slider owl-carousel">
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg" data-setbg="">
+                            <h5><a href="#">Fresh Fruit</a></h5>
+                        </div>
+                    </div>
+                   
+                   
+                </div>
+            </div>
+        </div>
+    </section>
 	<!-- Categories Section End -->
 
 	<!-- Featured Section Begin -->
