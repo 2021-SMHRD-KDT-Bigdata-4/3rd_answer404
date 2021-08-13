@@ -94,6 +94,8 @@
 		$.ajax({
 			 url : '/ajax/test', // 이 주소로 
              type : "post", // 포스트 방식으로 보내는데
+             dataType : "json",
+             cache : false,
              data : {"data" : data}, // kind를 kind로 명명하여 보내겠다
              success : function(data){ 
 			alert(data);					
@@ -110,7 +112,9 @@
            	views+="</div>";
            	views+="<div class='featured__item__text'>";
            	views+="<c:if test='${member == null}'>";
-           	views+="<h5><a href='/news/detailViews?news_index="+obj.news_index+"'<c:out value='"+obj.news_title+"'/></a>";
+           	views+="<h5><a href='/news/detailView?news_index="+obj.news_index+"'>"
+           	views+="<h5>"+obj.news_title+"</h5>"
+           	views+="</a>";
            	views+="</h5>";
            	views+="</c:if>";
            	views+="<c:if test='${member !=null}'>";
@@ -344,6 +348,7 @@
 	<section class="categories">
 		<div class="section-title">
 			<h2>헤드라인 뉴스</h2>
+			
 		</div>
 		<div class="container">
 			<div class="row">
