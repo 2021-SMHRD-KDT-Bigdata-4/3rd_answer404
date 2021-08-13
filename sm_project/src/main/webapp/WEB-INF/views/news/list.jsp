@@ -80,6 +80,14 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
+
+$( document ).ready(function() {
+    ajaxlist("경제");
+});
+
+
+
+
    $('#searchBtn').click(
          function() {
             self.location = "list" + '${pageMaker.makeQuery(1)}'
@@ -297,11 +305,17 @@
 							<span>조회수 순위</span>
 						</div>
 						<ul>
-						
-							<c:forEach var="list"  items="${countStatisticslist}"  varStatus="status">
-								<li><a href="#">[${status.count}]. ${list.news_title}</a></li>
-							</c:forEach> 
-							
+							<li><a href="#">Fresh Meat</a></li>
+							<li><a href="#">Vegetables</a></li>
+							<li><a href="#">Fruit & Nut Gifts</a></li>
+							<li><a href="#">Fresh Berries</a></li>
+							<li><a href="#">Ocean Foods</a></li>
+							<li><a href="#">Butter & Eggs</a></li>
+							<li><a href="#">Fastfood</a></li>
+							<li><a href="#">Fresh Onion</a></li>
+							<li><a href="#">Papayaya & Crisps</a></li>
+							<li><a href="#">Oatmeal</a></li>
+							<li><a href="#">Fresh Bananas</a></li>
 						</ul>
 					</div>
 				</div>
@@ -340,8 +354,6 @@
 	<!-- Hero Section End -->
 
 	
-	
-
 	<!-- Featured Section Begin -->
 	<section class="featured spad">
 		<div class="container">
