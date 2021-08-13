@@ -32,13 +32,13 @@ public class NewsDAOImpl implements NewsDAO{
 	}
 	
 	// 카테고리별 뉴스
-	public List<NewsVO> categorie(String news_categorie,int displayPost,int displayPostEnd) throws Exception{
+	public List<NewsVO> category(String news_category,int displayPost,int displayPostEnd) throws Exception{
 			HashMap data = new HashMap();
-			data.put("news_categorie", news_categorie);
+			data.put("news_category", news_category);
 			data.put("displayPost", displayPost);
 			data.put("displayPostEnd", displayPostEnd);
 		
-			return sqlSession.selectList("newsMapper.categorie",data);
+			return sqlSession.selectList("newsMapper.category",data);
 		}
 	
 	// 뉴스 목록 조회
@@ -66,9 +66,9 @@ public class NewsDAOImpl implements NewsDAO{
 	}
 	
 	@Override
-	public int categorieCount(String news_categorie) throws Exception {
+	public int categoryCount(String news_category) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectOne("newsMapper.categorieCount",news_categorie);
+		return sqlSession.selectOne("newsMapper.categoryCount",news_category);
 	}
 	
 	public MemberVO detailViewStatistics(String member_id) throws Exception{
@@ -90,10 +90,10 @@ public class NewsDAOImpl implements NewsDAO{
 	
 	// 카테고리 ajax 
 	@Override
-	public List<NewsVO> selectCategorie(String news_categorie) throws Exception {
+	public List<NewsVO> selectCategory(String news_category) throws Exception {
 	
 		
-		return sqlSession.selectList("newsMapper.selectCategorie",news_categorie);
+		return sqlSession.selectList("newsMapper.selectCategory",news_category);
 	}	
 
 	

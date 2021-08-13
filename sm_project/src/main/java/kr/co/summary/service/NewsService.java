@@ -28,19 +28,19 @@ public interface NewsService {
 	public int listCount(SearchCriteria scri) throws Exception;
 	
 	// 카테고리별 뉴스
-	public List<NewsVO> categorie(String news_categorie,int displayPost,int displayPostEnd) throws Exception;
+	public List<NewsVO> category(String news_category,int displayPost,int displayPostEnd) throws Exception;
 	
 	// 조회수 +1
 	public int plusCnt(int news_index) throws Exception;
 
 
-	public int categorieCount(String news_categorie) throws Exception;
+	public int categoryCount(String news_category) throws Exception;
 	
 	public MemberVO detailViewStatistics(String member_id) throws Exception;	
 	
 	public void StatisticsUpdate(String membervo_age_range,String membervo_gender,String news_keyword) throws Exception;
 	
-	public List<NewsVO> selectCategorie(String news_categorie) throws Exception;
+	public List<NewsVO> selectCategory(String news_category) throws Exception;
 	
 	
 }
