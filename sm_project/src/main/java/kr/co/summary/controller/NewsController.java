@@ -112,21 +112,21 @@ public class NewsController {
 	// 페이지네이션을 적용
 	// econo_category 로 경제 눌렀을때 open되게 바꿈.
 	@RequestMapping(value = "/econo_category", method = RequestMethod.GET)
-	public String econolist(String news_categorie, int pagingNum, Model model) throws Exception {
-		logger.info("categorie");
-		System.out.println("여기까지 요청처리 잘됨1    "+news_categorie+"    "+pagingNum);
-		int count = service.categorieCount(news_categorie);
+	public String econolist(String news_category, int pagingNum, Model model) throws Exception {
+		logger.info("category");
+		System.out.println("여기까지 요청처리 잘됨1    "+news_category+"    "+pagingNum);
+		int count = service.categoryCount(news_category);
 		
 		model.addAttribute("count", count);// 전체 게시물의 수
-		model.addAttribute("categorie", news_categorie);
+		model.addAttribute("category", news_category);
 		
-		System.out.println("여기까지 요청처리 잘됨2"+news_categorie+"    "+pagingNum);
+		System.out.println("여기까지 요청처리 잘됨2"+news_category+"    "+pagingNum);
 		
 		int postNum = 9; //[한페이지당 보여줄 게시물 수] 
 		int displayPost = (pagingNum -1) * postNum +1; //현제 페이지 첫번째 게시물 인덱스
 		int displayPostEnd =  pagingNum * postNum; //현재 페이지 마지막 게시물 인덱스
 		
-		model.addAttribute("news_categorie", service.categorie(news_categorie,displayPost,displayPostEnd));
+		model.addAttribute("news_category", service.category(news_category,displayPost,displayPostEnd));
 		
 		int pageNum = (int)Math.ceil((double)count/postNum); //총 페이징 번호 갯수
 		model.addAttribute("pageNum",pageNum);

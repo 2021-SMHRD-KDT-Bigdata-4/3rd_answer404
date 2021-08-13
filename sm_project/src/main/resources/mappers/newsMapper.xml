@@ -6,24 +6,24 @@
    
    <!-- 뉴스 작성 -->
    <insert id="insert">
-   	   insert into news(news_index,news_title,news_contents,news_categorie,news_url) 
-   values (NEWS_INDEX_SEQ.nextval,#{news_title},#{news_contents},#{news_categorie},#{news_url});
+   	   insert into news(news_index,news_title,news_contents,news_category,news_url) 
+   values (NEWS_INDEX_SEQ.nextval,#{news_title},#{news_contents},#{news_category},#{news_url});
    	
    </insert>
 	
 	<!-- 상세보기 -->
 	<select id="detail" parameterType="int" resultType="kr.co.summary.domain.NewsVO">
 		select news_index,news_title,news_contents,news_summary,news_keyword,news_company,news_count,news_date,news_url,
-		news_categorie,news_image
+		news_category,news_image
 		from news where news_index = #{news_index}
 	
 	</select>
 	
 	<!-- 카테고리별 뉴스 가져오기 -->
-	<select id="categorie" resultType="kr.co.summary.domain.NewsVO">
+	<select id="category" resultType="kr.co.summary.domain.NewsVO">
 		select * from
 		(select rownum as rnum, n.* 
-		from news n where news_categorie = #{news_categorie} 
+		from news n where news_category = #{news_category} 
 		order by n.news_index desc)
 		where rnum between #{displayPost} and #{displayPostEnd}
 	</select>
@@ -32,8 +32,8 @@
    <!-- 페이지네이션 -->
    <select id="listpage" resultType="kr.co.summary.domain.NewsVO" parameterType="kr.co.summary.domain.Criteria">
    
-		  select news_index,news_title,news_contents,news_date,news_count,news_categorie,news_image,news_url,news_company,news_keyword
-	from( select news_index,news_title,news_contents,news_date,news_count,news_categorie,news_image,news_url,news_company,news_keyword,
+		  select news_index,news_title,news_contents,news_date,news_count,news_category,news_image,news_url,news_company,news_keyword
+	from( select news_index,news_title,news_contents,news_date,news_count,news_category,news_image,news_url,news_company,news_keyword,
 	row_number() over(order by news_index desc) as rNum from news 
 	where 1=1<include refid="search"></include>
 	)ns
@@ -55,7 +55,7 @@
    </sql>
    
    <select id="newsAjaxList" resultType="kr.co.summary.domain.NewsVO">
-   	select * from news where news_categorie ='사회'
+   	select * from news where news_category ='사회'
    
    </select>
    
@@ -63,8 +63,8 @@
  	 UPDATE news SET news_count = news_count + 1 WHERE news_index = #{news_index}
 	</update>
 	
-   <select id="categorieCount" resultType="int">
-   		select count(news_index) from news where news_categorie = #{news_categorie}   
+   <select id="categoryCount" resultType="int">
+   		select count(news_index) from news where news_category = #{news_category}   
    </select>
    
    <select id="detailViewStatistics" resultType="kr.co.summary.domain.MemberVO">
@@ -77,10 +77,10 @@
    	</insert>
    	
    	
-   	<select id="selectCategorie" resultType="kr.co.summary.domain.NewsVO">  		
+   	<select id="selectCategory" resultType="kr.co.summary.domain.NewsVO">  		
    	select * from
 	(select rownum as rnum, n.* 
-	from news n where news_categorie = #{news_categorie}
+	from news n where news_category = #{news_category}
 	order by n.news_index desc)
 	where rnum between 1 and 8
    	

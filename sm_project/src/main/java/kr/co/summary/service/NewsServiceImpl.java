@@ -26,8 +26,8 @@ public class NewsServiceImpl implements NewsService{
 	}
 	
 	// 카테고리별 뉴스
-	public List<NewsVO> categorie(String news_categorie,int displayPost,int displayPostEnd) throws Exception{
-			return dao.categorie(news_categorie,displayPost,displayPostEnd);
+	public List<NewsVO> category(String news_category,int displayPost,int displayPostEnd) throws Exception{
+			return dao.category(news_category,displayPost,displayPostEnd);
 		}
 	
 	// 뉴스 상세보기
@@ -58,8 +58,8 @@ public class NewsServiceImpl implements NewsService{
 	}
 
 	@Override
-	public int categorieCount(String news_categorie) throws Exception {
-		return dao.categorieCount(news_categorie);
+	public int categoryCount(String news_category) throws Exception {
+		return dao.categoryCount(news_category);
 	}
 	
 	public MemberVO detailViewStatistics(String member_id) throws Exception{		
@@ -71,10 +71,10 @@ public class NewsServiceImpl implements NewsService{
 	}
 
 	@Override
-	public List<NewsVO> selectCategorie(String news_categorie) throws Exception {
+	public List<NewsVO> selectCategory(String news_category) throws Exception {
 		
 		
-		return dao.selectCategorie(news_categorie);
+		return dao.selectCategory(news_category);
 	}
 	
 }

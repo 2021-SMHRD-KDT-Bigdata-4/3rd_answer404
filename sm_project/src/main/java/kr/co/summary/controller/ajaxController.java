@@ -25,8 +25,8 @@ public class ajaxController {
 	public @ResponseBody List<NewsVO> boardListAjax(String data) throws Exception {
 		
 		System.out.println(data);
-		String news_categorie = data;		
-		List<NewsVO> list = service.selectCategorie(news_categorie);	
+		String news_category = data;		
+		List<NewsVO> list = service.selectCategory(news_category);	
 		System.out.println(list.get(0).getNews_company());
 		System.out.println(list);
 		

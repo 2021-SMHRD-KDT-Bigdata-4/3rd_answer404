@@ -12,7 +12,7 @@ import oracle.sql.TIMESTAMP;
     news_count      NUMBER(20) DEFAULT 0,
     news_date       DATE,
     news_url        VARCHAR2(4000) NOT NULL,
-    news_kategorie  VARCHAR2(100) NOT NULL,
+    news_kategory  VARCHAR2(100) NOT NULL,
     news_image      VARCHAR2(4000)
  */
 @Data
@@ -27,6 +27,6 @@ public class NewsVO {
 	private int news_count;
 	private Date news_date;
 	private String news_url;
-	private String news_categorie;
+	private String news_category;
 	private String news_image;
 }

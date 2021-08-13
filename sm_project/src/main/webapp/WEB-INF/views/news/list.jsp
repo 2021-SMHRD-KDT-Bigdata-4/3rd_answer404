@@ -128,7 +128,7 @@
            	views+="</div>";	            									
            	});
            	views+="</div>"	;
-           	$("#categorielist").html(views);
+           	$("#categorylist").html(views);
            	
              },
              error : function(data){ alert('error');}
@@ -242,11 +242,11 @@
 						<ul>
 							<li class="active"><a href="./list">Home</a></li>
 							<li><a
-								href="${capth}./econo_category?news_categorie=경제&&pagingNum=1">경제</a></li>
-							<li><a href="${capth}./society_category?news_categorie=사회">사회</a></li>
-							<li><a href="${capth}./politics_category?news_categorie=정치">정치</a></li>
+								href="${capth}./econo_category?news_category=경제&&pagingNum=1">경제</a></li>
+							<li><a href="${capth}./society_category?news_category=사회">사회</a></li>
+							<li><a href="${capth}./politics_category?news_category=정치">정치</a></li>
 							<li><a
-								href="${capth}./ITscience_category?news_categorie=IT/과학">IT/과학</a></li>
+								href="${capth}./ITscience_category?news_category=IT/과학">IT/과학</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -419,7 +419,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="categorielist"></div>
+			<div id="categorylist"></div>
 		</div>
 
 	</section>

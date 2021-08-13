@@ -437,7 +437,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<c:forEach var="list" items="${news_categorie}">
+						<c:forEach var="list" items="${news_category}">
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="product__item">
 									<div class="product__item__pic set-bg"
@@ -459,34 +459,29 @@
 						</c:forEach>
 
 					</div>
-					<div class="col-lg-12">
-						<div class="product__pagination blog__pagination">
-
-							<c:if test="${prev}">
-								<a
-									href="/news/econo_category?news_categorie=${categorie}&&pagingNum=${startPageNum - 1}"><i
-									class="fa fa-long-arrow-left"></i></a>
-							</c:if>
-
-							<c:forEach begin="${startPageNum}" end="${endPageNum}" var="num">
-								<c:if test="${select != num}">
-									<a
-										href="/news/econo_category?news_categorie=${categorie}&&pagingNum=${num}">${num}</a>
-								</c:if>
-
-								<c:if test="${select == num}">
-									<a>${num}</a>
-								</c:if>
-							</c:forEach>
-
-							<c:if test="${next}">
-								<a
-									href="/news/econo_category?news_categorie=${categorie}&&pagingNum=${endPageNum + 1}"><i
-									class="fa fa-long-arrow-right"></i></a>
-							</c:if>
-
-						</div>
-					</div>
+					<div class="col-lg-12">                        
+                            <div class="product__pagination blog__pagination">
+                            
+                             <c:if test="${prev}">
+                            	<a href="/news/econo_category?news_category=${category}&&pagingNum=${startPageNum - 1}"><i class="fa fa-long-arrow-left"></i></a>
+                             </c:if>
+                             
+                            <c:forEach begin="${startPageNum}" end="${endPageNum}" var="num"> 	
+									<c:if test="${select != num}">
+										<a href="/news/econo_category?news_category=${category}&&pagingNum=${num}">${num}</a>
+									</c:if>
+									
+									<c:if test="${select == num}">
+										[<a>${num}</a>]
+									</c:if>
+                             </c:forEach>   
+                                                                
+                             <c:if test="${next}">   
+                                <a href="/news/econo_category?news_category=${category}&&pagingNum=${endPageNum + 1}"><i class="fa fa-long-arrow-right"></i></a>
+                             </c:if>
+                                
+                            </div>                            
+                     </div>
 				</div>
 			</div>
 	</section>
