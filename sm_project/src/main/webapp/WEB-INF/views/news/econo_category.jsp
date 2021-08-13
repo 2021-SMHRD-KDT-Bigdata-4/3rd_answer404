@@ -158,12 +158,10 @@
 					<nav class="header__menu">
 						<ul>
 							<li><a href="./list">Home</a></li>
-							<li class="active"><a
-								href="${capth}./econo_category?news_categorie=경제&&pagingNum=1">경제</a></li>
-							<li><a href="${capth}./society_category?news_categorie=사회&&pagingNum=1">사회</a></li>
-							<li><a href="${capth}./politics_category?news_categorie=정치&&pagingNum=1">정치</a></li>
-							<li><a
-								href="${capth}./ITscience_category?news_categorie=IT/과학&&pagingNum=1">IT/과학</a></li>
+							<li class="active"><a href="${capth}./econo_category?news_category=경제">경제</a></li>
+							<li><a href="${capth}./society_category?news_category=사회">사회</a></li>
+							<li><a href="${capth}./politics_category?news_category=정치">정치</a></li>
+							<li><a href="${capth}./ITscience_category?news_category=IT/과학">IT/과학</a></li>
 						</ul>
 					</nav>
 				</div>
