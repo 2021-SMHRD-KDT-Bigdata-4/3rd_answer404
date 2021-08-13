@@ -75,16 +75,11 @@
 	border: 1px solid #f40;
 	background-color: #f40;
 }
-
-.nice-select {
-	height: 48px;
-	border-radius: 0;
-}
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
 
-   
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
    $('#searchBtn').click(
          function() {
             self.location = "list" + '${pageMaker.makeQuery(1)}'
@@ -92,7 +87,6 @@
                   + $("select option:selected").val() + "&keyword="
                   + encodeURIComponent($('#keywordInput').val());
          });
-
 
    function ajaxlist(data){
 		alert(data);
@@ -136,24 +130,6 @@
              error : function(data){ alert('error');}
 		});
 }
-
-
-function loginPopUp(){
-   window.open("/member/login", "login", "width=500, height=550, left=700, top=250");
-}
-
-function logout(){
-   location.href="/member/logout";
-}
-
-function check(){
-   location.href="/member/test";
-}
-
-function scrap(){
-   location.href="/member/scrap?member_id=${member.member_id}&&pagingNum=1"
-}
-
 </script>
 
 <body>
@@ -249,67 +225,6 @@ function scrap(){
 
 	<!-- Header Section Begin -->
 	<header class="header">
-		<div class="header__top">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6 col-md-6">
-						<div class="header__top__left">
-							<ul>
-								<li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-								<li>Free Shipping for all Order of $99</li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-6 col-md-6">
-						<div class="header__top__right">
-							<div class="header__top__right__social">
-								<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
-									class="fa fa-twitter"></i></a> <a href="#"><i
-									class="fa fa-linkedin"></i></a> <a href="#"><i
-									class="fa fa-pinterest-p"></i></a>
-							</div>
-							<div class="header__top__right__language">
-								<img src="img/language.png" alt="">
-								<div>English</div>
-								<span class="arrow_carrot-down"></span>
-								<ul>
-									<li><a href="#">Spanis</a></li>
-									<li><a href="#">English</a></li>
-								</ul>
-							</div>
-
-							<c:if test="${member == null}">
-								<div class="header__top__right__auth">
-									<a href="#" onclick="loginPopUp()"><i class="fa fa-user"></i>
-										Login</a>
-								</div>
-							</c:if>
-
-							<c:if test="${member != null}">
-								<div class="header__top__right__auth">
-									<a href="#" onclick="logout()"><i class="fa fa-user"></i>
-										Logout</a>
-								</div>
-							</c:if>
-
-							<c:if test="${member != null}">
-								<div class="header__top__right__auth">
-									<a href="#" onclick="scrap()"> <i class="fa fa-user"></i>Scrap(임시)
-									</a>
-								</div>
-							</c:if>
-
-							<c:if test="${msg != null}">
-								<div class="header__top__right__auth">
-									<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
-								</div>
-							</c:if>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3">
@@ -322,7 +237,6 @@ function scrap(){
 					<nav class="header__menu">
 						<ul>
 							<li class="active"><a href="./list">Home</a></li>
-
 							<li><a
 								href="${capth}./econo_category?news_category=경제&&pagingNum=1">경제</a></li>
 							<li><a href="${capth}./society_category?news_category=사회">사회</a></li>
@@ -333,15 +247,32 @@ function scrap(){
 					</nav>
 				</div>
 				<div class="col-lg-3">
-					<div class="header__cart">
-						<ul>
-							<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-							<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-						</ul>
-						<div class="header__cart__price">
-							item: <span>$150.00</span>
+					<c:if test="${member == null}">
+						<div class="header__top__right__auth">
+							<a href="#" onclick="loginPopUp()"><i class="fa fa-user"></i>
+								Login</a>
 						</div>
-					</div>
+					</c:if>
+
+
+					<c:if test="${member != null}">
+						<div class="header__top__right__auth">
+							<a href="#" onclick="logout()"><i class="fa fa-user"></i>
+								Logout</a>
+						</div>
+					</c:if>
+
+					<c:if test="${member != null}">
+						<div class="header__top__right__auth">
+							<a href="#" onclick="scrap()"> <i class="fa fa-user"></i>Scrap(임시)
+							</a>
+						</div>
+					</c:if>
+					<c:if test="${msg != null}">
+						<div class="header__top__right__auth">
+							<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
+						</div>
+					</c:if>
 				</div>
 			</div>
 			<div class="humberger__open">
@@ -376,7 +307,6 @@ function scrap(){
 					</div>
 				</div>
 				<div class="col-lg-9">
-
 					<div class="hero__search__form">
 						<form action="listAll">
 							<select name="searchType">
@@ -392,16 +322,16 @@ function scrap(){
 								<button type="submit" id="searchBtn" class="site-btn">검색</button>
 							</div>
 						</form>
-
-
 					</div>
-					<div class="hero__item set-bg" data-setbg="https://imgnews.pstatic.net/image/023/2021/08/11/0003632999_001_20210811144003855.jpg?type=w647">
+					<div class="hero__item set-bg"
+						data-setbg="https://imgnews.pstatic.net/image/023/2021/08/11/0003632999_001_20210811144003855.jpg?type=w647">
 						<div class="hero__text">
 							<span>배너</span> <a
-								href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=023&aid=0003632999&rankingType=RANKING"><h3
-									style="color: white; opacity: 0.8;">
+								href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=023&aid=0003632999&rankingType=RANKING">
+								<h3 style="color: white; opacity: 0.8;">
 									文대통령, 확진자 2000명 넘어서자<br> “세계적인 현상”
-								</h3></a> <a href="#" class="primary-btn">임시로해놨음</a>
+								</h3>
+							</a> <a href="#" class="primary-btn">임시로해놨음</a>
 						</div>
 					</div>
 				</div>
@@ -411,7 +341,6 @@ function scrap(){
 	<!-- Hero Section End -->
 
 	<!-- Categories Section Begin -->
-
 	<section class="categories">
 		<div class="section-title">
 			<h2>헤드라인 뉴스</h2>
@@ -486,11 +415,7 @@ function scrap(){
 				</div>
 			</div>
 			<div id="categorielist"></div>
-			
-			
 		</div>
-
-
 
 	</section>
 	<!-- Featured Section End -->
@@ -724,76 +649,6 @@ function scrap(){
 	</section>
 	<!-- Latest Product Section End -->
 
-	<!-- Blog Section Begin -->
-	<section class="from-blog spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="section-title from-blog__title">
-						<h2>From The Blog</h2>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="blog__item">
-						<div class="blog__item__pic">
-							<img src="img/blog/blog-1.jpg" alt="">
-						</div>
-						<div class="blog__item__text">
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-							<h5>
-								<a href="#">Cooking tips make cooking simple</a>
-							</h5>
-							<p>Sed quia non numquam modi tempora indunt ut labore et
-								dolore magnam aliquam quaerat</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="blog__item">
-						<div class="blog__item__pic">
-							<img src="img/blog/blog-2.jpg" alt="">
-						</div>
-						<div class="blog__item__text">
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-							<h5>
-								<a href="#">6 ways to prepare breakfast for 30</a>
-							</h5>
-							<p>Sed quia non numquam modi tempora indunt ut labore et
-								dolore magnam aliquam quaerat</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="blog__item">
-						<div class="blog__item__pic">
-							<img src="img/blog/blog-3.jpg" alt="">
-						</div>
-						<div class="blog__item__text">
-							<ul>
-								<li><i class="fa fa-calendar-o"></i> May 4,2019</li>
-								<li><i class="fa fa-comment-o"></i> 5</li>
-							</ul>
-							<h5>
-								<a href="#">Visit the clean farm in the US</a>
-							</h5>
-							<p>Sed quia non numquam modi tempora indunt ut labore et
-								dolore magnam aliquam quaerat</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Blog Section End -->
-
 	<!-- Footer Section Begin -->
 	<footer class="footer spad">
 		<div class="container">
@@ -802,7 +657,7 @@ function scrap(){
 					<div class="footer__about">
 						<div class="footer__about__logo">
 							<a href="./index.html"><img
-								src="${cpath}/resources/img/logo.png" alt=""></a>
+								src="${cpath}/resources/img/logo_trans.png" alt=""></a>
 						</div>
 						<ul>
 							<li>Address: 60-49 Road 11378 New York</li>
@@ -886,6 +741,24 @@ function scrap(){
 	<script src="${cpath}/resources/js/owl.carousel.min.js"></script>
 	<script src="${cpath}/resources/js/main.js"></script>
 
+	<script type="text/javascript">
+
+	function loginPopUp(){
+	   window.open("/member/login", "login", "width=500, height=643, left=660, top=200");
+	}
+
+	function logout(){
+	   location.href="/member/logout";
+	}
+
+	function check(){
+	   location.href="/member/test";
+	}
+
+	function scrap(){
+	   location.href="/member/scrap?member_id=${member.member_id}&&pagingNum=1"
+	}
+	</script>
 
 
 </body>

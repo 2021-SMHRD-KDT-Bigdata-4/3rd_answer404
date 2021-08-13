@@ -147,78 +147,58 @@
 	</div>
 	<!-- Humberger End -->
 
+	
 	<!-- Header Section Begin -->
 	<header class="header">
-		<div class="header__top">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="header__top__left">
-							<ul>
-								<li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
-								<li>Free Shipping for all Order of $99</li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="header__top__right">
-							<div class="header__top__right__social">
-								<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
-									class="fa fa-twitter"></i></a> <a href="#"><i
-									class="fa fa-linkedin"></i></a> <a href="#"><i
-									class="fa fa-pinterest-p"></i></a>
-							</div>
-							<div class="header__top__right__language">
-								<img src="img/language.png" alt="">
-								<div>English</div>
-								<span class="arrow_carrot-down"></span>
-								<ul>
-									<li><a href="#">Spanis</a></li>
-									<li><a href="#">English</a></li>
-								</ul>
-							</div>
-							<div class="header__top__right__auth">
-								<a href="#"><i class="fa fa-user"></i> Login</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="header__logo">
-						<a href="./index.html"><img src="img/logo.png" alt=""></a>
+						<a href="./list"><img src="${cpath}/resources/img/logo.png"
+							alt=""></a>
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<nav class="header__menu">
 						<ul>
-							<li><a href="./index.html">Home</a></li>
-							<li class="active"><a href="./shop-grid.html">Shop</a></li>
-							<li><a href="#">Pages</a>
-								<ul class="header__menu__dropdown">
-									<li><a href="./shop-details.html">Shop Details</a></li>
-									<li><a href="./shoping-cart.html">Shoping Cart</a></li>
-									<li><a href="./checkout.html">Check Out</a></li>
-									<li><a href="./blog-details.html">Blog Details</a></li>
-								</ul></li>
-							<li><a href="./blog.html">Blog</a></li>
-							<li><a href="./contact.html">Contact</a></li>
+							<li class="active"><a href="./list">Home</a></li>
+
+							<li><a
+								href="${capth}./econo_category?news_categorie=경제&&pagingNum=1">경제</a></li>
+							<li><a href="${capth}./society_category?news_categorie=사회">사회</a></li>
+							<li><a href="${capth}./politics_category?news_categorie=정치">정치</a></li>
+							<li><a
+								href="${capth}./ITscience_category?news_categorie=IT/과학">IT/과학</a></li>
 						</ul>
 					</nav>
 				</div>
 				<div class="col-lg-3">
-					<div class="header__cart">
-						<ul>
-							<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-							<li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-						</ul>
-						<div class="header__cart__price">
-							item: <span>$150.00</span>
+					<c:if test="${member == null}">
+						<div class="header__top__right__auth">
+							<a href="#" onclick="loginPopUp()"><i class="fa fa-user"></i>
+								Login</a>
 						</div>
-					</div>
+					</c:if>
+
+					<c:if test="${member != null}">
+						<div class="header__top__right__auth">
+							<a href="#" onclick="logout()"><i class="fa fa-user"></i>
+								Logout</a>
+						</div>
+					</c:if>
+
+					<c:if test="${member != null}">
+						<div class="header__top__right__auth">
+							<a href="#" onclick="scrap()"> <i class="fa fa-user"></i>Scrap(임시)
+							</a>
+						</div>
+					</c:if>
+
+					<c:if test="${msg != null}">
+						<div class="header__top__right__auth">
+							<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
+						</div>
+					</c:if>
 				</div>
 			</div>
 			<div class="humberger__open">
@@ -261,15 +241,12 @@
 								<option value="c"
 									<c:out value="${scri.searchType eq 'c' ? 'selected' : ''}"/>>내용</option>
 							</select>
-
 							<div>
 								<input type="text" name="keyword" id=keywordInput
 									value="${scri.keyword}" placeholder="검색할 뉴스를 입력해주세요" />
 								<button type="submit" id="searchBtn" class="site-btn">검색</button>
 							</div>
 						</form>
-
-
 					</div>
 				</div>
 			</div>
@@ -279,7 +256,7 @@
 
 	<!-- Breadcrumb Section Begin -->
 	<section class="breadcrumb-section set-bg"
-		data-setbg="${cpath}/resources/img/breadcrumb.jpg">
+		data-setbg="${cpath}/resources/img/finance.png">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
@@ -384,14 +361,14 @@
 	</section>
 	<!-- Shoping Cart Section End -->
 
-	<!-- Footer Section Begin -->
 	<footer class="footer spad">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="footer__about">
 						<div class="footer__about__logo">
-							<a href="./index.html"><img src="img/logo.png" alt=""></a>
+							<a href="./index.html"><img
+								src="${cpath}/resources/img/logo_trans.png" alt=""></a>
 						</div>
 						<ul>
 							<li>Address: 60-49 Road 11378 New York</li>
@@ -475,7 +452,25 @@
 	<script src="${cpath}/resources/js/owl.carousel.min.js"></script>
 	<script src="${cpath}/resources/js/main.js"></script>
 
+	
+	<script type="text/javascript">
 
+	function loginPopUp(){
+	   window.open("/member/login", "login", "width=500, height=643, left=660, top=200");
+	}
+
+	function logout(){
+	   location.href="/member/logout";
+	}
+
+	function check(){
+	   location.href="/member/test";
+	}
+
+	function scrap(){
+	   location.href="/member/scrap?member_id=${member.member_id}&&pagingNum=1"
+	}
+	</script>
 </body>
 
 </html>
