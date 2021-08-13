@@ -77,4 +77,8 @@ public class NewsServiceImpl implements NewsService{
 		return dao.selectCategory(news_category);
 	}
 	
+	public List<NewsVO> countStatistics() throws Exception{
+		return dao.countStatistics();
+	}
+	
 }

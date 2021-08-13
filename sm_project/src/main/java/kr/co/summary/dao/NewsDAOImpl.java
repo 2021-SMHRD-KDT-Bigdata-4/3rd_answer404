@@ -96,7 +96,9 @@ public class NewsDAOImpl implements NewsDAO{
 		return sqlSession.selectList("newsMapper.selectCategory",news_category);
 	}	
 
-	
+	public List<NewsVO> countStatistics() throws Exception{
+		return sqlSession.selectList("newsMapper.countStatistics");
+	}
 	
 
 }
