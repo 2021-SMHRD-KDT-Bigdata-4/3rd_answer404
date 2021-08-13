@@ -162,6 +162,7 @@
 							<li><a href="${capth}./society_category?news_category=사회&&pagingNum=1">사회</a></li>
 							<li><a href="${capth}./politics_category?news_category=정치&&pagingNum=1">정치</a></li>
 							<li><a href="${capth}./itscience_category?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
+
 						</ul>
 					</nav>
 				</div>

@@ -1,5 +1,7 @@
 package kr.co.summary.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.slf4j.LoggerFactory;
@@ -8,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.NewsVO;
@@ -51,6 +52,9 @@ public class NewsController {
 		pageMaker.setTotalCount(service.listCount(scri));
 
 		model.addAttribute("pageMaker", pageMaker);
+		// 통계용 최신 + 조회수 코드 올리기
+		List<NewsVO> countStatisticslist = service.countStatistics();
+		model.addAttribute("countStatisticslist", countStatisticslist);
 
 		return "news/list";
 

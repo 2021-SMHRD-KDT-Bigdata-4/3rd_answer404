@@ -35,6 +35,8 @@ public interface NewsDAO {
 	public void StatisticsUpdate(String membervo_age_range,String membervo_gender,String news_keyword) throws Exception;
 	
 	public List<NewsVO> selectCategory(String news_category) throws Exception;
+	
+	public List<NewsVO> countStatistics() throws Exception;
 
 	
 }
