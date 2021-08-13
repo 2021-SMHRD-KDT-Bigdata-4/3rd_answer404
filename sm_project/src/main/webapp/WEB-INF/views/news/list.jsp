@@ -414,7 +414,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="categorielist"></div>
+			<div id="categorylist"></div>
 		</div>
 
 	</section>
