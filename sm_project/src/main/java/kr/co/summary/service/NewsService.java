@@ -42,5 +42,7 @@ public interface NewsService {
 	
 	public List<NewsVO> selectCategory(String news_category) throws Exception;
 	
+	public List<NewsVO> countStatistics() throws Exception;
+	
 	
 }

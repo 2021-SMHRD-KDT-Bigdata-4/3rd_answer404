@@ -1,5 +1,7 @@
 package kr.co.summary.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.slf4j.LoggerFactory;
@@ -51,6 +53,9 @@ public class NewsController {
 		pageMaker.setTotalCount(service.listCount(scri));
 
 		model.addAttribute("pageMaker", pageMaker);
+		// 통계용 최신 + 조회수 코드 올리기
+		List<NewsVO> countStatisticslist = service.countStatistics();
+		model.addAttribute("countStatisticslist", countStatisticslist);
 
 		return "news/list";
 
