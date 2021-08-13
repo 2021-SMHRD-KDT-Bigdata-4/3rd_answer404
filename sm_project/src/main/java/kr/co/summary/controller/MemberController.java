@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.summary.domain.MemberVO;
+import kr.co.summary.domain.NewsVO;
 import kr.co.summary.domain.ScrapVO;
 import kr.co.summary.service.MemberService;
 
@@ -124,9 +125,20 @@ private static final org.slf4j.Logger logger =  LoggerFactory.getLogger(NewsCont
 		logger.info("scrapDelete");
 		memberservice.scrapDelete(scrap_index);
 		
-		return "/member/scrap?member_id="+member_id+"&&pagingNum="+1;
+		return "redirect:/member/scrap?member_id="+member_id+"&&pagingNum="+1;
 	}
 	
+	//상세페이지에서 스크랩버튼 눌렀을때 insert 
+	@RequestMapping("scrapInsert")	
+	public String scrapInsert( ScrapVO scrapvo) throws Exception{
+		logger.info("scrapInsert");
+				//System.out.println(newsvo.getNews_title());
+				System.out.println("---------------------");
+				System.out.println(scrapvo);				
+				System.out.println("scrapinsert");
+				memberservice.scrapInsert(scrapvo);
+		return "redirect:/member/scrap?member_id="+scrapvo.getMember_id()+"&&pagingNum="+1;
+	}
 	//스크랩햇던것들을 전부 보여주기 +페이징
 	@RequestMapping("scrap")
 	public String scrap(Model model, String member_id, @RequestParam("pagingNum") int pagingNum) throws Exception{
@@ -135,7 +147,7 @@ private static final org.slf4j.Logger logger =  LoggerFactory.getLogger(NewsCont
 		// @RequestParam 으로 받아온 paingNum은 현재 보여줄 페이지번호에 해당
 		//게시물수 카운트
 		
-		
+	
 		
 		int count = memberservice.scrapCount();
 		model.addAttribute("count", count);

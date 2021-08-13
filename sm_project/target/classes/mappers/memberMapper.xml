@@ -26,5 +26,10 @@
 	<delete id="scrapDelete">
 		delete from scrap where scrap_index= #{scrap_index}
 	</delete>
-	
+	<insert id="scrapInsert">
+	     
+	    insert into scrap(SCRAP_INDEX,NEWS_INDEX,NEWS_TITLE,NEWS_IMAGE,MEMBER_ID)
+	    values ( scrap_index_seq.nextval,#{news_index},#{news_title},#{news_image},#{member_id})
+	    
+	</insert>
   </mapper>

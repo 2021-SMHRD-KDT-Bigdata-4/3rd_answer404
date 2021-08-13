@@ -20,4 +20,6 @@ public interface MemberService {
 	public int scrapCount() throws Exception;
 	
 	public void scrapDelete(int scrap_index) throws Exception;
+
+	public void scrapInsert(ScrapVO scrapvo) throws Exception;
 }

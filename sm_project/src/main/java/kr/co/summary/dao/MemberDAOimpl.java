@@ -51,4 +51,10 @@ public class MemberDAOimpl implements MemberDAO {
 	public void scrapDelete(int scrap_index) throws Exception{
 		sqlSession.delete("memberMapper.scrapDelete",scrap_index);
 	}
+
+	@Override
+	public void scrapInsert(ScrapVO scrapvo) throws Exception {
+		sqlSession.insert("memberMapper.scrapInsert",scrapvo);
+		
+	}
 }

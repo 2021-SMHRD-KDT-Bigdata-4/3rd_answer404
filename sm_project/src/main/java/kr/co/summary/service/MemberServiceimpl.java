@@ -38,5 +38,11 @@ public class MemberServiceimpl implements MemberService{
 	public void scrapDelete(int scrap_index) throws Exception{
 		dao.scrapDelete(scrap_index);
 	}
+
+	@Override
+	public void scrapInsert(ScrapVO scrapvo) throws Exception {
+		dao.scrapInsert(scrapvo);
+		
+	}
 	
 }
