@@ -122,7 +122,7 @@ public class NewsController {
 		
 		System.out.println("여기까지 요청처리 잘됨2"+news_category+"    "+pagingNum);
 		
-		int postNum = 6; //[한페이지당 보여줄 게시물 수] 
+		int postNum = 9; //[한페이지당 보여줄 게시물 수] 
 		int displayPost = (pagingNum -1) * postNum +1; //현제 페이지 첫번째 게시물 인덱스
 		int displayPostEnd =  pagingNum * postNum; //현재 페이지 마지막 게시물 인덱스
 		

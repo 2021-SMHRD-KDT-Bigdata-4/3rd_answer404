@@ -28,6 +28,7 @@ public class ajaxController {
 		String news_category = data;		
 		List<NewsVO> list = service.selectCategory(news_category);	
 		System.out.println(list.get(0).getNews_company());
+		System.out.println(list);
 		
 		return list;
 	}
