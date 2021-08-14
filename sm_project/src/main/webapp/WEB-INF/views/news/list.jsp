@@ -111,23 +111,28 @@ $( document ).ready(function() {
               views+="<div class='col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood'>";
               views+="<div class='featured__item'>";
               views+="<div class='featured__item__pic set-bg'>";
-           views+="<img class='featured__item__pic' src='"+obj.news_image+"'>"
+           	  views+="<img class='featured__item__pic' src='"+obj.news_image+"'>"
               views+="<ul class='featured__item__pic__hover'>";
               views+="<li><a href='#'><i class='fa fa-heart'></i></a></li>";
               views+="</ul>";
               views+="</div>";
               views+="<div class='featured__item__text'>";
+              
               views+="<c:if test='${member == null}'>";
               views+="<h5><a href='/news/detailView?news_index="+obj.news_index+"'>"
+            		  
               views+="<h5>"+obj.news_title+"</h5>"
               views+="</a>";
               views+="</h5>";
               views+="</c:if>";
+              
               views+="<c:if test='${member !=null}'>";
               views+="<h5><a href='/news/detailViewsStatistics?news_index="+obj.news_index+"&&member_id=${member.member_id}'>";
-              views+="<c:out value="+obj.news_title+"/>";
+              
+              views+="<h5>"+obj.news_title+"</h5>"
               views+="</a>";
               views+="</h5>";
+              
               views+="</c:if>";
               views+="</div>";
               views+="</div>";
@@ -396,196 +401,146 @@ $( document ).ready(function() {
          <div class="row">
             <div class="col-lg-4 col-md-6">
                <div class="latest-product__text">
-                  <h4>사회통계</h4>
+                  <h4>성별별 선호 키워드</h4>
                   <div class="latest-product__slider owl-carousel">
                      <div class="latest-prdouct__slider__item">
-                        <a href="#" class="latest-product__item">
-                           <div class="latest-product__item__pic">
-                              <img src="${cpath}/resources/img/latest-product/lp-1.jpg"
-                                 alt="">
-                           </div>
-                           <div class="latest-product__item__text">
-                              <h6>Crab Pool Security</h6>
-                              <span>$30.00</span>
-                           </div>
-                        </a> <a href="#" class="latest-product__item">
-                           <div class="latest-product__item__pic">
-                              <img src="${cpath}/resources/img/latest-product/lp-2.jpg"
-                                 alt="">
-                           </div>
-                           <div class="latest-product__item__text">
-                              <h6>Crab Pool Security</h6>
-                              <span>$30.00</span>
-                           </div>
-                        </a> <a href="#" class="latest-product__item">
-                           <div class="latest-product__item__pic">
-                              <img src="${cpath}/resources/img/latest-product/lp-3.jpg"
-                                 alt="">
-                           </div>
-                           <div class="latest-product__item__text">
-                              <h6>Crab Pool Security</h6>
-                              <span>$30.00</span>
-                           </div>
-                        </a>
+                     
+                     	<h4>남성 선호 키워드</h4>
+                     	<c:forEach var="list"  items="${staticmaleUp}"  varStatus="status">
+	                        <a href="#" class="latest-product__item">                        
+	                           <div class="latest-product__item__text">	                           	
+	                              <h6>[${status.count}]. ${list.news_keyword}</h6>
+	                           </div>                         
+	                        </a>
+                         </c:forEach>
+                          
+                     </div>
+                    <div class="latest-prdouct__slider__item">
+                     
+                     	<h4>남성 선호 키워드</h4>
+                     	<c:forEach var="list"  items="${staticmaleDown}"  varStatus="status">
+	                        <a href="#" class="latest-product__item">                        
+	                           <div class="latest-product__item__text">	                           	
+	                              <h6>[${status.count + 5}]. ${list.news_keyword}</h6>
+	                           </div>                         
+	                        </a>
+                         </c:forEach>
+                          
                      </div>
                      <div class="latest-prdouct__slider__item">
-                        <a href="#" class="latest-product__item">
-                           <div class="latest-product__item__pic">
-                              <img src="https://imgnews.pstatic.net/image/023/2021/08/11/0003632999_001_20210811144003855.jpg?type=w647
-                                 alt="">
-                           </div>
-                           <div class="latest-product__item__text">
-                              <h6>Crab Pool Security</h6>
-                              <span>$30.00</span>
-                           </div>
-                        </a> <a href="#" class="latest-product__item">
-                           <div class="latest-product__item__pic">
-                              <img src="https://imgnews.pstatic.net/image/023/2021/08/11/0003632999_001_20210811144003855.jpg?type=w647"
-                                 alt="">
-                           </div>
-                           <div class="latest-product__item__text">
-                              <h6>Crab Pool Security</h6>
-                              <span>$30.00</span>
-                           </div>
-                        </a> <a href="#" class="latest-product__item">
-                           <div class="latest-product__item__pic">
-                              <img src="https://imgnews.pstatic.net/image/023/2021/08/11/0003632999_001_20210811144003855.jpg?type=w647"
-                                 alt="">
-                           </div>
-                           <div class="latest-product__item__text">
-                              <h6>Crab Pool Security</h6>
-                              <span>$30.00</span>
-                           </div>
-                        </a>
+                     
+                     	<h4>여성 선호 키워드</h4>
+                     	<c:forEach var="list"  items="${staticfemaleUp}"  varStatus="status">
+	                        <a href="#" class="latest-product__item">                        
+	                           <div class="latest-product__item__text">	                           	
+	                              <h6>[${status.count}]. ${list.news_keyword}</h6>
+	                           </div>                         
+	                        </a>
+                         </c:forEach>
+                          
                      </div>
                      <div class="latest-prdouct__slider__item">
-                        <a href="#" class="latest-product__item">
-                           <div class="latest-product__item__pic">
-                              <img src="${cpath}/resources/img/latest-product/lp-1.jpg"
-                                 alt="">
-                           </div>
-                           <div class="latest-product__item__text">
-                              <h6>Crab Pool Security</h6>
-                              <span>$100.00</span>
-                           </div>
-                        </a> <a href="#" class="latest-product__item">
-                           <div class="latest-product__item__pic">
-                              <img src="${cpath}/resources/img/latest-product/lp-2.jpg"
-                                 alt="">
-                           </div>
-                           <div class="latest-product__item__text">
-                              <h6>Crab Pool Security</h6>
-                              <span>$100.00</span>
-                           </div>
-                        </a> <a href="#" class="latest-product__item">
-                           <div class="latest-product__item__pic">
-                              <img src="${cpath}/resources/img/latest-product/lp-3.jpg"
-                                 alt="">
-                           </div>
-                           <div class="latest-product__item__text">
-                              <h6>Crab Pool Security</h6>
-                              <span>$100.00</span>
-                           </div>
-                        </a>
+                     
+                     	<h4>여성 선호 키워드</h4>
+                     	<c:forEach var="list"  items="${staticfemaleDown}"  varStatus="status">
+	                        <a href="#" class="latest-product__item">                        
+	                           <div class="latest-product__item__text">	                           	
+	                              <h6>[${status.count + 5}]. ${list.news_keyword}</h6>
+	                           </div>                         
+	                        </a>
+                         </c:forEach>
+                          
                      </div>
                   </div>
                </div>
             </div>
             <div class="col-lg-4 col-md-6">
                <div class="latest-product__text">
-                  <h4>정치통계</h4>
+                  <h4>연령별 선호 통계</h4>
                   <div class="latest-product__slider owl-carousel">
-                     <div class="latest-prdouct__slider__item">
-                        <a href="#" class="latest-product__item">
-                           <div class="latest-product__item__pic">
-                              <img src="${cpath}/resources/img/latest-product/lp-1.jpg"
-                                 alt="">
-                           </div>
-                           <div class="latest-product__item__text">
-                              <h6>Crab Pool Security</h6>
-                              <span>$30.00</span>
-                           </div>
-                        </a>
-                     </div>
-                     <div class="latest-prdouct__slider__item">
-                        <a href="#" class="latest-product__item">
-                           <div class="latest-product__item__pic">
-                              <img src="${cpath}/resources/img/latest-product/lp-1.jpg"
-                                 alt="">
-                           </div>
-                           <div class="latest-product__item__text">
-                              <h6>Crab Pool Security</h6>
-                              <span>$100.00</span>
-                           </div>
-                        </a>
-                     </div>
+                  
+                       <div class="latest-prdouct__slider__item">                    
+	                     	<h4>20대 이하 선호 키워드</h4>
+	                     	<c:forEach var="list"  items="${static20}"  varStatus="status">
+		                        <a href="#" class="latest-product__item">                        
+		                           <div class="latest-product__item__text">	                           	
+		                              <h6>[${status.count}]. ${list.news_keyword}</h6>
+		                           </div>                         
+		                        </a>
+	                         </c:forEach>
+                       </div>
+                       
+                       <div class="latest-prdouct__slider__item">                    
+	                     	<h4>30대 선호 키워드</h4>
+	                     	<c:forEach var="list"  items="${static30}"  varStatus="status">
+		                        <a href="#" class="latest-product__item">                        
+		                           <div class="latest-product__item__text">	                           	
+		                              <h6>[${status.count}]. ${list.news_keyword}</h6>
+		                           </div>                         
+		                        </a>
+	                         </c:forEach>
+                       </div>
+                       
+                       <div class="latest-prdouct__slider__item">                    
+	                     	<h4>40대 선호 키워드</h4>
+	                     	<c:forEach var="list"  items="${static40}"  varStatus="status">
+		                        <a href="#" class="latest-product__item">                        
+		                           <div class="latest-product__item__text">	                           	
+		                              <h6>[${status.count}]. ${list.news_keyword}</h6>
+		                           </div>                         
+		                        </a>
+	                         </c:forEach>
+                       </div>
+                       
+                       <div class="latest-prdouct__slider__item">                    
+	                     	<h4>50대 선호 키워드</h4>
+	                     	<c:forEach var="list"  items="${static50}"  varStatus="status">
+		                        <a href="#" class="latest-product__item">                        
+		                           <div class="latest-product__item__text">	                           	
+		                              <h6>[${status.count}]. ${list.news_keyword}</h6>
+		                           </div>                         
+		                        </a>
+	                         </c:forEach>
+                       </div>
+                       
+                       <div class="latest-prdouct__slider__item">                    
+	                     	<h4>60대이상 선호 키워드</h4>
+	                     	<c:forEach var="list"  items="${static60}"  varStatus="status">
+		                        <a href="#" class="latest-product__item">                        
+		                           <div class="latest-product__item__text">	                           	
+		                              <h6>[${status.count}]. ${list.news_keyword}</h6>
+		                           </div>                         
+		                        </a>
+	                         </c:forEach>
+                       </div>
+                       
                   </div>
                </div>
             </div>
             <div class="col-lg-4 col-md-6">
                <div class="latest-product__text">
-                  <h4>사회통계</h4>
+                  <h4>종합 키워드 통계</h4>
                   <div class="latest-product__slider owl-carousel">
-                     <div class="latest-prdouct__slider__item">
-                        <a href="#" class="latest-product__item">
-                           <div class="latest-product__item__pic">
-                              <img src="${cpath}/resources/img/latest-product/lp-1.jpg"
-                                 alt="">
-                           </div>
-                           <div class="latest-product__item__text">
-                              <h6>Crab Pool Security</h6>
-                              <span>$30.00</span>
-                           </div>
-                        </a> <a href="#" class="latest-product__item">
-                           <div class="latest-product__item__pic">
-                              <img src="${cpath}/resources/img/latest-product/lp-2.jpg"
-                                 alt="">
-                           </div>
-                           <div class="latest-product__item__text">
-                              <h6>Crab Pool Security</h6>
-                              <span>$30.00</span>
-                           </div>
-                        </a> <a href="#" class="latest-product__item">
-                           <div class="latest-product__item__pic">
-                              <img src="${cpath}/resources/img/latest-product/lp-3.jpg"
-                                 alt="">
-                           </div>
-                           <div class="latest-product__item__text">
-                              <h6>Crab Pool Security</h6>
-                              <span>$30.00</span>
-                           </div>
-                        </a>
-                     </div>
-                     <div class="latest-prdouct__slider__item">
-                        <a href="#" class="latest-product__item">
-                           <div class="latest-product__item__pic">
-                              <img src="${cpath}/resources/img/latest-product/lp-1.jpg"
-                                 alt="">
-                           </div>
-                           <div class="latest-product__item__text">
-                              <h6>Crab Pool Security</h6>
-                              <span>$30.00</span>
-                           </div>
-                        </a> <a href="#" class="latest-product__item">
-                           <div class="latest-product__item__pic">
-                              <img src="${cpath}/resources/img/latest-product/lp-2.jpg"
-                                 alt="">
-                           </div>
-                           <div class="latest-product__item__text">
-                              <h6>Crab Pool Security</h6>
-                              <span>$30.00</span>
-                           </div>
-                        </a> <a href="#" class="latest-product__item">
-                           <div class="latest-product__item__pic">
-                              <img src="${cpath}/resources/img/latest-product/lp-3.jpg"
-                                 alt="">
-                           </div>
-                           <div class="latest-product__item__text">
-                              <h6>Crab Pool Security</h6>
-                              <span>$30.00</span>
-                           </div>
-                        </a>
-                     </div>
+						<div class="latest-prdouct__slider__item">                    
+	                     	<h4>종합 선호 키워드</h4>
+	                     	<c:forEach var="list"  items="${statictotalUp}"  varStatus="status">
+		                        <a href="#" class="latest-product__item">                        
+		                           <div class="latest-product__item__text">	                           	
+		                              <h6>[${status.count}]. ${list.news_keyword}</h6>
+		                           </div>                         
+		                        </a>
+	                         </c:forEach>
+                       </div>
+                       <div class="latest-prdouct__slider__item">                    
+	                     	<h4>종합 선호 키워드</h4>
+	                     	<c:forEach var="list"  items="${statictotalDown}"  varStatus="status">
+		                        <a href="#" class="latest-product__item">                        
+		                           <div class="latest-product__item__text">	                           	
+		                              <h6>[${status.count+5}]. ${list.news_keyword}</h6>
+		                           </div>                         
+		                        </a>
+	                         </c:forEach>
+                       </div>
                   </div>
                </div>
             </div>
