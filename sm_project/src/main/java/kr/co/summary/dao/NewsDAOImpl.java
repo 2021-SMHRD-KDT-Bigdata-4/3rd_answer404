@@ -73,7 +73,7 @@ public class NewsDAOImpl implements NewsDAO{
 	
 	public MemberVO detailViewStatistics(String member_id) throws Exception{
 		
-		return sqlSession.selectOne("newsMapper. detailViewStatistics",member_id);
+		return sqlSession.selectOne("newsMapper.detailViewStatistics",member_id);
 	}
 
 
@@ -84,7 +84,7 @@ public class NewsDAOImpl implements NewsDAO{
 		data.put("membervo_gender", membervo_gender);
 		data.put("news_keyword", news_keyword);
 		
-		sqlSession.insert("newsMapper. StatisticsUpdate",data);
+		sqlSession.insert("newsMapper.StatisticsUpdate",data);
 		
 	}
 	

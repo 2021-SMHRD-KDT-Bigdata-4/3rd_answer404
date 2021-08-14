@@ -80,10 +80,10 @@ public class NewsController {
 	public String detail(NewsVO newsVO, Model model) throws Exception {
 		logger.info("detail");
 		
+		service.plusCnt(newsVO.getNews_index());
 		model.addAttribute("detail", service.detail(newsVO.getNews_index()));
 		
 
-		service.plusCnt(newsVO.getNews_index());
 
 		return "news/detailView";
 	}
@@ -92,9 +92,13 @@ public class NewsController {
 	public String detailViewStatistics(NewsVO newsVO,String member_id, Model model) throws Exception {
 		logger.info("detail");
 		
-		model.addAttribute("detail", service.detail(newsVO.getNews_index()));
 		service.plusCnt(newsVO.getNews_index());
-		String keyword = newsVO.getNews_keyword();
+		NewsVO newsvo =service.detail(newsVO.getNews_index());
+		model.addAttribute("detail", newsvo);
+		
+		//-----------------------------------------------------------------------------
+		String keyword = newsvo.getNews_keyword();
+		System.out.println("뉴스VO에는이게담겨있음"+newsVO);
 		
 		MemberVO membervo = new MemberVO();
 		
@@ -102,6 +106,7 @@ public class NewsController {
 		String membervo_age_range= membervo.getMember_age_range();
 		String membervo_gender = membervo.getMember_gender();
 		
+		System.out.println("뉴스keyword->"+keyword);
 		String[] keywordSplit = keyword.split(".");
 		for(int i=0; i< keywordSplit.length; i++) {
 			service.StatisticsUpdate(membervo_age_range, membervo_gender, keywordSplit[i]);
