@@ -12,6 +12,7 @@ import kr.co.summary.domain.DictionaryVO;
 import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.NewsVO;
 import kr.co.summary.domain.SearchCriteria;
+import kr.co.summary.domain.StatisticsVO;
 
 
 // 구현부인 NewsServiceImpl를 작성
@@ -77,7 +78,8 @@ public class NewsServiceImpl implements NewsService{
 		
 		return dao.selectCategory(news_category);
 	}
-	
+	//-------------------------------통계 ------------------------
+	@Override
 	public List<NewsVO> countStatistics() throws Exception{
 		return dao.countStatistics();
 	}
@@ -88,4 +90,55 @@ public class NewsServiceImpl implements NewsService{
 		return dao.searchDic(dictionaryVO);
 	}
 	
+
+	public List<StatisticsVO> countStatisticmaleUp() throws Exception{
+		return dao.countStatisticmaleUp();
+	}
+	public List<StatisticsVO> countStatisticmaleDown() throws Exception{
+		return dao.countStatisticmaleDown();
+	}
+	public List<StatisticsVO> countStatisticfemaleUp() throws Exception {
+		return dao.countStatisticfemaleUp();
+	}
+	public List<StatisticsVO> countStatisticfemaleDown() throws Exception {
+		return dao.countStatisticfemaleDown();
+	}
+	public List<StatisticsVO> countStatistic20() throws Exception {
+		return dao.countStatistic20();
+	}
+	public List<StatisticsVO> countStatistic30() throws Exception {
+		return dao.countStatistic30();
+	}
+	public List<StatisticsVO> countStatistic40() throws Exception {
+		return dao.countStatistic40();
+	}
+	public List<StatisticsVO> countStatistic50() throws Exception {
+		return dao.countStatistic50();
+	}
+	public List<StatisticsVO> countStatistic60() throws Exception {
+		return dao.countStatistic60();
+	}
+	public List<StatisticsVO> countStatistictotalUp() throws Exception {
+		return dao.countStatistictotalUp();
+	}
+	public List<StatisticsVO> countStatistictotalDown() throws Exception {
+		return dao.countStatistictotalDown();
+	}
+	//--------------------------------------------------------------
+
+	@Override
+	public List<NewsVO> categoryStatistictitle(String news_category) throws Exception {
+		return dao.categoryStatistictitle(news_category);
+	}
+
+	@Override
+	public List<StatisticsVO> categoryStatisticUp(String news_category) throws Exception {
+		return dao.categoryStatisticUp(news_category);
+	}
+
+	@Override
+	public List<StatisticsVO> categoryStatisticDown(String news_category) throws Exception {
+		return dao.categoryStatisticDown(news_category);
+	}
+
 }

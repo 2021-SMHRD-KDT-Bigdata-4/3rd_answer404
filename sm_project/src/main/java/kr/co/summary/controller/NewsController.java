@@ -18,6 +18,7 @@ import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.NewsVO;
 import kr.co.summary.domain.PageMaker;
 import kr.co.summary.domain.SearchCriteria;
+import kr.co.summary.domain.StatisticsVO;
 import kr.co.summary.service.NewsService;
 
 @Controller
@@ -58,6 +59,31 @@ public class NewsController {
 		// 통계용 최신 + 조회수 코드 올리기
 		List<NewsVO> countStatisticslist = service.countStatistics();
 		model.addAttribute("countStatisticslist", countStatisticslist);
+		
+		List<StatisticsVO> staticmaleUp = service.countStatisticmaleUp();
+		List<StatisticsVO> staticmaleDown = service.countStatisticmaleDown();
+		List<StatisticsVO> staticfemaleUp = service.countStatisticfemaleUp();
+		List<StatisticsVO> staticfemaleDown = service.countStatisticfemaleDown();
+		List<StatisticsVO> static20 = service.countStatistic20();
+		List<StatisticsVO> static30 = service.countStatistic30();
+		List<StatisticsVO> static40 = service.countStatistic40();
+		List<StatisticsVO> static50 = service.countStatistic50();
+		List<StatisticsVO> static60 = service.countStatistic60();
+		List<StatisticsVO> statictotalUp = service.countStatistictotalUp();
+		List<StatisticsVO> statictotalDown = service.countStatistictotalDown();
+		
+		model.addAttribute("staticmaleUp", staticmaleUp);
+		model.addAttribute("staticmaleDown", staticmaleDown);
+		model.addAttribute("staticfemaleUp", staticfemaleUp);
+		model.addAttribute("staticfemaleDown", staticfemaleDown);
+		model.addAttribute("static20", static20);
+		model.addAttribute("static30", static30);
+		model.addAttribute("static40", static40);
+		model.addAttribute("static50", static50);
+		model.addAttribute("static60", static60);
+		model.addAttribute("statictotalUp", statictotalUp);
+		model.addAttribute("statictotalDown", statictotalDown);
+		
 
 		return "news/list";
 
@@ -68,6 +94,7 @@ public class NewsController {
 		logger.info("list");
 
 		model.addAttribute("list", service.list(scri));
+		System.out.println("이거슨서치인거시여!"+scri);
 
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(scri);
@@ -79,6 +106,7 @@ public class NewsController {
 
 	}
 	
+
 	@RequestMapping(value = "/searchDic", method = RequestMethod.GET, produces = "application/text; charset=utf8")
 	public  @ResponseBody String searchDic(Model model, @ModelAttribute("dictionaryVO") DictionaryVO dictionaryVO) throws Exception {
 		logger.info("searchDic");
@@ -93,39 +121,46 @@ public class NewsController {
 		
 	}
 	
+
 	@RequestMapping(value = "/detailView", method = RequestMethod.GET)
 	public String detail(NewsVO newsVO, Model model) throws Exception {
 		logger.info("detail");
 		
+		service.plusCnt(newsVO.getNews_index());
 		model.addAttribute("detail", service.detail(newsVO.getNews_index()));
 		
 
-		service.plusCnt(newsVO.getNews_index());
 
 		return "news/detailView";
 	}
 	
-	@RequestMapping(value = "/detailViewStatistics", method = RequestMethod.GET)
-	public String detailViewStatistics(NewsVO newsVO,String member_id, Model model) throws Exception {
-		logger.info("detail");
-		
-		model.addAttribute("detail", service.detail(newsVO.getNews_index()));
-		service.plusCnt(newsVO.getNews_index());
-		String keyword = newsVO.getNews_keyword();
-		
-		MemberVO membervo = new MemberVO();
-		
-		membervo = service.detailViewStatistics(member_id); // 멤버 아이디로 age-range랑, gender를 가져와 준다.
-		String membervo_age_range= membervo.getMember_age_range();
-		String membervo_gender = membervo.getMember_gender();
-		
-		String[] keywordSplit = keyword.split(".");
-		for(int i=0; i< keywordSplit.length; i++) {
-			service.StatisticsUpdate(membervo_age_range, membervo_gender, keywordSplit[i]);
-		}
-		
-		return "news/detailView";
-	}
+	 @RequestMapping(value = "/detailViewStatistics", method = RequestMethod.GET)
+	   public String detailViewStatistics(NewsVO newsVO,String member_id, Model model) throws Exception {
+	      logger.info("detail");
+	      
+	      service.plusCnt(newsVO.getNews_index());
+	      NewsVO newsvo =service.detail(newsVO.getNews_index());
+	      model.addAttribute("detail", newsvo);
+	      
+	      //-----------------------------------------------------------------------------
+	      String keyword = newsvo.getNews_keyword();
+	      System.out.println("뉴스VO에는이게담겨있음"+newsVO);
+	      
+	      MemberVO membervo = new MemberVO();
+	      
+	      membervo = service.detailViewStatistics(member_id); // 멤버 아이디로 age-range랑, gender를 가져와 준다.
+	      String membervo_age_range= membervo.getMember_age_range();
+	      String membervo_gender = membervo.getMember_gender();
+	      
+	      System.out.println("뉴스keyword->"+keyword);
+	      String[] keywordSplit = keyword.split(".");
+	      for(int i=0; i< keywordSplit.length; i++) {
+	         service.StatisticsUpdate(membervo_age_range, membervo_gender, keywordSplit[i]);
+	      }
+	      
+	      return "news/detailView";
+	   }
+
 	
 	
 
@@ -200,6 +235,15 @@ public class NewsController {
 		System.out.println("prev   "+prev);
 		System.out.println("next   "+next);
 		System.out.println("select   "+pagingNum);
+		
+		
+		List<NewsVO> categoryStatistictitle = service.categoryStatistictitle(news_category);
+		List<StatisticsVO> categoryStatisticUp= service.categoryStatisticUp(news_category);
+		List<StatisticsVO> categoryStatisticDown= service.categoryStatisticDown(news_category);
+		
+		model.addAttribute("categoryStatistictitle", categoryStatistictitle);
+		model.addAttribute("categoryStatisticUp", categoryStatisticUp);
+		model.addAttribute("categoryStatisticDown", categoryStatisticDown);
 		
 		return "news/econo_category";
 
@@ -278,6 +322,14 @@ public class NewsController {
 				System.out.println("next   "+next);
 				System.out.println("select   "+pagingNum);
 				
+				List<NewsVO> categoryStatistictitle = service.categoryStatistictitle(news_category);
+				List<StatisticsVO> categoryStatisticUp= service.categoryStatisticUp(news_category);
+				List<StatisticsVO> categoryStatisticDown= service.categoryStatisticDown(news_category);
+				
+				model.addAttribute("categoryStatistictitle", categoryStatistictitle);
+				model.addAttribute("categoryStatisticUp", categoryStatisticUp);
+				model.addAttribute("categoryStatisticDown", categoryStatisticDown);
+				
 				return "news/society_category";
 			}
 			
@@ -355,6 +407,14 @@ public class NewsController {
 					System.out.println("next   "+next);
 					System.out.println("select   "+pagingNum);
 					
+					List<NewsVO> categoryStatistictitle = service.categoryStatistictitle(news_category);
+					List<StatisticsVO> categoryStatisticUp= service.categoryStatisticUp(news_category);
+					List<StatisticsVO> categoryStatisticDown= service.categoryStatisticDown(news_category);
+					
+					model.addAttribute("categoryStatistictitle", categoryStatistictitle);
+					model.addAttribute("categoryStatisticUp", categoryStatisticUp);
+					model.addAttribute("categoryStatisticDown", categoryStatisticDown);
+					
 					return "news/politics_category";
 
 				}
@@ -431,6 +491,14 @@ public class NewsController {
 						System.out.println("prev   "+prev);
 						System.out.println("next   "+next);
 						System.out.println("select   "+pagingNum);
+						
+						List<NewsVO> categoryStatistictitle = service.categoryStatistictitle(news_category);
+						List<StatisticsVO> categoryStatisticUp= service.categoryStatisticUp(news_category);
+						List<StatisticsVO> categoryStatisticDown= service.categoryStatisticDown(news_category);
+						
+						model.addAttribute("categoryStatistictitle", categoryStatistictitle);
+						model.addAttribute("categoryStatisticUp", categoryStatisticUp);
+						model.addAttribute("categoryStatisticDown", categoryStatisticDown);
 						
 						return "news/itscience_category";
 

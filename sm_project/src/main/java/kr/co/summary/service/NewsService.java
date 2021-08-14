@@ -9,6 +9,7 @@ import kr.co.summary.domain.DictionaryVO;
 import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.NewsVO;
 import kr.co.summary.domain.SearchCriteria;
+import kr.co.summary.domain.StatisticsVO;
 
 //NewsDAO와 연결되는 NewsService를작성
 @Service
@@ -46,6 +47,25 @@ public interface NewsService {
 	public List<NewsVO> countStatistics() throws Exception;
 
 	public DictionaryVO searchDic(DictionaryVO dictionaryVO) throws Exception;
+	
+	public List<StatisticsVO> countStatisticmaleUp() throws Exception;
+	public List<StatisticsVO> countStatisticmaleDown() throws Exception;
+	public List<StatisticsVO> countStatisticfemaleUp() throws Exception;
+	public List<StatisticsVO> countStatisticfemaleDown() throws Exception;
+	public List<StatisticsVO> countStatistic20() throws Exception;
+	public List<StatisticsVO> countStatistic30() throws Exception;
+	public List<StatisticsVO> countStatistic40() throws Exception;
+	public List<StatisticsVO> countStatistic50() throws Exception;
+	public List<StatisticsVO> countStatistic60() throws Exception;
+	public List<StatisticsVO> countStatistictotalUp() throws Exception;
+	public List<StatisticsVO> countStatistictotalDown() throws Exception;
+
+
+	public List<NewsVO> categoryStatistictitle(String news_category) throws Exception;
+
+	public List<StatisticsVO> categoryStatisticUp(String news_category) throws Exception;
+
+	public List<StatisticsVO> categoryStatisticDown(String news_category) throws Exception;
 	
 	
 }

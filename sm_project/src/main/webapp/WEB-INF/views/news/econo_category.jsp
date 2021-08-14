@@ -12,7 +12,7 @@
 <meta name="keywords" content="Ogani, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Ogani | Template</title>
+<title>응답하라 404</title>
 
 <!-- Google Font -->
 <link
@@ -158,7 +158,7 @@
 					<nav class="header__menu">
 						<ul>
 							<li><a href="./list">Home</a></li>
-							<li class="active"><a href="${capth}./econo_category?news_category=경제&&pagingNum=1">경제</a></li>
+							<li class="active"><a href="${capth}./econo_category?news_category=${category}&&pagingNum=1">${category}</a></li>
 							<li><a href="${capth}./society_category?news_category=사회&&pagingNum=1">사회</a></li>
 							<li><a href="${capth}./politics_category?news_category=정치&&pagingNum=1">정치</a></li>
 							<li><a href="${capth}./itscience_category?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
@@ -256,7 +256,7 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="breadcrumb__text">
-						<h2>일일 경제 뉴스</h2>
+						<h2>일일 ${category} 뉴스</h2>
 						<div class="breadcrumb__option">
 							<a href="./index.html">응답하라</a> <span>404</span>
 						</div>
@@ -274,150 +274,41 @@
 				<div class="col-lg-3 col-md-5">
 					<div class="sidebar">
 						<div class="sidebar__item">
-							<h4>Department</h4>
+							<h4>${category} HOT 뉴스</h4>
 							<ul>
-								<li><a href="#">Fresh Meat</a></li>
-								<li><a href="#">Vegetables</a></li>
-								<li><a href="#">Fruit & Nut Gifts</a></li>
-								<li><a href="#">Fresh Berries</a></li>
-								<li><a href="#">Ocean Foods</a></li>
-								<li><a href="#">Butter & Eggs</a></li>
-								<li><a href="#">Fastfood</a></li>
-								<li><a href="#">Fresh Onion</a></li>
-								<li><a href="#">Papayaya & Crisps</a></li>
-								<li><a href="#">Oatmeal</a></li>
+								<c:forEach var="list"  items="${categoryStatistictitle}"  varStatus="status">
+			                        <li>                        
+									<a href="/news/detailView?news_index=${list.news_index}">
+										<c:out value="${status.count}. ${list.news_title}" />
+									</a>
+									</li>		
+			                     </c:forEach> 
 							</ul>
 						</div>
 						<div class="sidebar__item">
-							<h4>Price</h4>
-							<div class="price-range-wrap">
-								<div
-									class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
-									data-min="10" data-max="540">
-									<div class="ui-slider-range ui-corner-all ui-widget-header"></div>
-									<span tabindex="0"
-										class="ui-slider-handle ui-corner-all ui-state-default"></span>
-									<span tabindex="0"
-										class="ui-slider-handle ui-corner-all ui-state-default"></span>
-								</div>
-								<div class="range-slider">
-									<div class="price-input">
-										<input type="text" id="minamount"> <input type="text"
-											id="maxamount">
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="sidebar__item sidebar__item__color--option">
-							<h4>Colors</h4>
-							<div class="sidebar__item__color sidebar__item__color--white">
-								<label for="white"> White <input type="radio" id="white">
-								</label>
-							</div>
-							<div class="sidebar__item__color sidebar__item__color--gray">
-								<label for="gray"> Gray <input type="radio" id="gray">
-								</label>
-							</div>
-							<div class="sidebar__item__color sidebar__item__color--red">
-								<label for="red"> Red <input type="radio" id="red">
-								</label>
-							</div>
-							<div class="sidebar__item__color sidebar__item__color--black">
-								<label for="black"> Black <input type="radio" id="black">
-								</label>
-							</div>
-							<div class="sidebar__item__color sidebar__item__color--blue">
-								<label for="blue"> Blue <input type="radio" id="blue">
-								</label>
-							</div>
-							<div class="sidebar__item__color sidebar__item__color--green">
-								<label for="green"> Green <input type="radio" id="green">
-								</label>
-							</div>
-						</div>
-						<div class="sidebar__item">
-							<h4>Popular Size</h4>
-							<div class="sidebar__item__size">
-								<label for="large"> Large <input type="radio" id="large">
-								</label>
-							</div>
-							<div class="sidebar__item__size">
-								<label for="medium"> Medium <input type="radio"
-									id="medium">
-								</label>
-							</div>
-							<div class="sidebar__item__size">
-								<label for="small"> Small <input type="radio" id="small">
-								</label>
-							</div>
-							<div class="sidebar__item__size">
-								<label for="tiny"> Tiny <input type="radio" id="tiny">
-								</label>
-							</div>
-						</div>
-						<div class="sidebar__item">
 							<div class="latest-product__text">
-								<h4>Latest Products</h4>
+								<h4>${category} HOT 키워드</h4>
 								<div class="latest-product__slider owl-carousel">
 									<div class="latest-prdouct__slider__item">
-										<a href="#" class="latest-product__item">
-											<div class="latest-product__item__pic">
-												<img src="${cpath}/resources/img/latest-product/lp-1.jpg"
-													alt="">
-											</div>
-											<div class="latest-product__item__text">
-												<h6>Crab Pool Security</h6>
-												<span>$30.00</span>
-											</div>
-										</a> <a href="#" class="latest-product__item">
-											<div class="latest-product__item__pic">
-												<img src="${cpath}/resources/img/latest-product/lp-2.jpg"
-													alt="">
-											</div>
-											<div class="latest-product__item__text">
-												<h6>Crab Pool Security</h6>
-												<span>$30.00</span>
-											</div>
-										</a> <a href="#" class="latest-product__item">
-											<div class="latest-product__item__pic">
-												<img src="${cpath}/resources/img/latest-product/lp-3.jpg"
-													alt="">
-											</div>
-											<div class="latest-product__item__text">
-												<h6>Crab Pool Security</h6>
-												<span>$30.00</span>
-											</div>
-										</a>
+									
+										<c:forEach var="list"  items="${categoryStatisticUp}"  varStatus="status">
+					                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                        
+					                           <div class="latest-product__item__text">	                           	
+					                              <h6>[${status.count}]. ${list.news_keyword}</h6>
+					                           </div>                         
+					                        </a>
+				                         </c:forEach>
+
 									</div>
+									
 									<div class="latest-prdouct__slider__item">
-										<a href="#" class="latest-product__item">
-											<div class="latest-product__item__pic">
-												<img src="${cpath}/resources/img/latest-product/lp-1.jpg"
-													alt="">
-											</div>
-											<div class="latest-product__item__text">
-												<h6>Crab Pool Security</h6>
-												<span>$30.00</span>
-											</div>
-										</a> <a href="#" class="latest-product__item">
-											<div class="latest-product__item__pic">
-												<img src="${cpath}/resources/img/latest-product/lp-2.jpg"
-													alt="">
-											</div>
-											<div class="latest-product__item__text">
-												<h6>Crab Pool Security</h6>
-												<span>$30.00</span>
-											</div>
-										</a> <a href="#" class="latest-product__item">
-											<div class="latest-product__item__pic">
-												<img src="${cpath}/resources/img/latest-product/lp-3.jpg"
-													alt="">
-											</div>
-											<div class="latest-product__item__text">
-												<h6>Crab Pool Security</h6>
-												<span>$30.00</span>
-											</div>
-										</a>
+											<c:forEach var="list"  items="${categoryStatisticDown}"  varStatus="status">
+					                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                       
+					                           <div class="latest-product__item__text">	                           	
+					                              <h6>[${status.count + 5}]. ${list.news_keyword}</h6>
+					                           </div>                         
+					                        </a>
+				                        </c:forEach>
 									</div>
 								</div>
 							</div>
@@ -430,7 +321,7 @@
 						<div class="row">
 							<div class="col-lg-4 col-md-4">
 								<div class="section-title">
-									<h2>헤드라인 뉴스</h2>
+									<h2>${category} 뉴스</h2>
 								</div>
 							</div>
 						</div>

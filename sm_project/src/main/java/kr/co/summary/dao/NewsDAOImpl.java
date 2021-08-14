@@ -12,6 +12,7 @@ import kr.co.summary.domain.DictionaryVO;
 import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.NewsVO;
 import kr.co.summary.domain.SearchCriteria;
+import kr.co.summary.domain.StatisticsVO;
 
 @Repository
 public class NewsDAOImpl implements NewsDAO{
@@ -73,8 +74,7 @@ public class NewsDAOImpl implements NewsDAO{
 	}
 	
 	public MemberVO detailViewStatistics(String member_id) throws Exception{
-		sqlSession.selectOne("newsMapper. detailViewStatistics",member_id);
-		return sqlSession.selectOne("newsMapper. detailViewStatistics",member_id);
+		return sqlSession.selectOne("newsMapper.detailViewStatistics",member_id);
 	}
 
 
@@ -85,7 +85,7 @@ public class NewsDAOImpl implements NewsDAO{
 		data.put("membervo_gender", membervo_gender);
 		data.put("news_keyword", news_keyword);
 		
-		sqlSession.insert("newsMapper. StatisticsUpdate",data);
+		sqlSession.insert("newsMapper.StatisticsUpdate",data);
 		
 	}
 	
@@ -103,6 +103,52 @@ public class NewsDAOImpl implements NewsDAO{
 	@Override
 	public DictionaryVO searchDic(DictionaryVO dictionaryVO) throws Exception{
 		return sqlSession.selectOne("newsMapper.searchDic", dictionaryVO);
+	}
+	
+	public List<StatisticsVO> countStatisticmaleUp() throws Exception{
+		return sqlSession.selectList("newsMapper.countStatisticmaleUp");
+	}
+	public List<StatisticsVO> countStatisticmaleDown() throws Exception {
+		return sqlSession.selectList("newsMapper.countStatisticmaleDown");
+	}
+	public List<StatisticsVO> countStatisticfemaleUp() throws Exception{
+		return sqlSession.selectList("newsMapper.countStatisticfemaleUp");
+	}
+	public List<StatisticsVO> countStatisticfemaleDown() throws Exception {
+		return sqlSession.selectList("newsMapper.countStatisticfemaleDown");
+	}
+	public List<StatisticsVO> countStatistic20() throws Exception {
+		return sqlSession.selectList("newsMapper.countStatistic20");
+	}
+	public List<StatisticsVO> countStatistic30() throws Exception {
+		return sqlSession.selectList("newsMapper.countStatistic30");
+	}
+	public List<StatisticsVO> countStatistic40() throws Exception {
+		return sqlSession.selectList("newsMapper.countStatistic40");
+	}
+	public List<StatisticsVO> countStatistic50() throws Exception {
+		return sqlSession.selectList("newsMapper.countStatistic50");
+	}
+	public List<StatisticsVO> countStatistic60() throws Exception {
+		return sqlSession.selectList("newsMapper.countStatistic60");
+	}
+	public List<StatisticsVO> countStatistictotalUp() throws Exception {
+		return sqlSession.selectList("newsMapper.countStatistictotalUp");
+	}
+	public List<StatisticsVO> countStatistictotalDown() throws Exception {
+		return sqlSession.selectList("newsMapper.countStatistictotalDown");
+	}
+	@Override
+	public List<NewsVO> categoryStatistictitle(String news_category) throws Exception {
+		return sqlSession.selectList("newsMapper.categoryStatistictitle",news_category);
+	}
+	@Override
+	public List<StatisticsVO> categoryStatisticUp(String news_category) throws Exception {
+		return sqlSession.selectList("newsMapper.categoryStatisticUp",news_category);
+	}
+	@Override
+	public List<StatisticsVO> categoryStatisticDown(String news_category) throws Exception {
+		return sqlSession.selectList("newsMapper.categoryStatisticDown",news_category);
 	}
 	
 

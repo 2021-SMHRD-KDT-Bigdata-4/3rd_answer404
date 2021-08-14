@@ -50,6 +50,7 @@
    		<if test="searchType != null">
    			<if test="searchType == 't'.toString()">and news_title like '%' || #{keyword} || '%'</if>
    			<if test="searchType == 'c'.toString()">and news_contents like '%' || #{keyword} || '%'</if>
+   			
    		</if>
    
    </sql>
@@ -93,10 +94,119 @@
 	(select rownum as rnum, n.* from(select s.* from news s order by news_index desc) n order by n.news_count desc) s)
 	where snum between 1 and 5
    	</select>
+
    	
    	<select id="searchDic"  resultType="kr.co.summary.domain.DictionaryVO">
    	    select dictionary_object_mean from dictionary where dictionary_object=#{dictionary_object}
    	</select>
    	
+
+   	   	
+   	<select id="countStatisticmaleUp" resultType="kr.co.summary.domain.StatisticsVO">
+   	select * from
+	(select rownum as rnum, s.* from
+	(select news_keyword ,count(*) cnt from statistics
+	where member_gender = '남자' group by news_keyword order by cnt desc) s)
+	where rnum between 1 and 5
+   	</select>
+   	<select id="countStatisticmaleDown" resultType="kr.co.summary.domain.StatisticsVO">
+   	select * from
+	(select rownum as rnum, s.* from
+	(select news_keyword ,count(*) cnt from statistics
+	where member_gender = '남자' group by news_keyword order by cnt desc) s)
+	where rnum between 6 and 10 	
+   	</select>
+   	<select id="countStatisticfemaleUp" resultType="kr.co.summary.domain.StatisticsVO">
+   	select * from
+	(select rownum as rnum, s.* from
+	(select news_keyword ,count(*) cnt from statistics
+	where member_gender = '여자' group by news_keyword order by cnt desc) s)
+	where rnum between 1 and 5
+   	</select>
+   	<select id="countStatisticfemaleDown" resultType="kr.co.summary.domain.StatisticsVO">
+   	select * from
+	(select rownum as rnum, s.* from
+	(select news_keyword ,count(*) cnt from statistics
+	where member_gender = '여자' group by news_keyword order by cnt desc) s)
+	where rnum between 6 and 10
+   	</select>
+   	<select id="countStatistic20" resultType="kr.co.summary.domain.StatisticsVO">
+   	select * from
+	(select rownum as rnum, s.* from
+	(select news_keyword ,count(*) cnt from statistics
+	where member_age_range = '20대이하' group by news_keyword order by cnt desc) s)
+	where rnum between 1 and 5 	
+   	</select>
+   	<select id="countStatistic30" resultType="kr.co.summary.domain.StatisticsVO">
+   	select * from
+	(select rownum as rnum, s.* from
+	(select news_keyword ,count(*) cnt from statistics
+	where member_age_range = '30대' group by news_keyword order by cnt desc) s)
+	where rnum between 1 and 5 	
+   	</select>
+   	<select id="countStatistic40" resultType="kr.co.summary.domain.StatisticsVO">
+   	select * from
+	(select rownum as rnum, s.* from
+	(select news_keyword ,count(*) cnt from statistics
+	where member_age_range = '40대' group by news_keyword order by cnt desc) s)
+	where rnum between 1 and 5 	
+   	</select>
+   	<select id="countStatistic50" resultType="kr.co.summary.domain.StatisticsVO">
+   	select * from
+	(select rownum as rnum, s.* from
+	(select news_keyword ,count(*) cnt from statistics
+	where member_age_range = '50대' group by news_keyword order by cnt desc) s)
+	where rnum between 1 and 5	
+   	</select>
+   	<select id="countStatistic60" resultType="kr.co.summary.domain.StatisticsVO">
+   	select * from
+	(select rownum as rnum, s.* from
+	(select news_keyword ,count(*) cnt from statistics
+	where member_age_range = '60대이상' group by news_keyword order by cnt desc) s)
+	where rnum between 1 and 5  	
+   	</select>
+   	<select id="countStatistictotalUp" resultType="kr.co.summary.domain.StatisticsVO">
+	select * from
+	(select rownum as rnum, s.* from
+	(select news_keyword ,count(*) cnt from statistics
+	group by news_keyword order by cnt desc) s)
+	where rnum between 1 and 5
+   	</select>
+   	<select id="countStatistictotalDown" resultType="kr.co.summary.domain.StatisticsVO">
+	select * from
+	(select rownum as rnum, s.* from
+	(select news_keyword ,count(*) cnt from statistics
+	group by news_keyword order by cnt desc) s)
+	where rnum between 6 and 10
+   	</select>
+   	
+   	<select id="categoryStatistictitle" resultType="kr.co.summary.domain.NewsVO">
+		select * from
+		(select rownum as bnum, b.* from
+		(select rownum as snum, s.* from
+		(select rownum as rnum, n.* from
+		(select s.* from news s order by news_index desc
+		) n order by n.news_count desc
+		) s
+		) b where news_category = #{news_category}
+		)where bnum between 1 and 5
+   	</select>
+   	
+   	<select id="categoryStatisticUp" resultType="kr.co.summary.domain.StatisticsVO">
+		select * from
+		(select rownum as rnum, s.* from
+		(select news_keyword ,count(*) cnt from statistics
+		where news_category = #{news_category} group by news_keyword order by cnt desc) s)
+		where rnum between 1 and 5
+   	</select>
+   	
+   	<select id="categoryStatisticDown" resultType="kr.co.summary.domain.StatisticsVO">
+		select * from
+		(select rownum as rnum, s.* from
+		(select news_keyword ,count(*) cnt from statistics
+		where news_category = #{news_category} group by news_keyword order by cnt desc) s)
+		where rnum between 6 and 10
+   	</select>
+
    	
 </mapper>
