@@ -1,5 +1,6 @@
 package kr.co.summary.controller;
 
+import java.net.URLEncoder;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -10,7 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.co.summary.domain.DictionaryVO;
 import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.NewsVO;
 import kr.co.summary.domain.PageMaker;
@@ -75,7 +78,21 @@ public class NewsController {
 		return "news/listAll";
 
 	}
-
+	
+	@RequestMapping(value = "/searchDic", method = RequestMethod.GET, produces = "application/text; charset=utf8")
+	public  @ResponseBody String searchDic(Model model, @ModelAttribute("dictionaryVO") DictionaryVO dictionaryVO) throws Exception {
+		logger.info("searchDic");
+		
+		System.out.println(dictionaryVO);
+		
+		DictionaryVO SearchdictionaryVO = service.searchDic(dictionaryVO);
+		String result = SearchdictionaryVO.getDictionary_object_mean();
+		String result1 = URLEncoder.encode(result,"UTF-8");
+		System.out.println(result);
+		return result;
+		
+	}
+	
 	@RequestMapping(value = "/detailView", method = RequestMethod.GET)
 	public String detail(NewsVO newsVO, Model model) throws Exception {
 		logger.info("detail");

@@ -93,4 +93,10 @@
 	(select rownum as rnum, n.* from(select s.* from news s order by news_index desc) n order by n.news_count desc) s)
 	where snum between 1 and 5
    	</select>
+   	
+   	<select id="searchDic"  resultType="kr.co.summary.domain.DictionaryVO">
+   	    select dictionary_object_mean from dictionary where dictionary_object=#{dictionary_object}
+   	</select>
+   	
+   	
 </mapper>

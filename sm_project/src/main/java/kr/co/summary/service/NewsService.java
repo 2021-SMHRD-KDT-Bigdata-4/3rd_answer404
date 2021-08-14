@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import kr.co.summary.domain.Criteria;
+import kr.co.summary.domain.DictionaryVO;
 import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.NewsVO;
 import kr.co.summary.domain.SearchCriteria;
@@ -43,6 +44,8 @@ public interface NewsService {
 	public List<NewsVO> selectCategory(String news_category) throws Exception;
 	
 	public List<NewsVO> countStatistics() throws Exception;
+
+	public DictionaryVO searchDic(DictionaryVO dictionaryVO) throws Exception;
 	
 	
 }

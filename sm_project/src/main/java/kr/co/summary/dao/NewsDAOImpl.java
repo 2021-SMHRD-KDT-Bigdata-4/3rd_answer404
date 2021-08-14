@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import kr.co.summary.domain.DictionaryVO;
 import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.NewsVO;
 import kr.co.summary.domain.SearchCriteria;
@@ -72,7 +73,7 @@ public class NewsDAOImpl implements NewsDAO{
 	}
 	
 	public MemberVO detailViewStatistics(String member_id) throws Exception{
-		
+		sqlSession.selectOne("newsMapper. detailViewStatistics",member_id);
 		return sqlSession.selectOne("newsMapper. detailViewStatistics",member_id);
 	}
 
@@ -98,6 +99,10 @@ public class NewsDAOImpl implements NewsDAO{
 
 	public List<NewsVO> countStatistics() throws Exception{
 		return sqlSession.selectList("newsMapper.countStatistics");
+	}
+	@Override
+	public DictionaryVO searchDic(DictionaryVO dictionaryVO) throws Exception{
+		return sqlSession.selectOne("newsMapper.searchDic", dictionaryVO);
 	}
 	
 

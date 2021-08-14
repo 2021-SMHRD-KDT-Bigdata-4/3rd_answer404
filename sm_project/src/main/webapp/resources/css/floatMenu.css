@@ -1,13 +1,14 @@
 #floatMenu {
   position: fixed;
   right:60px;
-  bottom: 50px;
+  bottom: 250px;
   width: 240px;
   height: 360px;
   background: salmon;
+  z-index:1;
 }
 
 #floatMenu.on {
   position: absolute;
-  bottom: 350px;
+  bottom: 50px;
 }

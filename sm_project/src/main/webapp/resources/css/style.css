@@ -2393,7 +2393,6 @@ ul, ol {
 }
 
 .blog__sidebar__search {
-	margin-bottom: 50px;
 }
 
 .blog__sidebar__search form {
@@ -2407,7 +2406,7 @@ ul, ol {
 	color: #6f6f6f;
 	padding-left: 15px;
 	border: 1px solid #e1e1e1;
-	border-radius: 20px;
+	border-radius: 10px;
 }
 
 .blog__sidebar__search form input::placeholder {
