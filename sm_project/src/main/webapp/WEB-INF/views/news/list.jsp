@@ -145,6 +145,11 @@ $( document ).ready(function() {
              error : function(data){ alert('error');}
       });
 }
+   function keywordbtn(data) {
+	   alert(data);
+	   location.href = "/news/keywordbtn?news_keyword="+data;
+	
+}
 </script>
 
 <body>
@@ -308,7 +313,11 @@ $( document ).ready(function() {
                   <ul>
                   
                      <c:forEach var="list"  items="${countStatisticslist}"  varStatus="status">
-                        <li><a href="#">[${status.count}]. ${list.news_title}</a></li>
+                        <li>                        
+							<a href="/news/detailView?news_index=${list.news_index}">
+								<c:out value="${status.count}. ${list.news_title}" />
+							</a>
+						</li>						
                      </c:forEach> 
                      
                   </ul>
@@ -322,6 +331,7 @@ $( document ).ready(function() {
                            <c:out value="${scri.searchType eq 't' ? 'selected' : ''}"/>>제목</option>
                         <option value="c"
                            <c:out value="${scri.searchType eq 'c' ? 'selected' : ''}"/>>내용</option>
+                       
                      </select>
 
                      <div>
@@ -404,10 +414,10 @@ $( document ).ready(function() {
                   <h4>성별별 선호 키워드</h4>
                   <div class="latest-product__slider owl-carousel">
                      <div class="latest-prdouct__slider__item">
-                     
+                    
                      	<h4>남성 선호 키워드</h4>
                      	<c:forEach var="list"  items="${staticmaleUp}"  varStatus="status">
-	                        <a href="#" class="latest-product__item">                        
+	                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                        
 	                           <div class="latest-product__item__text">	                           	
 	                              <h6>[${status.count}]. ${list.news_keyword}</h6>
 	                           </div>                         
@@ -419,7 +429,7 @@ $( document ).ready(function() {
                      
                      	<h4>남성 선호 키워드</h4>
                      	<c:forEach var="list"  items="${staticmaleDown}"  varStatus="status">
-	                        <a href="#" class="latest-product__item">                        
+	                      <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                     
 	                           <div class="latest-product__item__text">	                           	
 	                              <h6>[${status.count + 5}]. ${list.news_keyword}</h6>
 	                           </div>                         
@@ -431,7 +441,7 @@ $( document ).ready(function() {
                      
                      	<h4>여성 선호 키워드</h4>
                      	<c:forEach var="list"  items="${staticfemaleUp}"  varStatus="status">
-	                        <a href="#" class="latest-product__item">                        
+	                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                     
 	                           <div class="latest-product__item__text">	                           	
 	                              <h6>[${status.count}]. ${list.news_keyword}</h6>
 	                           </div>                         
@@ -443,7 +453,7 @@ $( document ).ready(function() {
                      
                      	<h4>여성 선호 키워드</h4>
                      	<c:forEach var="list"  items="${staticfemaleDown}"  varStatus="status">
-	                        <a href="#" class="latest-product__item">                        
+	                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                      
 	                           <div class="latest-product__item__text">	                           	
 	                              <h6>[${status.count + 5}]. ${list.news_keyword}</h6>
 	                           </div>                         
@@ -462,7 +472,7 @@ $( document ).ready(function() {
                        <div class="latest-prdouct__slider__item">                    
 	                     	<h4>20대 이하 선호 키워드</h4>
 	                     	<c:forEach var="list"  items="${static20}"  varStatus="status">
-		                        <a href="#" class="latest-product__item">                        
+		                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                        
 		                           <div class="latest-product__item__text">	                           	
 		                              <h6>[${status.count}]. ${list.news_keyword}</h6>
 		                           </div>                         
@@ -473,7 +483,7 @@ $( document ).ready(function() {
                        <div class="latest-prdouct__slider__item">                    
 	                     	<h4>30대 선호 키워드</h4>
 	                     	<c:forEach var="list"  items="${static30}"  varStatus="status">
-		                        <a href="#" class="latest-product__item">                        
+		                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                       
 		                           <div class="latest-product__item__text">	                           	
 		                              <h6>[${status.count}]. ${list.news_keyword}</h6>
 		                           </div>                         
@@ -484,7 +494,7 @@ $( document ).ready(function() {
                        <div class="latest-prdouct__slider__item">                    
 	                     	<h4>40대 선호 키워드</h4>
 	                     	<c:forEach var="list"  items="${static40}"  varStatus="status">
-		                        <a href="#" class="latest-product__item">                        
+		                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                        
 		                           <div class="latest-product__item__text">	                           	
 		                              <h6>[${status.count}]. ${list.news_keyword}</h6>
 		                           </div>                         
@@ -495,7 +505,7 @@ $( document ).ready(function() {
                        <div class="latest-prdouct__slider__item">                    
 	                     	<h4>50대 선호 키워드</h4>
 	                     	<c:forEach var="list"  items="${static50}"  varStatus="status">
-		                        <a href="#" class="latest-product__item">                        
+		                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                       
 		                           <div class="latest-product__item__text">	                           	
 		                              <h6>[${status.count}]. ${list.news_keyword}</h6>
 		                           </div>                         
@@ -506,7 +516,7 @@ $( document ).ready(function() {
                        <div class="latest-prdouct__slider__item">                    
 	                     	<h4>60대이상 선호 키워드</h4>
 	                     	<c:forEach var="list"  items="${static60}"  varStatus="status">
-		                        <a href="#" class="latest-product__item">                        
+		                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                     
 		                           <div class="latest-product__item__text">	                           	
 		                              <h6>[${status.count}]. ${list.news_keyword}</h6>
 		                           </div>                         
@@ -524,7 +534,7 @@ $( document ).ready(function() {
 						<div class="latest-prdouct__slider__item">                    
 	                     	<h4>종합 선호 키워드</h4>
 	                     	<c:forEach var="list"  items="${statictotalUp}"  varStatus="status">
-		                        <a href="#" class="latest-product__item">                        
+		                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                      
 		                           <div class="latest-product__item__text">	                           	
 		                              <h6>[${status.count}]. ${list.news_keyword}</h6>
 		                           </div>                         
@@ -534,7 +544,7 @@ $( document ).ready(function() {
                        <div class="latest-prdouct__slider__item">                    
 	                     	<h4>종합 선호 키워드</h4>
 	                     	<c:forEach var="list"  items="${statictotalDown}"  varStatus="status">
-		                        <a href="#" class="latest-product__item">                        
+		                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                    
 		                           <div class="latest-product__item__text">	                           	
 		                              <h6>[${status.count+5}]. ${list.news_keyword}</h6>
 		                           </div>                         

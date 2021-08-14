@@ -277,18 +277,22 @@
 							<h4>${category} HOT 뉴스</h4>
 							<ul>
 								<c:forEach var="list"  items="${categoryStatistictitle}"  varStatus="status">
-			                        <li><a href="#">[${status.count}]. ${list.news_title}</a></li>
+			                        <li>                        
+									<a href="/news/detailView?news_index=${list.news_index}">
+										<c:out value="${status.count}. ${list.news_title}" />
+									</a>
+									</li>		
 			                     </c:forEach> 
 							</ul>
 						</div>
 						<div class="sidebar__item">
 							<div class="latest-product__text">
-								<h4>${category} 키워드</h4>
+								<h4>${category} HOT 키워드</h4>
 								<div class="latest-product__slider owl-carousel">
 									<div class="latest-prdouct__slider__item">
 									
 										<c:forEach var="list"  items="${categoryStatisticUp}"  varStatus="status">
-					                        <a href="#" class="latest-product__item">                        
+					                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                        
 					                           <div class="latest-product__item__text">	                           	
 					                              <h6>[${status.count}]. ${list.news_keyword}</h6>
 					                           </div>                         
@@ -299,7 +303,7 @@
 									
 									<div class="latest-prdouct__slider__item">
 											<c:forEach var="list"  items="${categoryStatisticDown}"  varStatus="status">
-					                        <a href="#" class="latest-product__item">                        
+					                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                       
 					                           <div class="latest-product__item__text">	                           	
 					                              <h6>[${status.count + 5}]. ${list.news_keyword}</h6>
 					                           </div>                         

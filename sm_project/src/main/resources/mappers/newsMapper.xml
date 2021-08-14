@@ -50,6 +50,7 @@
    		<if test="searchType != null">
    			<if test="searchType == 't'.toString()">and news_title like '%' || #{keyword} || '%'</if>
    			<if test="searchType == 'c'.toString()">and news_contents like '%' || #{keyword} || '%'</if>
+   			
    		</if>
    
    </sql>

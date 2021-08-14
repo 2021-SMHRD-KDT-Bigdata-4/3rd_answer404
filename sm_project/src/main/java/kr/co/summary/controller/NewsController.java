@@ -91,6 +91,7 @@ public class NewsController {
 		logger.info("list");
 
 		model.addAttribute("list", service.list(scri));
+		System.out.println("이거슨서치인거시여!"+scri);
 
 		PageMaker pageMaker = new PageMaker();
 		pageMaker.setCri(scri);
@@ -101,6 +102,8 @@ public class NewsController {
 		return "news/listAll";
 
 	}
+	
+	
 
 	@RequestMapping(value = "/detailView", method = RequestMethod.GET)
 	public String detail(NewsVO newsVO, Model model) throws Exception {
@@ -296,6 +299,14 @@ public class NewsController {
 				System.out.println("next   "+next);
 				System.out.println("select   "+pagingNum);
 				
+				List<NewsVO> categoryStatistictitle = service.categoryStatistictitle(news_category);
+				List<StatisticsVO> categoryStatisticUp= service.categoryStatisticUp(news_category);
+				List<StatisticsVO> categoryStatisticDown= service.categoryStatisticDown(news_category);
+				
+				model.addAttribute("categoryStatistictitle", categoryStatistictitle);
+				model.addAttribute("categoryStatisticUp", categoryStatisticUp);
+				model.addAttribute("categoryStatisticDown", categoryStatisticDown);
+				
 				return "news/society_category";
 			}
 			
@@ -373,6 +384,14 @@ public class NewsController {
 					System.out.println("next   "+next);
 					System.out.println("select   "+pagingNum);
 					
+					List<NewsVO> categoryStatistictitle = service.categoryStatistictitle(news_category);
+					List<StatisticsVO> categoryStatisticUp= service.categoryStatisticUp(news_category);
+					List<StatisticsVO> categoryStatisticDown= service.categoryStatisticDown(news_category);
+					
+					model.addAttribute("categoryStatistictitle", categoryStatistictitle);
+					model.addAttribute("categoryStatisticUp", categoryStatisticUp);
+					model.addAttribute("categoryStatisticDown", categoryStatisticDown);
+					
 					return "news/politics_category";
 
 				}
@@ -449,6 +468,14 @@ public class NewsController {
 						System.out.println("prev   "+prev);
 						System.out.println("next   "+next);
 						System.out.println("select   "+pagingNum);
+						
+						List<NewsVO> categoryStatistictitle = service.categoryStatistictitle(news_category);
+						List<StatisticsVO> categoryStatisticUp= service.categoryStatisticUp(news_category);
+						List<StatisticsVO> categoryStatisticDown= service.categoryStatisticDown(news_category);
+						
+						model.addAttribute("categoryStatistictitle", categoryStatistictitle);
+						model.addAttribute("categoryStatisticUp", categoryStatisticUp);
+						model.addAttribute("categoryStatisticDown", categoryStatisticDown);
 						
 						return "news/itscience_category";
 
