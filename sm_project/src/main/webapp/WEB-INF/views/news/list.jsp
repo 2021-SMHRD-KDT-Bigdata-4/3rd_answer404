@@ -36,46 +36,7 @@
 <link rel="stylesheet" href="${cpath}/resources/css/style.css"
    type="text/css">
 </head>
-<style>
-.pagenation ul {
-   text-align: center;
-}
 
-.pagenation ul li {
-   display: inline;
-   vertical-align: middle;
-}
-
-.pagenation ul li a {
-   display: -moz-inline-stack; /*FF2*/
-   display: inline-block;
-   vertical-align: top;
-   padding: 4px;
-   margin-right: 3px;
-   width: 30px;
-   height: 30px;
-   color: #000;
-   margin: 0 auto;
-   font: bold 17px tahoma;
-   border: 1px solid #eee;
-   text-align: center;
-   text-decoration: none;
-   width /**/: 26px;
-   height: 30px; /*IE 5.5*/
-}
-
-.pagenation ul li a.now {
-   color: #fff;
-   background-color: #f40;
-   border: 1px solid #f40;
-}
-
-.pagenation ul li a:hover, ul li a:focus {
-   color: #fff;
-   border: 1px solid #f40;
-   background-color: #f40;
-}
-</style>
 
 <script
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
