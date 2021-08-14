@@ -12,7 +12,7 @@
 <meta name="keywords" content="Ogani, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Ogani | Template</title>
+<title>응답하라 404</title>
 
 <!-- Google Font -->
 <link
@@ -255,7 +255,7 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="breadcrumb__text">
-						<h2>일일 정치 뉴스</h2>
+						<h2>일일 IT/과학 뉴스</h2>
 						<div class="breadcrumb__option">
 							<a href="./index.html">응답하라</a> <span>404</span>
 						</div>
