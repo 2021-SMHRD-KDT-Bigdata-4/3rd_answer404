@@ -3,6 +3,7 @@ package kr.co.summary.dao;
 import java.util.List;
 
 import kr.co.summary.domain.Criteria;
+import kr.co.summary.domain.DictionaryVO;
 import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.NewsVO;
 import kr.co.summary.domain.SearchCriteria;
@@ -56,6 +57,8 @@ public interface NewsDAO {
 	public List<StatisticsVO> categoryStatisticUp(String news_category) throws Exception;
 
 	public List<StatisticsVO> categoryStatisticDown(String news_category) throws Exception;
+
+	public DictionaryVO searchDic(DictionaryVO dictionaryVO) throws Exception;
 
 	
 }

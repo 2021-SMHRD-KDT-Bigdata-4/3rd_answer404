@@ -36,46 +36,7 @@
 <link rel="stylesheet" href="${cpath}/resources/css/style.css"
    type="text/css">
 </head>
-<style>
-.pagenation ul {
-   text-align: center;
-}
 
-.pagenation ul li {
-   display: inline;
-   vertical-align: middle;
-}
-
-.pagenation ul li a {
-   display: -moz-inline-stack; /*FF2*/
-   display: inline-block;
-   vertical-align: top;
-   padding: 4px;
-   margin-right: 3px;
-   width: 30px;
-   height: 30px;
-   color: #000;
-   margin: 0 auto;
-   font: bold 17px tahoma;
-   border: 1px solid #eee;
-   text-align: center;
-   text-decoration: none;
-   width /**/: 26px;
-   height: 30px; /*IE 5.5*/
-}
-
-.pagenation ul li a.now {
-   color: #fff;
-   background-color: #f40;
-   border: 1px solid #f40;
-}
-
-.pagenation ul li a:hover, ul li a:focus {
-   color: #fff;
-   border: 1px solid #f40;
-   background-color: #f40;
-}
-</style>
 
 <script
    src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -390,49 +351,49 @@ $( document ).ready(function() {
                   <div class="latest-product__slider owl-carousel">
                      <div class="latest-prdouct__slider__item">
                     
-                     	<h4>남성 선호 키워드</h4>
-                     	<c:forEach var="list"  items="${staticmaleUp}"  varStatus="status">
-	                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                        
-	                           <div class="latest-product__item__text">	                           	
-	                              <h6>[${status.count}]. ${list.news_keyword}</h6>
-	                           </div>                         
-	                        </a>
+                        <h4>남성 선호 키워드</h4>
+                        <c:forEach var="list"  items="${staticmaleUp}"  varStatus="status">
+                           <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                        
+                              <div class="latest-product__item__text">                                 
+                                 <h6>[${status.count}]. ${list.news_keyword}</h6>
+                              </div>                         
+                           </a>
                          </c:forEach>
                           
                      </div>
                     <div class="latest-prdouct__slider__item">
                      
-                     	<h4>남성 선호 키워드</h4>
-                     	<c:forEach var="list"  items="${staticmaleDown}"  varStatus="status">
-	                      <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                     
-	                           <div class="latest-product__item__text">	                           	
-	                              <h6>[${status.count + 5}]. ${list.news_keyword}</h6>
-	                           </div>                         
-	                        </a>
+                        <h4>남성 선호 키워드</h4>
+                        <c:forEach var="list"  items="${staticmaleDown}"  varStatus="status">
+                         <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                     
+                              <div class="latest-product__item__text">                                 
+                                 <h6>[${status.count + 5}]. ${list.news_keyword}</h6>
+                              </div>                         
+                           </a>
                          </c:forEach>
                           
                      </div>
                      <div class="latest-prdouct__slider__item">
                      
-                     	<h4>여성 선호 키워드</h4>
-                     	<c:forEach var="list"  items="${staticfemaleUp}"  varStatus="status">
-	                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                     
-	                           <div class="latest-product__item__text">	                           	
-	                              <h6>[${status.count}]. ${list.news_keyword}</h6>
-	                           </div>                         
-	                        </a>
+                        <h4>여성 선호 키워드</h4>
+                        <c:forEach var="list"  items="${staticfemaleUp}"  varStatus="status">
+                           <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                     
+                              <div class="latest-product__item__text">                                 
+                                 <h6>[${status.count}]. ${list.news_keyword}</h6>
+                              </div>                         
+                           </a>
                          </c:forEach>
                           
                      </div>
                      <div class="latest-prdouct__slider__item">
                      
-                     	<h4>여성 선호 키워드</h4>
-                     	<c:forEach var="list"  items="${staticfemaleDown}"  varStatus="status">
-	                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                      
-	                           <div class="latest-product__item__text">	                           	
-	                              <h6>[${status.count + 5}]. ${list.news_keyword}</h6>
-	                           </div>                         
-	                        </a>
+                        <h4>여성 선호 키워드</h4>
+                        <c:forEach var="list"  items="${staticfemaleDown}"  varStatus="status">
+                           <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                      
+                              <div class="latest-product__item__text">                                 
+                                 <h6>[${status.count + 5}]. ${list.news_keyword}</h6>
+                              </div>                         
+                           </a>
                          </c:forEach>
                           
                      </div>
@@ -445,58 +406,58 @@ $( document ).ready(function() {
                   <div class="latest-product__slider owl-carousel">
                   
                        <div class="latest-prdouct__slider__item">                    
-	                     	<h4>20대 이하 선호 키워드</h4>
-	                     	<c:forEach var="list"  items="${static20}"  varStatus="status">
-		                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                        
-		                           <div class="latest-product__item__text">	                           	
-		                              <h6>[${status.count}]. ${list.news_keyword}</h6>
-		                           </div>                         
-		                        </a>
-	                         </c:forEach>
+                           <h4>20대 이하 선호 키워드</h4>
+                           <c:forEach var="list"  items="${static20}"  varStatus="status">
+                              <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                        
+                                 <div class="latest-product__item__text">                                 
+                                    <h6>[${status.count}]. ${list.news_keyword}</h6>
+                                 </div>                         
+                              </a>
+                            </c:forEach>
                        </div>
                        
                        <div class="latest-prdouct__slider__item">                    
-	                     	<h4>30대 선호 키워드</h4>
-	                     	<c:forEach var="list"  items="${static30}"  varStatus="status">
-		                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                       
-		                           <div class="latest-product__item__text">	                           	
-		                              <h6>[${status.count}]. ${list.news_keyword}</h6>
-		                           </div>                         
-		                        </a>
-	                         </c:forEach>
+                           <h4>30대 선호 키워드</h4>
+                           <c:forEach var="list"  items="${static30}"  varStatus="status">
+                              <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                       
+                                 <div class="latest-product__item__text">                                 
+                                    <h6>[${status.count}]. ${list.news_keyword}</h6>
+                                 </div>                         
+                              </a>
+                            </c:forEach>
                        </div>
                        
                        <div class="latest-prdouct__slider__item">                    
-	                     	<h4>40대 선호 키워드</h4>
-	                     	<c:forEach var="list"  items="${static40}"  varStatus="status">
-		                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                        
-		                           <div class="latest-product__item__text">	                           	
-		                              <h6>[${status.count}]. ${list.news_keyword}</h6>
-		                           </div>                         
-		                        </a>
-	                         </c:forEach>
+                           <h4>40대 선호 키워드</h4>
+                           <c:forEach var="list"  items="${static40}"  varStatus="status">
+                              <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                        
+                                 <div class="latest-product__item__text">                                 
+                                    <h6>[${status.count}]. ${list.news_keyword}</h6>
+                                 </div>                         
+                              </a>
+                            </c:forEach>
                        </div>
                        
                        <div class="latest-prdouct__slider__item">                    
-	                     	<h4>50대 선호 키워드</h4>
-	                     	<c:forEach var="list"  items="${static50}"  varStatus="status">
-		                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                       
-		                           <div class="latest-product__item__text">	                           	
-		                              <h6>[${status.count}]. ${list.news_keyword}</h6>
-		                           </div>                         
-		                        </a>
-	                         </c:forEach>
+                           <h4>50대 선호 키워드</h4>
+                           <c:forEach var="list"  items="${static50}"  varStatus="status">
+                              <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                       
+                                 <div class="latest-product__item__text">                                 
+                                    <h6>[${status.count}]. ${list.news_keyword}</h6>
+                                 </div>                         
+                              </a>
+                            </c:forEach>
                        </div>
                        
                        <div class="latest-prdouct__slider__item">                    
-	                     	<h4>60대이상 선호 키워드</h4>
-	                     	<c:forEach var="list"  items="${static60}"  varStatus="status">
-		                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                     
-		                           <div class="latest-product__item__text">	                           	
-		                              <h6>[${status.count}]. ${list.news_keyword}</h6>
-		                           </div>                         
-		                        </a>
-	                         </c:forEach>
+                           <h4>60대이상 선호 키워드</h4>
+                           <c:forEach var="list"  items="${static60}"  varStatus="status">
+                              <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                     
+                                 <div class="latest-product__item__text">                                 
+                                    <h6>[${status.count}]. ${list.news_keyword}</h6>
+                                 </div>                         
+                              </a>
+                            </c:forEach>
                        </div>
                        
                   </div>
@@ -506,25 +467,25 @@ $( document ).ready(function() {
                <div class="latest-product__text">
                   <h4>종합 키워드 통계</h4>
                   <div class="latest-product__slider owl-carousel">
-						<div class="latest-prdouct__slider__item">                    
-	                     	<h4>종합 선호 키워드</h4>
-	                     	<c:forEach var="list"  items="${statictotalUp}"  varStatus="status">
-		                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                      
-		                           <div class="latest-product__item__text">	                           	
-		                              <h6>[${status.count}]. ${list.news_keyword}</h6>
-		                           </div>                         
-		                        </a>
-	                         </c:forEach>
+                  <div class="latest-prdouct__slider__item">                    
+                           <h4>종합 선호 키워드</h4>
+                           <c:forEach var="list"  items="${statictotalUp}"  varStatus="status">
+                              <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                      
+                                 <div class="latest-product__item__text">                                 
+                                    <h6>[${status.count}]. ${list.news_keyword}</h6>
+                                 </div>                         
+                              </a>
+                            </c:forEach>
                        </div>
                        <div class="latest-prdouct__slider__item">                    
-	                     	<h4>종합 선호 키워드</h4>
-	                     	<c:forEach var="list"  items="${statictotalDown}"  varStatus="status">
-		                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                    
-		                           <div class="latest-product__item__text">	                           	
-		                              <h6>[${status.count+5}]. ${list.news_keyword}</h6>
-		                           </div>                         
-		                        </a>
-	                         </c:forEach>
+                           <h4>종합 선호 키워드</h4>
+                           <c:forEach var="list"  items="${statictotalDown}"  varStatus="status">
+                              <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                    
+                                 <div class="latest-product__item__text">                                 
+                                    <h6>[${status.count+5}]. ${list.news_keyword}</h6>
+                                 </div>                         
+                              </a>
+                            </c:forEach>
                        </div>
                   </div>
                </div>
@@ -534,122 +495,122 @@ $( document ).ready(function() {
    </section>
    <!-- Latest Product Section End -->
 
-	</section>
-	<!-- Featured Section End -->
+   </section>
+   <!-- Featured Section End -->
 
-	<!-- Banner Begin -->
-	<div class="banner">
-		<div class="container">
-			<div style="margin-left: 60px;" class="row">
-				<div class="col-lg-6 col-md-6 col-sm-6">
-					<div class="banner__pic">
-						<img src="${cpath}/resources/img/banner/smart1.png" alt="">
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6">
-					<div class="banner__pic">
-						<img src="${cpath}/resources/img/banner/smart2.png" alt="">
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Banner End -->
+   <!-- Banner Begin -->
+   <div class="banner">
+      <div class="container">
+         <div style="margin-left: 60px;" class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6">
+               <div class="banner__pic">
+                  <img src="${cpath}/resources/img/banner/smart1.png" alt="">
+               </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+               <div class="banner__pic">
+                  <img src="${cpath}/resources/img/banner/smart2.png" alt="">
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Banner End -->
 
 
-	<!-- Footer Section Begin -->
-	<footer class="footer spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="footer__about">
-						<div class="footer__about__logo">
-							<a href="./index.html"><img
-								src="${cpath}/resources/img/logo_trans.png" alt=""></a>
-						</div>
-						<ul>
-							<li>Address: 60-49 Road 11378 New York</li>
-							<li>Phone: +65 11.188.888</li>
-							<li>Email: hello@colorlib.com</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-					<div class="footer__widget">
-						<h6>Useful Links</h6>
-						<ul>
-							<li><a href="#">About Us</a></li>
-							<li><a href="#">About Our Shop</a></li>
-							<li><a href="#">Secure Shopping</a></li>
-							<li><a href="#">Delivery infomation</a></li>
-							<li><a href="#">Privacy Policy</a></li>
-							<li><a href="#">Our Sitemap</a></li>
-						</ul>
-						<ul>
-							<li><a href="#">Who We Are</a></li>
-							<li><a href="#">Our Services</a></li>
-							<li><a href="#">Projects</a></li>
-							<li><a href="#">Contact</a></li>
-							<li><a href="#">Innovation</a></li>
-							<li><a href="#">Testimonials</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-12">
-					<div class="footer__widget">
-						<h6>Join Our Newsletter Now</h6>
-						<p>Get E-mail updates about our latest shop and special
-							offers.</p>
-						<form action="#">
-							<input type="text" placeholder="Enter your mail">
-							<button type="submit" class="site-btn">Subscribe</button>
-						</form>
-						<div class="footer__widget__social">
-							<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
-								class="fa fa-instagram"></i></a> <a href="#"><i
-								class="fa fa-twitter"></i></a> <a href="#"><i
-								class="fa fa-pinterest"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="footer__copyright">
-						<div class="footer__copyright__text">
-							<p>
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;
-								<script>
+   <!-- Footer Section Begin -->
+   <footer class="footer spad">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+               <div class="footer__about">
+                  <div class="footer__about__logo">
+                     <a href="./index.html"><img
+                        src="${cpath}/resources/img/logo_trans.png" alt=""></a>
+                  </div>
+                  <ul>
+                     <li>Address: 60-49 Road 11378 New York</li>
+                     <li>Phone: +65 11.188.888</li>
+                     <li>Email: hello@colorlib.com</li>
+                  </ul>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+               <div class="footer__widget">
+                  <h6>Useful Links</h6>
+                  <ul>
+                     <li><a href="#">About Us</a></li>
+                     <li><a href="#">About Our Shop</a></li>
+                     <li><a href="#">Secure Shopping</a></li>
+                     <li><a href="#">Delivery infomation</a></li>
+                     <li><a href="#">Privacy Policy</a></li>
+                     <li><a href="#">Our Sitemap</a></li>
+                  </ul>
+                  <ul>
+                     <li><a href="#">Who We Are</a></li>
+                     <li><a href="#">Our Services</a></li>
+                     <li><a href="#">Projects</a></li>
+                     <li><a href="#">Contact</a></li>
+                     <li><a href="#">Innovation</a></li>
+                     <li><a href="#">Testimonials</a></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+               <div class="footer__widget">
+                  <h6>Join Our Newsletter Now</h6>
+                  <p>Get E-mail updates about our latest shop and special
+                     offers.</p>
+                  <form action="#">
+                     <input type="text" placeholder="Enter your mail">
+                     <button type="submit" class="site-btn">Subscribe</button>
+                  </form>
+                  <div class="footer__widget__social">
+                     <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+                        class="fa fa-instagram"></i></a> <a href="#"><i
+                        class="fa fa-twitter"></i></a> <a href="#"><i
+                        class="fa fa-pinterest"></i></a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-lg-12">
+               <div class="footer__copyright">
+                  <div class="footer__copyright__text">
+                     <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>
                            document.write(new Date().getFullYear());
                         </script>
-								All rights reserved | This template is made with <i
-									class="fa fa-heart" aria-hidden="true"></i> by <a
-									href="https://colorlib.com" target="_blank">Colorlib</a>
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							</p>
-						</div>
-						<div class="footer__copyright__payment">
-							<img src="${cpath}/resources/img/payment-item.png" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- Footer Section End -->
+                        All rights reserved | This template is made with <i
+                           class="fa fa-heart" aria-hidden="true"></i> by <a
+                           href="https://colorlib.com" target="_blank">Colorlib</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                     </p>
+                  </div>
+                  <div class="footer__copyright__payment">
+                     <img src="${cpath}/resources/img/payment-item.png" alt="">
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+   <!-- Footer Section End -->
 
-	<!-- Js Plugins -->
-	<script src="${cpath}/resources/js/jquery-3.3.1.min.js"></script>
-	<script src="${cpath}/resources/js/bootstrap.min.js"></script>
-	<script src="${cpath}/resources/js/jquery.nice-select.min.js"></script>
-	<script src="${cpath}/resources/js/jquery-ui.min.js"></script>
-	<script src="${cpath}/resources/js/jquery.slicknav.js"></script>
-	<script src="${cpath}/resources/js/mixitup.min.js"></script>
-	<script src="${cpath}/resources/js/owl.carousel.min.js"></script>
-	<script src="${cpath}/resources/js/main.js"></script>
+   <!-- Js Plugins -->
+   <script src="${cpath}/resources/js/jquery-3.3.1.min.js"></script>
+   <script src="${cpath}/resources/js/bootstrap.min.js"></script>
+   <script src="${cpath}/resources/js/jquery.nice-select.min.js"></script>
+   <script src="${cpath}/resources/js/jquery-ui.min.js"></script>
+   <script src="${cpath}/resources/js/jquery.slicknav.js"></script>
+   <script src="${cpath}/resources/js/mixitup.min.js"></script>
+   <script src="${cpath}/resources/js/owl.carousel.min.js"></script>
+   <script src="${cpath}/resources/js/main.js"></script>
 
-	<script type="text/javascript">
+   <script type="text/javascript">
 
    function loginPopUp(){
       window.open("/member/login", "login", "width=500, height=643, left=660, top=200");

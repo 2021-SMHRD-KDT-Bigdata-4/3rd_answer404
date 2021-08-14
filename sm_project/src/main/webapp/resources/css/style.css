@@ -89,8 +89,8 @@ h6 {
 
 p {
 	font-size: 16px;
-	font-family: "Cairo", sans-serif;
-	color: #6f6f6f;
+	font-family: "Pretendard-Regular";
+	color: #252525;
 	font-weight: 400;
 	line-height: 26px;
 	margin: 0 0 15px 0;
@@ -2393,7 +2393,8 @@ ul, ol {
 }
 
 .blog__sidebar__search {
-	margin-bottom: 50px;
+    width: 100%;
+    padding: 0px 15px;
 }
 
 .blog__sidebar__search form {
@@ -2407,7 +2408,7 @@ ul, ol {
 	color: #6f6f6f;
 	padding-left: 15px;
 	border: 1px solid #e1e1e1;
-	border-radius: 20px;
+	border-radius: 10px;
 }
 
 .blog__sidebar__search form input::placeholder {

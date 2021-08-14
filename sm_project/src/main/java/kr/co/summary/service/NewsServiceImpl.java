@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import kr.co.summary.dao.NewsDAO;
 import kr.co.summary.domain.Criteria;
+import kr.co.summary.domain.DictionaryVO;
 import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.NewsVO;
 import kr.co.summary.domain.SearchCriteria;
@@ -82,6 +83,14 @@ public class NewsServiceImpl implements NewsService{
 	public List<NewsVO> countStatistics() throws Exception{
 		return dao.countStatistics();
 	}
+
+	@Override
+	public DictionaryVO searchDic(DictionaryVO dictionaryVO) throws Exception {
+		
+		return dao.searchDic(dictionaryVO);
+	}
+	
+
 	public List<StatisticsVO> countStatisticmaleUp() throws Exception{
 		return dao.countStatisticmaleUp();
 	}
@@ -131,4 +140,5 @@ public class NewsServiceImpl implements NewsService{
 	public List<StatisticsVO> categoryStatisticDown(String news_category) throws Exception {
 		return dao.categoryStatisticDown(news_category);
 	}
+
 }
