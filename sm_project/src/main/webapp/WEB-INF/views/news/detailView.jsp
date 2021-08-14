@@ -64,7 +64,6 @@
    //전문용어 검색 펑션
    function searchDic(){
 	var svalue = document.getElementById("keywordInput2").value;
-	alert(svalue);
 	$.ajax({
 			url: "/news/searchDic",
 			type : "get",
@@ -154,6 +153,12 @@
 	<div id="floatMenu">
 		<div class="col-lg-12">
 			<div class='row'>
+					<div class = 'remote__control__title'>
+						<h5>전문용어 검색</h5>
+						<div class='bar'></div>
+				</div>
+			</div>
+			<div class='row'>
 				<div class="blog__sidebar__search">
 					<form>
 						<div>
@@ -167,12 +172,10 @@
 				</div>
 			</div>
 			<div class='row'>
-				<div>
+				<div class='searchResultDiv'>
 					<p id='searchResult'>여기에 검색결과가 나옵니다</p>
 				</div>
 			</div>
-
-
 		</div>
 	</div>
 	<!-- 플로팅 메뉴 -->

@@ -1,14 +1,43 @@
 #floatMenu {
   position: fixed;
-  right:60px;
+  right: 60px;
   bottom: 250px;
-  width: 240px;
+  width: 260px;
   height: 360px;
-  background: salmon;
+  background: #f8f9fa;
   z-index:1;
+  border-radius: 5px;
 }
 
 #floatMenu.on {
   position: absolute;
   bottom: 50px;
+}
+
+
+.bar {
+	margin-top: 10px;
+    height: 4px;
+    width: 80px;
+    background: #0857C3;
+}
+
+.remote__control{
+	display:flex;
+}
+
+.remote__control__title{
+	display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.searchResultDiv{
+	padding : 0px 10px;
+    height: 210px;
+    overflow: auto;
 }

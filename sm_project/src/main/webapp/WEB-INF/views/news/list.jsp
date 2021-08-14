@@ -327,14 +327,14 @@ $( document ).ready(function() {
                   </form>
                </div>
                <div class="hero__item set-bg"
-                  data-setbg="https://imgnews.pstatic.net/image/023/2021/08/11/0003632999_001_20210811144003855.jpg?type=w647">
+                  data-setbg="https://yonhapnewstv-prod.s3.ap-northeast-2.amazonaws.com/article/MYH/20210814/MYH20210814008900038.jpg">
                   <div class="hero__text">
-                     <span>배너</span> <a
+                     <span>메인 뉴스</span> <a
                         href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=023&aid=0003632999&rankingType=RANKING">
                         <h3 style="color: white; opacity: 0.8;">
-                           文대통령, 확진자 2000명 넘어서자<br> “세계적인 현상”
+                           18∼49세 백신 접종 예약률 <br> 나흘간 60.6%
                         </h3>
-                     </a> <a href="#" class="primary-btn">임시로해놨음</a>
+                     </a> <a href="#" class="primary-btn">자세히보기</a>
                   </div>
                </div>
             </div>
