@@ -92,8 +92,6 @@ public class NewsDAOImpl implements NewsDAO{
 	// 카테고리 ajax 
 	@Override
 	public List<NewsVO> selectCategory(String news_category) throws Exception {
-	
-		
 		return sqlSession.selectList("newsMapper.selectCategory",news_category);
 	}	
 
