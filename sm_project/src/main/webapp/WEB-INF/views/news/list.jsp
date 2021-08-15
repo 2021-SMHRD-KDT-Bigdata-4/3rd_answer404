@@ -11,7 +11,7 @@
 <meta name="keywords" content="Ogani, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Ogani | Template</title>
+<title>Main 페이지</title>
 
 <!-- Google Font -->
 <link
@@ -65,7 +65,7 @@ $( document ).ready(function() {
              data : {"data" : data}, // kind를 kind로 명명하여 보내겠다
              success : function(data){ 
                         
-         var views = "<div class='row featured_filter'>";
+         	var views = "<div class='row featured_filter'>";
          
               $.each(data,(index,obj)=>{
                                             
@@ -248,6 +248,7 @@ $( document ).ready(function() {
                   </div>
                </c:if>
             </div>
+            
          </div>
          <div class="humberger__open">
             <i class="fa fa-bars"></i>

@@ -128,9 +128,19 @@ private static final org.slf4j.Logger logger =  LoggerFactory.getLogger(NewsCont
 		return "redirect:/member/scrap?member_id="+member_id+"&&pagingNum="+1;
 	}
 	
+	@RequestMapping("scrapMemoUpdate")	
+	public String scrapMemoUpdate(ScrapVO scrapvo) throws Exception{
+		logger.info("scrapMemoUpdate");
+		System.out.println(scrapvo);
+		
+		memberservice.scrapMemoUpdate(scrapvo);
+		
+		return "redirect:/member/scrap?member_id="+scrapvo.getMember_id()+"&&pagingNum="+1;
+	}
+	
 	//상세페이지에서 스크랩버튼 눌렀을때 insert 
 	@RequestMapping("scrapInsert")	
-	public String scrapInsert( ScrapVO scrapvo) throws Exception{
+	public String scrapInsert(ScrapVO scrapvo) throws Exception{
 		logger.info("scrapInsert");
 				//System.out.println(newsvo.getNews_title());
 				System.out.println("---------------------");

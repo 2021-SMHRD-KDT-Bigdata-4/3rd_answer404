@@ -22,4 +22,6 @@ public interface MemberService {
 	public void scrapDelete(int scrap_index) throws Exception;
 
 	public void scrapInsert(ScrapVO scrapvo) throws Exception;
+	
+	public void scrapMemoUpdate(ScrapVO scrapvo) throws Exception;
 }

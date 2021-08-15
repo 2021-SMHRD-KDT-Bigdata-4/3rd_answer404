@@ -29,7 +29,9 @@
 	<insert id="scrapInsert">
 	     
 	    insert into scrap(SCRAP_INDEX,scrap_memo,NEWS_INDEX,NEWS_TITLE,NEWS_IMAGE,MEMBER_ID)
-	    values ( scrap_index_seq.nextval,'Memo',#{news_index},#{news_title},#{news_image},#{member_id})
-	    
+	    values ( scrap_index_seq.nextval,'Memo',#{news_index},#{news_title},#{news_image},#{member_id})	    
 	</insert>
+	<update id="scrapMemoUpdate">
+		update scrap set scrap_memo =#{scrap_memo} where member_id = #{member_id} and scrap_index= #{scrap_index}
+	</update>
   </mapper>

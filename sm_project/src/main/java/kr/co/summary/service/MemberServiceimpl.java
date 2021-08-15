@@ -44,5 +44,7 @@ public class MemberServiceimpl implements MemberService{
 		dao.scrapInsert(scrapvo);
 		
 	}
-	
+	public void scrapMemoUpdate(ScrapVO scrapvo) throws Exception{
+		dao.scrapMemoUpdate(scrapvo);
+	}
 }
