@@ -538,6 +538,7 @@ $( document ).ready(function() {
 	<!-- Banner End -->
 
 
+<<<<<<< HEAD
 	<!-- Footer Section Begin -->
 	<footer class="footer spad">
 		<div class="container">
@@ -602,8 +603,64 @@ $( document ).ready(function() {
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 								Copyright &copy;
 								<script>
+=======
+   <!-- Footer Section Begin -->
+   <footer class="footer spad" style="height: 300px;">
+      <div class="container">
+         <div>
+            <div style="display: flex;" class="col-lg-12 col-sm-6">
+                  <div class="footer__about__logo">
+                     <a href="./index.html"><img style="padding-right: 50px;"
+                        src="${cpath}/resources/img/logo_trans.png" alt=""></a>
+                  </div>
+                  <div style="padding-right: 30px;">
+                  <ul>
+                  <br>
+                     <li>팀장 : 김성은</li>
+                     <li>팀원 : 손민호</li>
+                     <li>팀원 : 장경진</li>
+                     <li>팀원 : 이길수</li>
+                     <li>팀원 : 노현규</li>
+                     
+                  </ul>
+                  </div>
+                  <div>
+                  <ul>
+                  	<br>
+                     <li><a href=https://github.com/kimvkffkd83>깃허브주소 : https://github.com/kimvkffkd83</a></li>
+                     <li><a href="https://github.com/thsalsgh1234">깃허브주소 : https://github.com/thsalsgh1234</a></li>
+                     <li><a href="https://github.com/GyungJin">깃허브주소 : https://github.com/GyungJin</a></li>
+                     <li><a href="https://github.com/lee198745123">깃허브주소 : https://github.com/lee198745123</a></li>
+                     <li><a href="https://github.com/psm1936">깃허브주소 : https://github.com/psm1936</a></li>
+                     
+                  </ul>
+                  </div>
+                 
+                  </div>
+                   <div class="footer__widget">
+                 
+                  
+                  
+               </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+              
+            </div>
+           
+            </div>
+         
+         <div class="row">
+            <div class="col-lg-12">
+               <div class="footer__copyright">
+                  <div style="text-align: center;" class="footer__copyright__text">
+                     <p style="padding-left: 40%; margin-left: 100px;">
+                        
+                        Copyright &copy;
+                        <script>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_answer404.git
                            document.write(new Date().getFullYear());
                         </script>
+<<<<<<< HEAD
 								All rights reserved | This template is made with <i
 									class="fa fa-heart" aria-hidden="true"></i> by <a
 									href="https://colorlib.com" target="_blank">Colorlib</a>
@@ -619,6 +676,20 @@ $( document ).ready(function() {
 		</div>
 	</footer>
 	<!-- Footer Section End -->
+=======
+                        All rights reserved | 스마트인재개발원 3차프로젝트 개인투자자들을 위한 맞춤형 뉴스기사 요약 및  전문용어 해석 서비스 <i
+                           class="fa fa-heart" aria-hidden="true"></i> by <a
+                           href="https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_answer404" target="_blank">응답하라404</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+    
+   </footer>
+   <!-- Footer Section End -->
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_answer404.git
 
 	<!-- Js Plugins -->
 	<script src="${cpath}/resources/js/jquery-3.3.1.min.js"></script>
