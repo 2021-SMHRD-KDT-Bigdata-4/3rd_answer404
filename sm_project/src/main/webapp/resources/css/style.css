@@ -855,7 +855,7 @@ ul, ol {
   Featured
 -----------------------*/
 .featured {
-	padding-top: 80px;
+	padding-top: 30px;
 	padding-bottom: 40px;
 }
 
@@ -1007,8 +1007,15 @@ ul, ol {
 /*---------------------
   Latest Product
 -----------------------*/
+.vertical_bar{
+	width: 3px;
+    height: 250px;
+    background: #f8f9fa;
+    margin: 0px 40px;
+}
+
 .latest-product {
-	padding-top: 40px;
+	padding-top: 20px;
 	padding-bottom: 0;
 }
 
@@ -1019,12 +1026,19 @@ ul, ol {
 }
 
 .latest-product__text h5 {
-	color: #666666;
+	font-weight: 700;
+	color: #001871;
+	margin-bottom:5px;
 }
+
+.latest-prdouct__slider__item h5 {
+	margin-left:10px;
+}
+
 
 .latest-product__slider.owl-carousel .owl-nav {
 	position: absolute;
-	right: 20px;
+	right: 0px;
 	top: -45px;
 }
 
@@ -1069,9 +1083,18 @@ ul, ol {
 	padding-top: 10px;
 }
 
+.latest-product__item__text h5{
+	margin-left:8px;
+}
+
 .latest-product__item__text h6 {
 	color: #252525;
+	margin-left: 10px;
 	margin-bottom: 8px;
+}
+
+.latest-product__item__text h6:hover{
+	color: #001871;
 }
 
 .latest-product__item__text span {

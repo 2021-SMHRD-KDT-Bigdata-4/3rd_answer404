@@ -57,4 +57,8 @@ public class MemberDAOimpl implements MemberDAO {
 		sqlSession.insert("memberMapper.scrapInsert",scrapvo);
 		
 	}
+	public void scrapMemoUpdate(ScrapVO scrapvo) throws Exception{
+
+		sqlSession.update("memberMapper.scrapMemoUpdate",scrapvo);
+	}
 }

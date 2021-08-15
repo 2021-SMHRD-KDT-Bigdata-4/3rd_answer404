@@ -11,7 +11,7 @@
 <meta name="keywords" content="Ogani, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Ogani | Template</title>
+<title>Main 페이지</title>
 
 <!-- Google Font -->
 <link
@@ -65,7 +65,7 @@ $( document ).ready(function() {
              data : {"data" : data}, // kind를 kind로 명명하여 보내겠다
              success : function(data){ 
                         
-         var views = "<div class='row featured_filter'>";
+         	var views = "<div class='row featured_filter'>";
          
               $.each(data,(index,obj)=>{
                                             
@@ -228,14 +228,13 @@ $( document ).ready(function() {
 						</div>
 					</c:if>
 
-
 					<c:if test="${member != null}">
 						<div class="header__top__right__auth">
 							<a href="#" onclick="logout()"><i class="fa fa-user"></i>
 								Logout</a>
 						</div>
 					</c:if>
-
+					
 					<c:if test="${member != null}">
 						<div class="header__top__right__auth">
 							<a href="#" onclick="scrap()"> <i class="fa fa-user"></i>Scrap(임시)
@@ -347,7 +346,7 @@ $( document ).ready(function() {
 	<section class="latest-product spad">
 		<div class="container" style="margin-bottom: 80px;">
 			<div class="row">
-				<div class="col-lg-4 col-md-6">
+				<div class="col-lg-3 col-md-6">
 					<div class="latest-product__text">
 						<h4>성별별 선호 키워드</h4>
 						<div class="latest-product__slider owl-carousel">
@@ -409,7 +408,8 @@ $( document ).ready(function() {
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6">
+				<div class="vertical_bar"></div>
+				<div class="col-lg-3 col-md-6">
 					<div class="latest-product__text">
 						<h4>연령별 선호 통계</h4>
 						<div class="latest-product__slider owl-carousel">
@@ -477,7 +477,9 @@ $( document ).ready(function() {
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6">
+				<div class="vertical_bar"></div>
+				
+				<div class="col-lg-3 col-md-6">
 					<div class="latest-product__text">
 						<h4>종합 키워드 통계</h4>
 						<div class="latest-product__slider owl-carousel">
@@ -493,6 +495,7 @@ $( document ).ready(function() {
 									</a>
 								</c:forEach>
 							</div>
+							
 							<div class="latest-prdouct__slider__item">
 								<h5>종합 선호 키워드</h5>
 								<c:forEach var="list" items="${statictotalDown}"
@@ -539,12 +542,12 @@ $( document ).ready(function() {
    <footer class="footer spad" style="height: 300px;">
       <div class="container">
          <div>
-            <div style="display: flex;" class="col-lg-12 col-sm-6">
+            <div style="display: flex; justify-content:space-evenly;" class="col-lg-12 col-sm-6">
                   <div class="footer__about__logo">
                      <a href="./index.html"><img style="padding-right: 50px;"
                         src="${cpath}/resources/img/logo_trans.png" alt=""></a>
                   </div>
-                  <div style="padding-right: 30px;">
+                  <div >
                   <ul>
                   <br>
                      <li>팀장 : 김성은</li>
@@ -581,16 +584,15 @@ $( document ).ready(function() {
             </div>
          
          <div class="row">
-            <div class="col-lg-12">
-               <div class="footer__copyright">
-                  <div style="text-align: center;" class="footer__copyright__text">
-                     <p style="padding-left: 40%; margin-left: 100px;">
-                        
+            <div class="col-lg-6">
+               <div class="footer__copyright" style="display: flex; justify-content: center;">
+                  <div style="text-align: center;" class="footer__copyright__text ">
+                     <p>
                         Copyright &copy;
                         <script>
                            document.write(new Date().getFullYear());
                         </script>
-                        All rights reserved | 스마트인재개발원 3차프로젝트 개인투자자들을 위한 맞춤형 뉴스기사 요약 및  전문용어 해석 서비스 <i
+                        All rights reserved | 스마트인재개발원 3차프로젝트 <br> 개인투자자들을 위한 맞춤형 뉴스기사 요약 및  전문용어 해석 서비스 <i
                            class="fa fa-heart" aria-hidden="true"></i> by <a
                            href="https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_answer404" target="_blank">응답하라404</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
