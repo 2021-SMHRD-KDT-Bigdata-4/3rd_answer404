@@ -122,7 +122,7 @@
                      <li><a href="${capth}./econo_category?news_category=경제&&pagingNum=1">경제</a></li>
                      <li><a href="${capth}./econo_category?news_category=사회&&pagingNum=1">사회</a></li>
                      <li><a href="${capth}./econo_category?news_category=정치&&pagingNum=1">정치</a></li>
-                     <li><a href="${capth}./econo_categorys?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
+                     <li><a href="${capth}./econo_category?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
 
 						</ul>
 					</nav>
@@ -292,7 +292,9 @@
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="product__item">
 									<div class="product__item__pic set-bg"
-										data-setbg="${list.news_image}">
+										data-setbg="${list.news_image}"
+										onclick='detail(${list.news_index})'
+										>
 										<ul class="product__item__pic__hover">
 											<li><a href="#"><i class="fa fa-heart"></i></a></li>
 										</ul>
@@ -433,6 +435,9 @@
 		function scrap() {
 			location.href = "/member/scrap?member_id=${member.member_id}&&pagingNum=1"
 		}
+		 function detail(new_index){
+			 location.href ="${cpath}/news/detailView?news_index="+new_index;		
+		}  
 	</script>
 
 

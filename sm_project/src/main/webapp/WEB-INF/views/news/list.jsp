@@ -72,7 +72,7 @@ $( document ).ready(function() {
               views+="<div class='col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood'>";
               views+="<div class='featured__item'>";
               views+="<div class='featured__item__pic set-bg'>";
-           views+="<img class='featured__item__pic' src='"+obj.news_image+"'>"
+           views+="<img class='featured__item__pic' src='"+obj.news_image+"' onclick='detail("+obj.news_index+")' >"
               views+="<ul class='featured__item__pic__hover'>";
               views+="<li><a href='#'><i class='fa fa-heart'></i></a></li>";
               views+="</ul>";
@@ -101,6 +101,9 @@ $( document ).ready(function() {
              error : function(data){ alert('error');}
       });
 }
+   function detail(new_index){
+		 location.href ="${cpath}/news/detailView?news_index="+new_index;		
+	}  
 </script>
 
 <body>
@@ -212,7 +215,7 @@ $( document ).ready(function() {
                      <li><a href="${capth}./econo_category?news_category=경제&&pagingNum=1">경제</a></li>
                      <li><a href="${capth}./econo_category?news_category=사회&&pagingNum=1">사회</a></li>
                      <li><a href="${capth}./econo_category?news_category=정치&&pagingNum=1">정치</a></li>
-                     <li><a href="${capth}./econo_categorys?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
+                     <li><a href="${capth}./econo_category?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
                   </ul>
                </nav>
             </div>

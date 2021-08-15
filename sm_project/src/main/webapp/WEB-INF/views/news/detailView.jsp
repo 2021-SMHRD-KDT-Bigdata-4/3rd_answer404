@@ -197,7 +197,7 @@
                      <li><a href="${capth}./econo_category?news_category=경제&&pagingNum=1">경제</a></li>
                      <li><a href="${capth}./econo_category?news_category=사회&&pagingNum=1">사회</a></li>
                      <li><a href="${capth}./econo_category?news_category=정치&&pagingNum=1">정치</a></li>
-                     <li><a href="${capth}./econo_categorys?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
+                     <li><a href="${capth}./econo_category?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -388,9 +388,13 @@
 								</div>
 							</div>
 							<div class="col-lg-6">
+							<c:if test="${member != null}">
 								<div class="blog__details__widget">
+								
 									<button onclick='saveScrap()'>스크랩</button>
+								
 								</div>
+							</c:if>
 							</div>
 						</div>
 					</div>

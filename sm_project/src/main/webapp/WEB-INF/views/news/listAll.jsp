@@ -165,7 +165,7 @@
                      <li><a href="${capth}./econo_category?news_category=경제&&pagingNum=1">경제</a></li>
                      <li><a href="${capth}./econo_category?news_category=사회&&pagingNum=1">사회</a></li>
                      <li><a href="${capth}./econo_category?news_category=정치&&pagingNum=1">정치</a></li>
-                     <li><a href="${capth}./econo_categorys?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
+                     <li><a href="${capth}./econo_category?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -288,7 +288,9 @@
 									<tr>
 										<td class="shoping__cart__item"><img
 											style="max-width: 15%; height: auto;"
-											src="${list.news_image}">
+											src="${list.news_image}"
+											onclick='detail(${list.news_index})'
+											>
 											<h5>
 												<a href="/news/detailView?news_index=${list.news_index}">
 													<c:out value="${list.news_title}" />
@@ -467,6 +469,9 @@
 	function scrap(){
 	   location.href="/member/scrap?member_id=${member.member_id}&&pagingNum=1"
 	}
+	 function detail(new_index){
+		 location.href ="${cpath}/news/detailView?news_index="+new_index;		
+	} 
 	</script>
 </body>
 
