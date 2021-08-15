@@ -435,7 +435,7 @@
 	<script type="text/javascript">
 		function loginPopUp() {
 			window.open("/member/login", "login",
-					"width=500, height=643, left=660, top=200");
+					"width=500, height=678, left=660, top=200");
 		}
 
 		function logout() {

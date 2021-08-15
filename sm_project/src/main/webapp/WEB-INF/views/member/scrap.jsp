@@ -18,9 +18,10 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
 	rel="stylesheet">
-	
+
 <!-- Awesome Font -->
-<script src="https://kit.fontawesome.com/b6d424ac83.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/b6d424ac83.js"
+	crossorigin="anonymous"></script>
 
 <!-- Css Styles -->
 <link rel="stylesheet" href="${cpath}/resources/css/bootstrap.min.css"
@@ -257,7 +258,7 @@
 					<div class="breadcrumb__text">
 						<h2>스크랩</h2>
 						<div class="breadcrumb__option">
-								<span>응답하라 404</span>
+							<span>응답하라 404</span>
 						</div>
 					</div>
 				</div>
@@ -271,7 +272,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-8">
-					<div class="row">
+					<div class="row" style="align-items: flex-end;">
 
 						<c:forEach var="list" items="${list}">
 							<div class="col-lg-4 col-md-6 col-sm-6">
@@ -280,19 +281,26 @@
 										<%--  <img src="${cpath}/resources/img/blog/blog-2.jpg" alt=""> --%>
 										<img src="${list.news_image}" alt="">
 									</div>
-									<div class="blog__item__text">
+									<div class="blog__item__text"
+										style="display: flex; flex-direction: column; flex-wrap: wrap;">
 										<h5>
 											<a href="/news/detailView?news_index=${list.news_index}">
 												<c:out value="${list.news_title}" />
 											</a>
 										</h5>
-										<textarea rows="3" id='memo' name="memo">${list.scrap_memo}</textarea>
+										<textarea class="form-control" rows="3" id='memo' name="memo">${list.scrap_memo}</textarea>
 										<input type="hidden" id='index' name="index"
-											value="${list.scrap_index}" /> <br> <a
-											onclick="scrapMemoUpdate()" class="blog__btn">스크랩 수정 <span
-											class="arrow_right"></span></a> <a
-											href="/member/scrapDelete?member_id=${member.member_id}&&scrap_index=${list.scrap_index}"
-											class="blog__btn"> 스크랩 삭제 <span class="arrow_right"></span></a>
+											value="${list.scrap_index}" /> <br>
+										<div class="col-lg-12"
+											style="flex-direction: row; display: flex; justify-content: space-around;">
+											<a onclick="scrapMemoUpdate()" class="blog__btn"
+												style="padding: 10px 8px;">스크랩 수정 <span
+												class="arrow_right"></span>
+											</a> <a
+												href="/member/scrapDelete?member_id=${member.member_id}&&scrap_index=${list.scrap_index}"
+												class="blog__btn" style="padding: 10px 8px;"> 스크랩 삭제 <span
+												class="arrow_right"></span></a>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -318,8 +326,9 @@
 								</c:if>
 
 								<c:if test="${select == num}">
-										[<a>${num}</a>]
-									</c:if>
+									<a
+										style="color: #fff; background-color: #0857C3; border: 1px solid #0857C3;">${num}</a>
+								</c:if>
 							</c:forEach>
 
 							<c:if test="${next}">
@@ -387,8 +396,8 @@
 					<p>
 						Copyright &copy;
 						<script>
-                           document.write(new Date().getFullYear());
-                        </script>
+							document.write(new Date().getFullYear());
+						</script>
 						All rights reserved | 스마트인재개발원 3차프로젝트 <br> 개인투자자들을 위한 맞춤형
 						뉴스기사 요약 및 전문용어 해석 서비스 <i class="fa fa-heart" aria-hidden="true"></i>
 						by <a
@@ -415,7 +424,7 @@
 	<script type="text/javascript">
 		function loginPopUp() {
 			window.open("/member/login", "login",
-					"width=500, height=643, left=660, top=200");
+					"width=500, height=678, left=660, top=200");
 		}
 
 		function logout() {
@@ -428,15 +437,16 @@
 
 		function scrap() {
 			location.href = "/member/scrap?member_id=${member.member_id}&&pagingNum=1"
-					
+
 		}
-		function scrapMemoUpdate(){
+		function scrapMemoUpdate() {
 			var memo = $('#memo').val();
 			var index = $('#index').val();
 			alert(memo);
 			alert(index);
-			location.href ="/member/scrapMemoUpdate?member_id=${member.member_id}&&scrap_memo="+memo+"&&scrap_index="+index;
-			
+			location.href = "/member/scrapMemoUpdate?member_id=${member.member_id}&&scrap_memo="
+					+ memo + "&&scrap_index=" + index;
+
 		}
 	</script>
 

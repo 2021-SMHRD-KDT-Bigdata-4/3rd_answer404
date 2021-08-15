@@ -2421,6 +2421,11 @@ ul, ol {
 	border-radius: 25px;
 }
 
+.blog__btn:hover {
+	color:#fff;
+	background-color:#001871;
+	}
+
 .blog__item__text .blog__btn span {
 	position: relative;
 	top: 1px;

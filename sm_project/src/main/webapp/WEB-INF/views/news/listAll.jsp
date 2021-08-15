@@ -19,7 +19,8 @@
 	rel="stylesheet">
 
 <!-- Awesome Font -->
-<script src="https://kit.fontawesome.com/b6d424ac83.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/b6d424ac83.js"
+	crossorigin="anonymous"></script>
 
 <!-- Css Styles -->
 <link rel="stylesheet" href="${cpath}/resources/css/bootstrap.min.css"
@@ -78,10 +79,10 @@
 	border: 1px solid #f40;
 	background-color: #f40;
 }
+
 .nice-select {
 	height: 48px;
 	border-radius: 0;
-	
 }
 </style>
 
@@ -150,7 +151,7 @@
 	</div>
 	<!-- Humberger End -->
 
-	
+
 	<!-- Header Section Begin -->
 	<header class="header">
 		<div class="container">
@@ -165,21 +166,26 @@
 					<nav class="header__menu">
 						<ul>
 							<li class="active"><a href="./list">Home</a></li>
-                     <li><a href="${capth}./econo_category?news_category=경제&&pagingNum=1">경제</a></li>
-                     <li><a href="${capth}./econo_category?news_category=사회&&pagingNum=1">사회</a></li>
-                     <li><a href="${capth}./econo_category?news_category=정치&&pagingNum=1">정치</a></li>
-                     <li><a href="${capth}./econo_category?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
+							<li><a
+								href="${capth}./econo_category?news_category=경제&&pagingNum=1">경제</a></li>
+							<li><a
+								href="${capth}./econo_category?news_category=사회&&pagingNum=1">사회</a></li>
+							<li><a
+								href="${capth}./econo_category?news_category=정치&&pagingNum=1">정치</a></li>
+							<li><a
+								href="${capth}./econo_category?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
 						</ul>
 					</nav>
 				</div>
-				<div class="col-lg-3" style = "display: flex; align-items: center; justify-content: space-evenly;">
+				<div class="col-lg-3"
+					style="display: flex; align-items: center; justify-content: space-evenly;">
 					<c:if test="${member == null}">
 						<div class="header__top__right__auth">
 							<a href="#" onclick="loginPopUp()"><i class="fa fa-user"></i>
 								Login</a>
 						</div>
 					</c:if>
-					
+
 					<c:if test="${member != null}">
 						<div class="header__top__right__auth">
 							<a href="#" onclick="scrap()"> <i class="fas fa-clipboard"></i>Scrap
@@ -278,12 +284,12 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="shoping__cart__table">
-
 						<table>
 							<thead>
 								<tr>
 									<th class="shoping__product">제목</th>
-									<th>조회수</th>
+									<th
+										style="text-align: center; font-weight: 700; color: #6c757d;">조회수</th>
 								</tr>
 							</thead>
 							<c:forEach var="list" items="${list}">
@@ -291,21 +297,20 @@
 									<tr>
 										<td class="shoping__cart__item"><img
 											style="max-width: 15%; height: auto;"
-											src="${list.news_image}"
-											onclick='detail(${list.news_index})'
-											>
+											src="${list.news_image}" onclick='detail(${list.news_index})'>
 											<h5>
 												<a href="/news/detailView?news_index=${list.news_index}">
 													<c:out value="${list.news_title}" />
 												</a>
 											</h5></td>
-										<td class="shoping__cart__total"><c:out
-												value="${list.news_count}" /></td>
+										<td class="shoping__cart__total"
+											style="text-align: center; font-weight: 700; color: #6c757d;">
+											${list.news_count}</td>
 									</tr>
 								</tbody>
 							</c:forEach>
 						</table>
-						<div class="pagenation">
+						<div class="pagenation" style="margin-top: 30px;">
 							<ul>
 								<c:if test="${pageMaker.prev}">
 									<li><a style="width: 50px !important"
@@ -314,7 +319,9 @@
 
 								<c:forEach begin="${pageMaker.startPage}"
 									end="${pageMaker.endPage}" var="idx">
-									<li><a href="listAll${pageMaker.makeSearch(idx)}">${idx}</a></li>
+									<li><a
+										style="color: #fff; background-color: #0857C3; border: 1px solid #0857C3"
+										href="listAll${pageMaker.makeSearch(idx)}">${idx}</a></li>
 								</c:forEach>
 
 								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
@@ -323,39 +330,6 @@
 								</c:if>
 							</ul>
 						</div>
-
-
-
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="shoping__cart__btns">
-						<a href="#" class="primary-btn cart-btn">CONTINUE SHOPPING</a> <a
-							href="#" class="primary-btn cart-btn cart-btn-right"><span
-							class="icon_loading"></span> Upadate Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="shoping__continue">
-						<div class="shoping__discount">
-							<h5>Discount Codes</h5>
-							<form action="#">
-								<input type="text" placeholder="Enter your coupon code">
-								<button type="submit" class="site-btn">APPLY COUPON</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="shoping__checkout">
-						<h5>Cart Total</h5>
-						<ul>
-							<li>Subtotal <span>$454.98</span></li>
-							<li>Total <span>$454.98</span></li>
-						</ul>
-						<a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
 					</div>
 				</div>
 			</div>
@@ -435,11 +409,11 @@
 	<script src="${cpath}/resources/js/owl.carousel.min.js"></script>
 	<script src="${cpath}/resources/js/main.js"></script>
 
-	
+
 	<script type="text/javascript">
 
 	function loginPopUp(){
-	   window.open("/member/login", "login", "width=500, height=643, left=660, top=200");
+	   window.open("/member/login", "login", "width=500, height=678, left=660, top=200");
 	}
 
 	function logout(){
