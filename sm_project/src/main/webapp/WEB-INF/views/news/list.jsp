@@ -357,7 +357,6 @@ $( document ).ready(function() {
 						<h4>성별별 선호 키워드</h4>
 						<div class="latest-product__slider owl-carousel">
 							<div class="latest-prdouct__slider__item">
-
 								<h5>남성 선호 키워드</h5>
 								<c:forEach var="list" items="${staticmaleUp}" varStatus="status">
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"

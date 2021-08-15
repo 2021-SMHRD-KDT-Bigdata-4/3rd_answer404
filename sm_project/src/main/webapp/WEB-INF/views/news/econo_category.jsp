@@ -18,9 +18,10 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
 	rel="stylesheet">
-	
+
 <!-- Awesome Font -->
-<script src="https://kit.fontawesome.com/b6d424ac83.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/b6d424ac83.js"
+	crossorigin="anonymous"></script>
 
 <!-- Css Styles -->
 <link rel="stylesheet" href="${cpath}/resources/css/bootstrap.min.css"
@@ -122,22 +123,27 @@
 					<nav class="header__menu">
 						<ul>
 							<li><a href="./list">Home</a></li>
-                     <li><a href="${capth}./econo_category?news_category=경제&&pagingNum=1">경제</a></li>
-                     <li><a href="${capth}./econo_category?news_category=사회&&pagingNum=1">사회</a></li>
-                     <li><a href="${capth}./econo_category?news_category=정치&&pagingNum=1">정치</a></li>
-                     <li><a href="${capth}./econo_category?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
+							<li><a
+								href="${capth}./econo_category?news_category=경제&&pagingNum=1">경제</a></li>
+							<li><a
+								href="${capth}./econo_category?news_category=사회&&pagingNum=1">사회</a></li>
+							<li><a
+								href="${capth}./econo_category?news_category=정치&&pagingNum=1">정치</a></li>
+							<li><a
+								href="${capth}./econo_category?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
 
 						</ul>
 					</nav>
 				</div>
-				<div class="col-lg-3" style = "display: flex; align-items: center; justify-content: space-evenly;">
+				<div class="col-lg-3"
+					style="display: flex; align-items: center; justify-content: space-evenly;">
 					<c:if test="${member == null}">
 						<div class="header__top__right__auth">
 							<a href="#" onclick="loginPopUp()"><i class="fa fa-user"></i>
 								Login</a>
 						</div>
 					</c:if>
-					
+
 					<c:if test="${member != null}">
 						<div class="header__top__right__auth">
 							<a href="#" onclick="scrap()"> <i class="fas fa-clipboard"></i>Scrap
@@ -233,58 +239,63 @@
 	<!-- Product Section Begin -->
 	<section class="product spad">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-5">
+			<div class="row" style="align-items: flex-start;">
+				<div class="col-lg-3 col-md-6">
 					<div class="sidebar">
 						<div class="sidebar__item">
-							<h4>${category} HOT 뉴스</h4>
+							<h4>${category}HOT뉴스</h4>
 							<ul>
-								<c:forEach var="list"  items="${categoryStatistictitle}"  varStatus="status">
-			                        <li>                        
-									<a href="/news/detailView?news_index=${list.news_index}">
-										<c:out value="${status.count}. ${list.news_title}" />
-									</a>
-									</li>		
-			                     </c:forEach> 
+								<c:forEach var="list" items="${categoryStatistictitle}"
+									varStatus="status">
+									<li><a
+										href="/news/detailView?news_index=${list.news_index}"> <b>[${status.count}]</b>
+											${list.news_title}"
+									</a></li>
+								</c:forEach>
 							</ul>
 						</div>
-						<div class="sidebar__item">
-							<div class="latest-product__text">
-								<h4>${category} HOT 키워드</h4>
-								<div class="latest-product__slider owl-carousel">
-									<div class="latest-prdouct__slider__item">
-									
-										<c:forEach var="list"  items="${categoryStatisticUp}"  varStatus="status">
-					                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                        
-					                           <div class="latest-product__item__text">	                           	
-					                              <h6>[${status.count}]. ${list.news_keyword}</h6>
-					                           </div>                         
-					                        </a>
-				                         </c:forEach>
+					</div>
+					<div class="latest-product__text">
+						<h4>${category}HOT키워드</h4>
+						<div class="latest-product__slider owl-carousel">
+							<div class="latest-prdouct__slider__item">
+								<c:forEach var="list" items="${categoryStatisticUp}"
+									varStatus="status">
+									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
+										class="latest-product__item">
+										<div class="latest-product__item__text">
+											<h6>
+												<b>[${status.count}]</b> ${list.news_keyword}
+											</h6>
+										</div>
+									</a>
+								</c:forEach>
 
-									</div>
-									
-									<div class="latest-prdouct__slider__item">
-											<c:forEach var="list"  items="${categoryStatisticDown}"  varStatus="status">
-					                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                       
-					                           <div class="latest-product__item__text">	                           	
-					                              <h6>[${status.count + 5}]. ${list.news_keyword}</h6>
-					                           </div>                         
-					                        </a>
-				                        </c:forEach>
-									</div>
-								</div>
+							</div>
+
+							<div class="latest-prdouct__slider__item">
+								<c:forEach var="list" items="${categoryStatisticDown}"
+									varStatus="status">
+									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
+										class="latest-product__item">
+										<div class="latest-product__item__text">
+											<h6>
+												<b>[${status.count + 5}]</b> ${list.news_keyword}
+											</h6>
+										</div>
+									</a>
+								</c:forEach>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-9 col-md-7">
+				<div class="col-lg-9 col-md-6">
 
 					<div class="filter__item">
 						<div class="row">
 							<div class="col-lg-4 col-md-4">
 								<div class="section-title">
-									<h2>${category} 뉴스</h2>
+									<h2>${category}뉴스</h2>
 								</div>
 							</div>
 						</div>
@@ -295,8 +306,7 @@
 								<div class="product__item">
 									<div class="product__item__pic set-bg"
 										data-setbg="${list.news_image}"
-										onclick='detail(${list.news_index})'
-										>
+										onclick='detail(${list.news_index})'>
 										<ul class="product__item__pic__hover">
 											<li><a href="#"><i class="fa fa-heart"></i></a></li>
 										</ul>
@@ -314,35 +324,42 @@
 						</c:forEach>
 
 					</div>
-					<div class="col-lg-12">                        
-                            <div class="product__pagination blog__pagination">
-                            
-                             <c:if test="${prev}">
-                            	<a href="/news/econo_category?news_category=${category}&&pagingNum=${startPageNum - 1}"><i class="fa fa-long-arrow-left"></i></a>
-                             </c:if>
-                             
-                            <c:forEach begin="${startPageNum}" end="${endPageNum}" var="num"> 	
-									<c:if test="${select != num}">
-										<a href="/news/econo_category?news_category=${category}&&pagingNum=${num}">${num}</a>
-									</c:if>
-									
-									<c:if test="${select == num}">
-										[<a>${num}</a>]
-									</c:if>
-                             </c:forEach>   
-                                                                
-                             <c:if test="${next}">   
-                                <a href="/news/econo_category?news_category=${category}&&pagingNum=${endPageNum + 1}"><i class="fa fa-long-arrow-right"></i></a>
-                             </c:if>
-                                
-                            </div>                            
-                     </div>
+					<div class="col-lg-12">
+						<div class="product__pagination blog__pagination">
+
+							<c:if test="${prev}">
+								<a
+									href="/news/econo_category?news_category=${category}&&pagingNum=${startPageNum - 1}"><i
+									class="fa fa-long-arrow-left"></i></a>
+							</c:if>
+
+							<c:forEach begin="${startPageNum}" end="${endPageNum}" var="num">
+								<c:if test="${select != num}">
+									<a
+										href="/news/econo_category?news_category=${category}&&pagingNum=${num}">${num}</a>
+								</c:if>
+
+								<c:if test="${select == num}">
+									<a
+										style="color: #fff; background-color: #0857C3; border: 1px solid #0857C3">${num}</a>
+								</c:if>
+							</c:forEach>
+
+							<c:if test="${next}">
+								<a
+									href="/news/econo_category?news_category=${category}&&pagingNum=${endPageNum + 1}"><i
+									class="fa fa-long-arrow-right"></i></a>
+							</c:if>
+
+						</div>
+					</div>
 				</div>
 			</div>
+		</div>
 	</section>
 	<!-- Product Section End -->
 
-	 <!-- Footer Section start -->
+	<!-- Footer Section start -->
 	<footer class="footer spad">
 		<div class="container">
 			<div class="row">
@@ -403,7 +420,7 @@
 		</div>
 	</div>
 	<!-- Footer Section End -->
-	
+
 	<!-- Js Plugins -->
 	<script src="${cpath}/resources/js/jquery-3.3.1.min.js"></script>
 	<script src="${cpath}/resources/js/bootstrap.min.js"></script>
