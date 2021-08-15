@@ -295,60 +295,55 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4 col-md-5 order-md-1 order-2">
-					<div class="blog__sidebar">
+					<div class="sidebar__item">
 						<div class="blog__sidebar__item">
-							<h4>Categories</h4>
+							<h4>${category} HOT 뉴스</h4>
 							<ul>
-								<li><a href="#">전체</a></li>
-								<li><a href="#">경제</a></li>
-								<li><a href="#">사회</a></li>
-								<li><a href="#">정치</a></li>
-								<li><a href="#">IT/과학</a></li>
+								<c:forEach var="list"  items="${categoryStatistictitle}"  varStatus="status">
+			                        <li>                        
+									<a href="/news/detailView?news_index=${list.news_index}">
+										<c:out value="${status.count}. ${list.news_title}" />
+									</a>
+									</li>		
+			                     </c:forEach> 
 							</ul>
 						</div>
 						<div class="blog__sidebar__item">
-							<h4>최근 뉴스</h4>
+							
 							<div class="blog__sidebar__recent">
-								<a href="#" class="blog__sidebar__recent__item">
-									<div class="blog__sidebar__recent__item__pic">
-										<img src="img/blog/sidebar/sr-1.jpg" alt="">
+								<div class="latest-product__text">
+								<h4>${category} HOT 키워드</h4>
+								<div class="latest-product__slider owl-carousel">
+									<div class="latest-prdouct__slider__item">
+									
+										<c:forEach var="list"  items="${categoryStatisticUp}"  varStatus="status">
+					                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                        
+					                           <div class="latest-product__item__text">	                           	
+					                              <h6>[${status.count}]. ${list.news_keyword}</h6>
+					                           </div>                         
+					                        </a>
+				                         </c:forEach>
+
 									</div>
-									<div class="blog__sidebar__recent__item__text">
-										<h6>
-											09 Kinds Of Vegetables<br /> Protect The Liver
-										</h6>
-										<span>MAR 05, 2019</span>
+									
+									<div class="latest-prdouct__slider__item">
+											<c:forEach var="list"  items="${categoryStatisticDown}"  varStatus="status">
+					                        <a href="listAll?searchType=c&&keyword=${list.news_keyword}" class="latest-product__item">                       
+					                           <div class="latest-product__item__text">	                           	
+					                              <h6>[${status.count + 5}]. ${list.news_keyword}</h6>
+					                           </div>                         
+					                        </a>
+				                        </c:forEach>
 									</div>
-								</a> <a href="#" class="blog__sidebar__recent__item">
-									<div class="blog__sidebar__recent__item__pic">
-										<img src="img/blog/sidebar/sr-2.jpg" alt="">
-									</div>
-									<div class="blog__sidebar__recent__item__text">
-										<h6>
-											Tips You To Balance<br /> Nutrition Meal Day
-										</h6>
-										<span>MAR 05, 2019</span>
-									</div>
-								</a> <a href="#" class="blog__sidebar__recent__item">
-									<div class="blog__sidebar__recent__item__pic">
-										<img src="img/blog/sidebar/sr-3.jpg" alt="">
-									</div>
-									<div class="blog__sidebar__recent__item__text">
-										<h6>
-											4 Principles Help You Lose <br />Weight With Vegetables
-										</h6>
-										<span>MAR 05, 2019</span>
-									</div>
-								</a>
+								</div>
+							</div>
 							</div>
 						</div>
-						<div class="blog__sidebar__item">
-							<h4>Search By</h4>
-							<div class="blog__sidebar__item__tags">
-								<a href="#">Apple</a> <a href="#">Beauty</a> <a href="#">Vegetables</a>
-								<a href="#">Fruit</a> <a href="#">Healthy Food</a> <a href="#">Lifestyle</a>
-							</div>
-						</div>
+						
+						
+						
+						
+						
 					</div>
 				</div>
 				<div class="col-lg-8 col-md-7 order-md-1 order-1">
@@ -367,6 +362,17 @@
 							<img src="${detail.news_image}">
 							<hr>
 						</div>
+						
+						<h5>
+							요약 기사 보기 
+							<br>
+							1. <c:out value="${keywordSplit[0]}" />
+							<br>
+							2. <c:out value="${keywordSplit[1]}" />
+							<br>
+							3. <c:out value="${keywordSplit[2]}" />							
+						</h5>
+						
 						<a href='#' onclick="viewStyle(this);return false">본문보기</a>
 						<DIV style="display: none">
 							<c:out value="${detail.news_contents}" />
@@ -378,11 +384,8 @@
 						<div class="row">
 							<div class="col-lg-6">
 								<div class="blog__details__author">
-									<div class="blog__details__author__pic">
-										<img src="img/blog/details/details-author.jpg" alt="">
-									</div>
 									<div class="blog__details__author__text">
-										<h6>Michael Scofield</h6>
+										<h6>"${detail.news_company}"</h6>
 										<span>Admin</span>
 									</div>
 								</div>

@@ -127,7 +127,30 @@ public class NewsController {
 		logger.info("detail");
 		
 		service.plusCnt(newsVO.getNews_index());
-		model.addAttribute("detail", service.detail(newsVO.getNews_index()));
+		
+		NewsVO newsvo = service.detail(newsVO.getNews_index());
+		String news_category = newsvo.getNews_category();
+		String news_summary = newsvo.getNews_summary();
+		
+		String[] keywordSplit = news_summary.split("/");
+		
+		 for(int i=0; i< keywordSplit.length; i++) {
+			 System.out.println(keywordSplit[i]+"-------------------------------------");
+		 }
+		model.addAttribute("keywordSplit", keywordSplit);
+		 
+		model.addAttribute("detail", newsvo);
+		
+		
+		model.addAttribute("category", news_category);
+		
+		List<NewsVO> categoryStatistictitle = service.categoryStatistictitle(news_category);
+		List<StatisticsVO> categoryStatisticUp= service.categoryStatisticUp(news_category);
+		List<StatisticsVO> categoryStatisticDown= service.categoryStatisticDown(news_category);
+		
+		model.addAttribute("categoryStatistictitle", categoryStatistictitle);
+		model.addAttribute("categoryStatisticUp", categoryStatisticUp);
+		model.addAttribute("categoryStatisticDown", categoryStatisticDown);
 		
 
 
