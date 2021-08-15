@@ -619,17 +619,50 @@ ul, ol {
 
 .hero__categories ul {
 	border: 1px solid #ebebeb;
-	padding-left: 40px;
-	padding-top: 10px;
-	padding-bottom: 12px;
+	padding-left: 15px;
+	padding-right: 12px;
+	padding-top: 20px;
+	height: 440px;
 }
 
 .hero__categories ul li {
 	list-style: none;
+	text-overflow: ellipsis;
+	text-align: left;
+	overflow: hidden;
+	word-wrap: break-word;
+	white-space: normal; 
+	width: 100%; 
+    height: 68px;
+	line-height: 30px; 
+	padding: 0px 5px 5px 5px;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #dddddd;
+}
+.hero__categories ul li:last-child {
+	list-style: none;
+	text-overflow: ellipsis;
+	text-align: left;
+	overflow: hidden;
+	word-wrap: break-word;
+	white-space: normal; 
+	width: 100%; 
+    height: 68px;
+	line-height: 30px; 
+	padding: 0px 5px 5px 5px;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #fff;
+}
+.hero__categories ul li a {
+	font-size: 15px;
+	color: #1c1c1c;
+	line-height: 30px;
+	display: block;
 }
 
-.hero__categories ul li a {
-	font-size: 16px;
+.hero__categories ul li a:hover {
+	font-weight: 700;
+	font-size: 15px;
 	color: #1c1c1c;
 	line-height: 30px;
 	display: block;
@@ -841,8 +874,19 @@ ul, ol {
 	cursor: pointer;
 }
 
+.featured__controls ul li.active {
+	font-weight: 900;
+}
+.featured__controls ul li:hover {
+	font-weight: 900;
+}
+.featured__controls ul li:focus {
+	font-weight: 900;
+}
+
 .featured__controls ul li.active:after {
 	opacity: 1;
+	font-weight: 900;
 }
 
 .featured__controls ul li:after {
@@ -951,7 +995,12 @@ ul, ol {
 }
 
 .featured__item__text h5 {
-	color: #252525;
+	color: #0857C3;
+	font-weight: 700;
+}
+
+.featured__item__text h5:hover {
+	color: #001871;
 	font-weight: 700;
 }
 
@@ -959,20 +1008,24 @@ ul, ol {
   Latest Product
 -----------------------*/
 .latest-product {
-	padding-top: 80px;
+	padding-top: 40px;
 	padding-bottom: 0;
 }
 
 .latest-product__text h4 {
 	font-weight: 700;
 	color: #1c1c1c;
-	margin-bottom: 45px;
+	margin-bottom: 15px;
+}
+
+.latest-product__text h5 {
+	color: #666666;
 }
 
 .latest-product__slider.owl-carousel .owl-nav {
 	position: absolute;
 	right: 20px;
-	top: -75px;
+	top: -45px;
 }
 
 .latest-product__slider.owl-carousel .owl-nav button {
@@ -996,7 +1049,6 @@ ul, ol {
 }
 
 .latest-product__item {
-	margin-bottom: 20px;
 	overflow: hidden;
 	display: block;
 }
@@ -3415,6 +3467,12 @@ ul, ol {
 		overflow: hidden;
 	}
 }
+
+/* banner */
+.banner{
+	margin-bottom : 80px;
+}
+
 
 /* Small Device = 320px */
 @media only screen and (max-width: 479px) {

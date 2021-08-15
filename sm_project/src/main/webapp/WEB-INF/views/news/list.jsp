@@ -265,12 +265,10 @@ $( document ).ready(function() {
 						<div class="hero__categories__all">
 							<span>조회수 순위</span>
 						</div>
-						<ul
-							style="padding-left: 15px; padding-right: 12px; padding-top: 11px; height: 440px;">
+						<ul>
 							<c:forEach var="list" items="${countStatisticslist}"
 								varStatus="status">
-								<li
-									style="overflow: hidden; text-align: left; word-wrap: break-word; text-overflow: ellipsis; white-space: normal; width: 100%; height: 60px; line-height: 30px; border-bottom: 2px solid #6c757d;">
+								<li>
 									<a href="/news/detailView?news_index=${list.news_index}"> <b>[${status.count}]</b>
 										${list.news_title}
 								</a>
@@ -347,7 +345,7 @@ $( document ).ready(function() {
 
 	<!-- Latest Product Section Begin -->
 	<section class="latest-product spad">
-		<div class="container">
+		<div class="container" style="margin-bottom: 80px;">
 			<div class="row">
 				<div class="col-lg-4 col-md-6">
 					<div class="latest-product__text">
@@ -355,12 +353,12 @@ $( document ).ready(function() {
 						<div class="latest-product__slider owl-carousel">
 							<div class="latest-prdouct__slider__item">
 
-								<h4>남성 선호 키워드</h4>
+								<h5>남성 선호 키워드</h5>
 								<c:forEach var="list" items="${staticmaleUp}" varStatus="status">
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6>[${status.count}]. ${list.news_keyword}</h6>
+											<h6><b>[${status.count}]</b> ${list.news_keyword}</h6>
 										</div>
 									</a>
 								</c:forEach>
@@ -368,13 +366,13 @@ $( document ).ready(function() {
 							</div>
 							<div class="latest-prdouct__slider__item">
 
-								<h4>남성 선호 키워드</h4>
+								<h5>남성 선호 키워드</h5>
 								<c:forEach var="list" items="${staticmaleDown}"
 									varStatus="status">
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6>[${status.count + 5}]. ${list.news_keyword}</h6>
+											<h6><b>[${status.count + 5}]</b> ${list.news_keyword}</h6>
 										</div>
 									</a>
 								</c:forEach>
@@ -382,13 +380,13 @@ $( document ).ready(function() {
 							</div>
 							<div class="latest-prdouct__slider__item">
 
-								<h4>여성 선호 키워드</h4>
+								<h5>여성 선호 키워드</h5>
 								<c:forEach var="list" items="${staticfemaleUp}"
 									varStatus="status">
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6>[${status.count}]. ${list.news_keyword}</h6>
+											<h6><b>[${status.count}]</b> ${list.news_keyword}</h6>
 										</div>
 									</a>
 								</c:forEach>
@@ -396,13 +394,13 @@ $( document ).ready(function() {
 							</div>
 							<div class="latest-prdouct__slider__item">
 
-								<h4>여성 선호 키워드</h4>
+								<h5>여성 선호 키워드</h5>
 								<c:forEach var="list" items="${staticfemaleDown}"
 									varStatus="status">
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6>[${status.count + 5}]. ${list.news_keyword}</h6>
+											<h6><b>[${status.count + 5}]</b> ${list.news_keyword}</h6>
 										</div>
 									</a>
 								</c:forEach>
@@ -417,60 +415,60 @@ $( document ).ready(function() {
 						<div class="latest-product__slider owl-carousel">
 
 							<div class="latest-prdouct__slider__item">
-								<h4>20대 이하 선호 키워드</h4>
+								<h5>20대 이하 선호 키워드</h5>
 								<c:forEach var="list" items="${static20}" varStatus="status">
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6>[${status.count}]. ${list.news_keyword}</h6>
+											<h6><b>[${status.count}]</b> ${list.news_keyword}</h6>
 										</div>
 									</a>
 								</c:forEach>
 							</div>
 
 							<div class="latest-prdouct__slider__item">
-								<h4>30대 선호 키워드</h4>
+								<h5>30대 선호 키워드</h5>
 								<c:forEach var="list" items="${static30}" varStatus="status">
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6>[${status.count}]. ${list.news_keyword}</h6>
+											<h6><b>[${status.count}]</b> ${list.news_keyword}</h6>
 										</div>
 									</a>
 								</c:forEach>
 							</div>
 
 							<div class="latest-prdouct__slider__item">
-								<h4>40대 선호 키워드</h4>
+								<h5>40대 선호 키워드</h5>
 								<c:forEach var="list" items="${static40}" varStatus="status">
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6>[${status.count}]. ${list.news_keyword}</h6>
+											<h6><b>[${status.count}]</b> ${list.news_keyword}</h6>
 										</div>
 									</a>
 								</c:forEach>
 							</div>
 
 							<div class="latest-prdouct__slider__item">
-								<h4>50대 선호 키워드</h4>
+								<h5>50대 선호 키워드</h5>
 								<c:forEach var="list" items="${static50}" varStatus="status">
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6>[${status.count}]. ${list.news_keyword}</h6>
+											<h6><b>[${status.count}]</b> ${list.news_keyword}</h6>
 										</div>
 									</a>
 								</c:forEach>
 							</div>
 
 							<div class="latest-prdouct__slider__item">
-								<h4>60대이상 선호 키워드</h4>
+								<h5>60대이상 선호 키워드</h5>
 								<c:forEach var="list" items="${static60}" varStatus="status">
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6>[${status.count}]. ${list.news_keyword}</h6>
+											<h6><b>[${status.count}]</b> ${list.news_keyword}</h6>
 										</div>
 									</a>
 								</c:forEach>
@@ -484,25 +482,25 @@ $( document ).ready(function() {
 						<h4>종합 키워드 통계</h4>
 						<div class="latest-product__slider owl-carousel">
 							<div class="latest-prdouct__slider__item">
-								<h4>종합 선호 키워드</h4>
+								<h5>종합 선호 키워드</h5>
 								<c:forEach var="list" items="${statictotalUp}"
 									varStatus="status">
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6>[${status.count}]. ${list.news_keyword}</h6>
+											<h6><b>[${status.count}]</b> ${list.news_keyword}</h6>
 										</div>
 									</a>
 								</c:forEach>
 							</div>
 							<div class="latest-prdouct__slider__item">
-								<h4>종합 선호 키워드</h4>
+								<h5>종합 선호 키워드</h5>
 								<c:forEach var="list" items="${statictotalDown}"
 									varStatus="status">
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6>[${status.count+5}]. ${list.news_keyword}</h6>
+											<h6><b>[${status.count+5}]</b> ${list.news_keyword}</h6>
 										</div>
 									</a>
 								</c:forEach>
@@ -521,13 +519,13 @@ $( document ).ready(function() {
 	<!-- Banner Begin -->
 	<div class="banner">
 		<div class="container">
-			<div style="margin-left: 60px;" class="row">
-				<div class="col-lg-6 col-md-6 col-sm-6">
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6" style="text-align: center;">
 					<div class="banner__pic">
 						<img src="${cpath}/resources/img/banner/smart1.png" alt="">
 					</div>
 				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6">
+				<div class="col-lg-6 col-md-6 col-sm-6" style="text-align: center;">
 					<div class="banner__pic">
 						<img src="${cpath}/resources/img/banner/smart2.png" alt="">
 					</div>
@@ -537,73 +535,6 @@ $( document ).ready(function() {
 	</div>
 	<!-- Banner End -->
 
-
-<<<<<<< HEAD
-	<!-- Footer Section Begin -->
-	<footer class="footer spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="footer__about">
-						<div class="footer__about__logo">
-							<a href="./index.html"><img
-								src="${cpath}/resources/img/logo_trans.png" alt=""></a>
-						</div>
-						<ul>
-							<li>Address: 60-49 Road 11378 New York</li>
-							<li>Phone: +65 11.188.888</li>
-							<li>Email: hello@colorlib.com</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-					<div class="footer__widget">
-						<h6>Useful Links</h6>
-						<ul>
-							<li><a href="#">About Us</a></li>
-							<li><a href="#">About Our Shop</a></li>
-							<li><a href="#">Secure Shopping</a></li>
-							<li><a href="#">Delivery infomation</a></li>
-							<li><a href="#">Privacy Policy</a></li>
-							<li><a href="#">Our Sitemap</a></li>
-						</ul>
-						<ul>
-							<li><a href="#">Who We Are</a></li>
-							<li><a href="#">Our Services</a></li>
-							<li><a href="#">Projects</a></li>
-							<li><a href="#">Contact</a></li>
-							<li><a href="#">Innovation</a></li>
-							<li><a href="#">Testimonials</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-12">
-					<div class="footer__widget">
-						<h6>Join Our Newsletter Now</h6>
-						<p>Get E-mail updates about our latest shop and special
-							offers.</p>
-						<form action="#">
-							<input type="text" placeholder="Enter your mail">
-							<button type="submit" class="site-btn">Subscribe</button>
-						</form>
-						<div class="footer__widget__social">
-							<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
-								class="fa fa-instagram"></i></a> <a href="#"><i
-								class="fa fa-twitter"></i></a> <a href="#"><i
-								class="fa fa-pinterest"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="footer__copyright">
-						<div class="footer__copyright__text">
-							<p>
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;
-								<script>
-=======
    <!-- Footer Section Begin -->
    <footer class="footer spad" style="height: 300px;">
       <div class="container">
@@ -657,26 +588,8 @@ $( document ).ready(function() {
                         
                         Copyright &copy;
                         <script>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_answer404.git
                            document.write(new Date().getFullYear());
                         </script>
-<<<<<<< HEAD
-								All rights reserved | This template is made with <i
-									class="fa fa-heart" aria-hidden="true"></i> by <a
-									href="https://colorlib.com" target="_blank">Colorlib</a>
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							</p>
-						</div>
-						<div class="footer__copyright__payment">
-							<img src="${cpath}/resources/img/payment-item.png" alt="">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- Footer Section End -->
-=======
                         All rights reserved | 스마트인재개발원 3차프로젝트 개인투자자들을 위한 맞춤형 뉴스기사 요약 및  전문용어 해석 서비스 <i
                            class="fa fa-heart" aria-hidden="true"></i> by <a
                            href="https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_answer404" target="_blank">응답하라404</a>
@@ -689,7 +602,6 @@ $( document ).ready(function() {
     
    </footer>
    <!-- Footer Section End -->
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_answer404.git
 
 	<!-- Js Plugins -->
 	<script src="${cpath}/resources/js/jquery-3.3.1.min.js"></script>
