@@ -156,14 +156,10 @@
                         <nav class="header__menu">
                   <ul>
                      <li><a href="../news/list">Home</a></li>
-                     <li><a
-                        href="../news/econo_category?news_category=경제&&pagingNum=1">경제</a></li>
-                     <li><a
-                        href="../news/society_category?news_category=사회&&pagingNum=1">사회</a></li>
-                     <li><a
-                        href="../news/politics_category?news_category=정치&&pagingNum=1">정치</a></li>
-                     <li><a
-                        href="../news/itscience_category?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
+                     <li><a href="../news/econo_category?news_category=경제&&pagingNum=1">경제</a></li>
+                     <li><a href="../news/econo_category?news_category=사회&&pagingNum=1">사회</a></li>
+                     <li><a href="../news/econo_category?news_category=정치&&pagingNum=1">정치</a></li>
+                     <li><a href="../news/econo_categorys?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
                   </ul>
                </nav>
                     </div>
@@ -186,8 +182,8 @@
 
                <c:if test="${member != null}">
                   <div class="header__top__right__auth">
-                     <a href="#" onclick="scrap()"> <i class="fa fa-user"></i>Scrap
-                     </a>
+                     <a href="#" onclick="scrap()"> <i class="fa fa-user"></i>
+                     Scrap </a>
                   </div>
                </c:if>
                <c:if test="${msg != null}">
