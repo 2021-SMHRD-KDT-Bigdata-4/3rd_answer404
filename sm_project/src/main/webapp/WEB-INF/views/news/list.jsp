@@ -11,12 +11,15 @@
 <meta name="keywords" content="Ogani, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Main 페이지</title>
+<title>응답하라 404 :: 메인 페이지</title>
 
 <!-- Google Font -->
 <link
 	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
 	rel="stylesheet">
+	
+<!-- Awesome Font -->
+<script src="https://kit.fontawesome.com/b6d424ac83.js" crossorigin="anonymous"></script>
 
 <!-- Css Styles -->
 <link rel="stylesheet" href="${cpath}/resources/css/bootstrap.min.css"
@@ -72,7 +75,7 @@ $( document ).ready(function() {
               views+="<div class='col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood'>";
               views+="<div class='featured__item'>";
               views+="<div class='featured__item__pic set-bg'>";
-           views+="<img class='featured__item__pic' src='"+obj.news_image+"'>"
+           views+="<img class='featured__item__pic' src='"+obj.news_image+"' onclick='detail("+obj.news_index+")' >"
               views+="<ul class='featured__item__pic__hover'>";
               views+="<li><a href='#'><i class='fa fa-heart'></i></a></li>";
               views+="</ul>";
@@ -101,6 +104,9 @@ $( document ).ready(function() {
              error : function(data){ alert('error');}
       });
 }
+   function detail(new_index){
+		 location.href ="${cpath}/news/detailView?news_index="+new_index;		
+	}  
 </script>
 
 <body>
@@ -138,28 +144,28 @@ $( document ).ready(function() {
 
 			<c:if test="${member == null}">
 				<div class="header__top__right__auth">
-					<a href="#" onclick="loginPopUp()"><i class="fa fa-user"></i>
+					<a href="#" onclick="loginPopUp()"><i class="fas fa-user"></i>
 						Login</a>
 				</div>
 			</c:if>
-
+			
 			<c:if test="${member != null}">
 				<div class="header__top__right__auth">
-					<a href="#" onclick="logout()"><i class="fa fa-user"></i>
-						Logout</a>
+					<a href="#" onclick="scrap()"> <i class="fas fa-clipboard"></i>Scrap
+					</a>
 				</div>
 			</c:if>
 
 			<c:if test="${member != null}">
 				<div class="header__top__right__auth">
-					<a href="#" onclick="scrap()"> <i class="fa fa-user"></i>Scrap(임시)
-					</a>
+					<a href="#" onclick="logout()"><i class="fas fa-user-slash"></i>
+						Logout</a>
 				</div>
 			</c:if>
 
 			<c:if test="${msg != null}">
 				<div class="header__top__right__auth">
-					<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
+					<p style="color: red;">로그인 실패! 아이디와 비밀번호를 확인해주세요.</p>
 				</div>
 			</c:if>
 
@@ -212,35 +218,36 @@ $( document ).ready(function() {
 							<li><a
 								href="${capth}./econo_category?news_category=경제&&pagingNum=1">경제</a></li>
 							<li><a
-								href="${capth}./society_category?news_category=사회&&pagingNum=1">사회</a></li>
+								href="${capth}./econo_category?news_category=사회&&pagingNum=1">사회</a></li>
 							<li><a
-								href="${capth}./politics_category?news_category=정치&&pagingNum=1">정치</a></li>
+								href="${capth}./econo_category?news_category=정치&&pagingNum=1">정치</a></li>
 							<li><a
-								href="${capth}./itscience_category?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
+								href="${capth}./econo_category?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
 						</ul>
 					</nav>
 				</div>
-				<div class="col-lg-3">
+				<div class="col-lg-3" style = "display: flex; align-items: center; justify-content: space-evenly;">
 					<c:if test="${member == null}">
 						<div class="header__top__right__auth">
 							<a href="#" onclick="loginPopUp()"><i class="fa fa-user"></i>
 								Login</a>
 						</div>
 					</c:if>
-
-					<c:if test="${member != null}">
-						<div class="header__top__right__auth">
-							<a href="#" onclick="logout()"><i class="fa fa-user"></i>
-								Logout</a>
-						</div>
-					</c:if>
 					
 					<c:if test="${member != null}">
 						<div class="header__top__right__auth">
-							<a href="#" onclick="scrap()"> <i class="fa fa-user"></i>Scrap(임시)
+							<a href="#" onclick="scrap()"> <i class="fas fa-clipboard"></i>Scrap
 							</a>
 						</div>
 					</c:if>
+
+					<c:if test="${member != null}">
+						<div class="header__top__right__auth">
+							<a href="#" onclick="logout()"><i class="fas fa-user-slash"></i>
+								Logout</a>
+						</div>
+					</c:if>
+
 					<c:if test="${msg != null}">
 						<div class="header__top__right__auth">
 							<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
@@ -267,12 +274,11 @@ $( document ).ready(function() {
 						<ul>
 							<c:forEach var="list" items="${countStatisticslist}"
 								varStatus="status">
-								<li>
-									<a href="/news/detailView?news_index=${list.news_index}"> <b>[${status.count}]</b>
+								<li><a
+									href="/news/detailView?news_index=${list.news_index}"> <b>[${status.count}]</b>
 										${list.news_title}
 								</a>
-									<hr />
-								</li>
+									<hr /></li>
 
 
 							</c:forEach>
@@ -281,7 +287,7 @@ $( document ).ready(function() {
 					</div>
 				</div>
 				<div class="col-lg-9">
-					<div class="hero__search__form">
+					<div class="hero__search__form" style="margin-bottom: 15px;">
 						<form action="listAll">
 							<select name="searchType">
 								<option value="t"
@@ -357,7 +363,9 @@ $( document ).ready(function() {
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6><b>[${status.count}]</b> ${list.news_keyword}</h6>
+											<h6>
+												<b>[${status.count}]</b> ${list.news_keyword}
+											</h6>
 										</div>
 									</a>
 								</c:forEach>
@@ -371,7 +379,9 @@ $( document ).ready(function() {
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6><b>[${status.count + 5}]</b> ${list.news_keyword}</h6>
+											<h6>
+												<b>[${status.count + 5}]</b> ${list.news_keyword}
+											</h6>
 										</div>
 									</a>
 								</c:forEach>
@@ -385,7 +395,9 @@ $( document ).ready(function() {
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6><b>[${status.count}]</b> ${list.news_keyword}</h6>
+											<h6>
+												<b>[${status.count}]</b> ${list.news_keyword}
+											</h6>
 										</div>
 									</a>
 								</c:forEach>
@@ -399,7 +411,9 @@ $( document ).ready(function() {
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6><b>[${status.count + 5}]</b> ${list.news_keyword}</h6>
+											<h6>
+												<b>[${status.count + 5}]</b> ${list.news_keyword}
+											</h6>
 										</div>
 									</a>
 								</c:forEach>
@@ -420,7 +434,9 @@ $( document ).ready(function() {
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6><b>[${status.count}]</b> ${list.news_keyword}</h6>
+											<h6>
+												<b>[${status.count}]</b> ${list.news_keyword}
+											</h6>
 										</div>
 									</a>
 								</c:forEach>
@@ -432,7 +448,9 @@ $( document ).ready(function() {
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6><b>[${status.count}]</b> ${list.news_keyword}</h6>
+											<h6>
+												<b>[${status.count}]</b> ${list.news_keyword}
+											</h6>
 										</div>
 									</a>
 								</c:forEach>
@@ -444,7 +462,9 @@ $( document ).ready(function() {
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6><b>[${status.count}]</b> ${list.news_keyword}</h6>
+											<h6>
+												<b>[${status.count}]</b> ${list.news_keyword}
+											</h6>
 										</div>
 									</a>
 								</c:forEach>
@@ -456,7 +476,9 @@ $( document ).ready(function() {
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6><b>[${status.count}]</b> ${list.news_keyword}</h6>
+											<h6>
+												<b>[${status.count}]</b> ${list.news_keyword}
+											</h6>
 										</div>
 									</a>
 								</c:forEach>
@@ -468,7 +490,9 @@ $( document ).ready(function() {
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6><b>[${status.count}]</b> ${list.news_keyword}</h6>
+											<h6>
+												<b>[${status.count}]</b> ${list.news_keyword}
+											</h6>
 										</div>
 									</a>
 								</c:forEach>
@@ -478,7 +502,7 @@ $( document ).ready(function() {
 					</div>
 				</div>
 				<div class="vertical_bar"></div>
-				
+
 				<div class="col-lg-3 col-md-6">
 					<div class="latest-product__text">
 						<h4>종합 키워드 통계</h4>
@@ -490,12 +514,14 @@ $( document ).ready(function() {
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6><b>[${status.count}]</b> ${list.news_keyword}</h6>
+											<h6>
+												<b>[${status.count}]</b> ${list.news_keyword}
+											</h6>
 										</div>
 									</a>
 								</c:forEach>
 							</div>
-							
+
 							<div class="latest-prdouct__slider__item">
 								<h5>종합 선호 키워드</h5>
 								<c:forEach var="list" items="${statictotalDown}"
@@ -503,7 +529,9 @@ $( document ).ready(function() {
 									<a href="listAll?searchType=c&&keyword=${list.news_keyword}"
 										class="latest-product__item">
 										<div class="latest-product__item__text">
-											<h6><b>[${status.count+5}]</b> ${list.news_keyword}</h6>
+											<h6>
+												<b>[${status.count+5}]</b> ${list.news_keyword}
+											</h6>
 										</div>
 									</a>
 								</c:forEach>
@@ -538,72 +566,67 @@ $( document ).ready(function() {
 	</div>
 	<!-- Banner End -->
 
-   <!-- Footer Section Begin -->
-   <footer class="footer spad" style="height: 300px;">
-      <div class="container">
-         <div>
-            <div style="display: flex; justify-content:space-evenly;" class="col-lg-12 col-sm-6">
-                  <div class="footer__about__logo">
-                     <a href="./index.html"><img style="padding-right: 50px;"
-                        src="${cpath}/resources/img/logo_trans.png" alt=""></a>
-                  </div>
-                  <div >
-                  <ul>
-                  <br>
-                     <li>팀장 : 김성은</li>
-                     <li>팀원 : 손민호</li>
-                     <li>팀원 : 장경진</li>
-                     <li>팀원 : 이길수</li>
-                     <li>팀원 : 노현규</li>
-                     
-                  </ul>
-                  </div>
-                  <div>
-                  <ul>
-                  	<br>
-                     <li><a href=https://github.com/kimvkffkd83>깃허브주소 : https://github.com/kimvkffkd83</a></li>
-                     <li><a href="https://github.com/thsalsgh1234">깃허브주소 : https://github.com/thsalsgh1234</a></li>
-                     <li><a href="https://github.com/GyungJin">깃허브주소 : https://github.com/GyungJin</a></li>
-                     <li><a href="https://github.com/lee198745123">깃허브주소 : https://github.com/lee198745123</a></li>
-                     <li><a href="https://github.com/psm1936">깃허브주소 : https://github.com/psm1936</a></li>
-                     
-                  </ul>
-                  </div>
-                 
-                  </div>
-                   <div class="footer__widget">
-                 
-                  
-                  
-               </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-              
-            </div>
-           
-            </div>
-         
-         <div class="row">
-            <div class="col-lg-6">
-               <div class="footer__copyright" style="display: flex; justify-content: center;">
-                  <div style="text-align: center;" class="footer__copyright__text ">
-                     <p>
-                        Copyright &copy;
-                        <script>
+	<!-- Footer Section start -->
+	<footer class="footer spad">
+		<div class="container">
+			<div class="row">
+				<div
+					style="display: flex; justify-content: space-evenly; align-items: center;"
+					class="col-lg-12 col-sm-6">
+					<div class="footer__about__logo">
+						<a href="./index.html"><img style="padding-right: 50px;"
+							src="${cpath}/resources/img/logo_trans.png" alt=""></a>
+					</div>
+					<div>
+						<ul>
+							<li>팀장 : 김성은</li>
+							<li>팀원 : 손민호</li>
+							<li>팀원 : 장경진</li>
+							<li>팀원 : 이길수</li>
+							<li>팀원 : 노현규</li>
+
+						</ul>
+					</div>
+					<div>
+						<ul>
+							<li><a href=https://github.com/kimvkffkd83>깃허브주소 :
+									https://github.com/kimvkffkd83</a></li>
+							<li><a href="https://github.com/thsalsgh1234">깃허브주소 :
+									https://github.com/thsalsgh1234</a></li>
+							<li><a href="https://github.com/GyungJin">깃허브주소 :
+									https://github.com/GyungJin</a></li>
+							<li><a href="https://github.com/lee198745123">깃허브주소 :
+									https://github.com/lee198745123</a></li>
+							<li><a href="https://github.com/psm1936">깃허브주소 :
+									https://github.com/psm1936</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="footer__copyright"
+				style="display: flex; justify-content: center;">
+				<div style="text-align: center;" class="footer__copyright__text ">
+					<p>
+						Copyright &copy;
+						<script>
                            document.write(new Date().getFullYear());
                         </script>
-                        All rights reserved | 스마트인재개발원 3차프로젝트 <br> 개인투자자들을 위한 맞춤형 뉴스기사 요약 및  전문용어 해석 서비스 <i
-                           class="fa fa-heart" aria-hidden="true"></i> by <a
-                           href="https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_answer404" target="_blank">응답하라404</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                     </p>
-                  </div>
-               </div>
-            </div>
-         </div>
-    
-   </footer>
-   <!-- Footer Section End -->
+						All rights reserved | 스마트인재개발원 3차프로젝트 <br> 개인투자자들을 위한 맞춤형
+						뉴스기사 요약 및 전문용어 해석 서비스 <i class="fa fa-heart" aria-hidden="true"></i>
+						by <a
+							href="https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_answer404"
+							target="_blank">응답하라404</a>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer Section End -->
 
 	<!-- Js Plugins -->
 	<script src="${cpath}/resources/js/jquery-3.3.1.min.js"></script>

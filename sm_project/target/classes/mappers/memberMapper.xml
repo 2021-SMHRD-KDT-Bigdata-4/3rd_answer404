@@ -10,7 +10,7 @@
   	</insert>
   	
   	<select id="memberLogin" resultType="kr.co.summary.domain.MemberVO">
-		select * from member where member_id = #{member_id}
+		 select * from member where member_id = #{member_id} and member_password = #{member_password}
 	</select>
 	
 	<select id="scrapShow" parameterType="hashMap" resultType="kr.co.summary.domain.ScrapVO">
@@ -27,10 +27,10 @@
 		delete from scrap where scrap_index= #{scrap_index}
 	</delete>
 	<insert id="scrapInsert">
-	     
-	    insert into scrap(SCRAP_INDEX,scrap_memo,NEWS_INDEX,NEWS_TITLE,NEWS_IMAGE,MEMBER_ID)
-	    values ( scrap_index_seq.nextval,'Memo',#{news_index},#{news_title},#{news_image},#{member_id})	    
-	</insert>
+       INSERT INTO scrap(SCRAP_INDEX,NEWS_INDEX,NEWS_TITLE,NEWS_IMAGE,MEMBER_ID) 
+       SELECT scrap_index_seq.nextval,#{news_index},#{news_title},#{news_image},#{member_id} 
+       FROM dual WHERE NOT EXISTS ( SELECT NEWS_TITLE FROM scrap where NEWS_TITLE = #{news_title})           
+   </insert>
 	<update id="scrapMemoUpdate">
 		update scrap set scrap_memo =#{scrap_memo} where member_id = #{member_id} and scrap_index= #{scrap_index}
 	</update>

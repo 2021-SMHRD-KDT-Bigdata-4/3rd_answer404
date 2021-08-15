@@ -678,7 +678,6 @@ ul, ol {
 	height: 50px;
 	border: 1px solid #ebebeb;
 	position: relative;
-	margin-bottom: 15px;
 }
 
 .hero__search__form form .hero__search__categories{
@@ -2695,8 +2694,7 @@ ul, ol {
 -----------------------*/
 .footer {
 	background: #F3F6FA;
-	padding-top: 70px;
-	padding-bottom: 0;
+	padding: 70px 0px;
 }
 
 .footer__about {
@@ -2711,8 +2709,8 @@ ul, ol {
 }
 
 .footer__about__logo {
-	margin-bottom: 15px;
-}
+	
+	}
 
 .footer__about__logo a {
 	display: inline-block;
