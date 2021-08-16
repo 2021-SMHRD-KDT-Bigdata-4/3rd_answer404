@@ -192,7 +192,7 @@
 					<nav class="header__menu">
 						<ul>
 							<li><a href="./list">Home</a></li>
-							<li><a
+							<li ><a
 								href="${capth}./econo_category?news_category=경제&&pagingNum=1">경제</a></li>
 							<li><a
 								href="${capth}./econo_category?news_category=사회&&pagingNum=1">사회</a></li>
