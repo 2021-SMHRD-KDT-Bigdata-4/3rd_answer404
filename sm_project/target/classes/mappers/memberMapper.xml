@@ -27,10 +27,10 @@
 		delete from scrap where scrap_index= #{scrap_index}
 	</delete>
 	<insert id="scrapInsert">
-	     
-	    insert into scrap(SCRAP_INDEX,scrap_memo,NEWS_INDEX,NEWS_TITLE,NEWS_IMAGE,MEMBER_ID)
-	    values ( scrap_index_seq.nextval,'Memo',#{news_index},#{news_title},#{news_image},#{member_id})	    
-	</insert>
+       INSERT INTO scrap(SCRAP_INDEX,NEWS_INDEX,NEWS_TITLE,NEWS_IMAGE,MEMBER_ID) 
+       SELECT scrap_index_seq.nextval,#{news_index},#{news_title},#{news_image},#{member_id} 
+       FROM dual WHERE NOT EXISTS ( SELECT NEWS_TITLE FROM scrap where NEWS_TITLE = #{news_title})           
+   </insert>
 	<update id="scrapMemoUpdate">
 		update scrap set scrap_memo =#{scrap_memo} where member_id = #{member_id} and scrap_index= #{scrap_index}
 	</update>
@@ -49,5 +49,44 @@
 			where member_gender = '남자' group by news_keyword order by cnt desc) s)
 			where rnum between 1 and 5
 	</select>
+	<select id="chartMain" resultType="kr.co.summary.domain.ChartVO">
+			select * from
+			(select rownum as rnum, s.* from
+			(select news_keyword ,count(*) cnt from statistics 
+			group by news_keyword order by cnt desc) s)
+			where rnum between 1 and 10 
+	</select>
+	
+	<select id="chartkeyword20" parameterType="hashMap" resultType="kr.co.summary.domain.ChartVO">
+			select news_keyword ,count(*) cnt from statistics 
+			 where (news_keyword = #{Keyword1} OR news_keyword = #{Keyword2} OR news_keyword = #{Keyword3} OR news_keyword = #{Keyword4} OR news_keyword = #{Keyword5})
+			  and member_age_range = '20대이하'
+			 group by news_keyword
+	</select>
+	<select id="chartkeyword30" parameterType="hashMap" resultType="kr.co.summary.domain.ChartVO">
+			select news_keyword ,count(*) cnt from statistics 
+			 where (news_keyword = #{Keyword1} OR news_keyword = #{Keyword2} OR news_keyword = #{Keyword3} OR news_keyword = #{Keyword4} OR news_keyword = #{Keyword5})
+			  and member_age_range = '30대'
+			 group by news_keyword
+	</select>
+	<select id="chartkeyword40" parameterType="hashMap" resultType="kr.co.summary.domain.ChartVO">
+			select news_keyword ,count(*) cnt from statistics 
+			 where (news_keyword = #{Keyword1} OR news_keyword = #{Keyword2} OR news_keyword = #{Keyword3} OR news_keyword = #{Keyword4} OR news_keyword = #{Keyword5})
+			  and member_age_range = '40대'
+			 group by news_keyword
+	</select>
+	<select id="chartkeyword50" parameterType="hashMap" resultType="kr.co.summary.domain.ChartVO">
+			select news_keyword ,count(*) cnt from statistics 
+			 where (news_keyword = #{Keyword1} OR news_keyword = #{Keyword2} OR news_keyword = #{Keyword3} OR news_keyword = #{Keyword4} OR news_keyword = #{Keyword5})
+			  and member_age_range = '50대'
+			 group by news_keyword
+	</select>
+	<select id="chartkeyword60" parameterType="hashMap" resultType="kr.co.summary.domain.ChartVO">
+			select news_keyword ,count(*) cnt from statistics 
+			 where (news_keyword = #{Keyword1} OR news_keyword = #{Keyword2} OR news_keyword = #{Keyword3} OR news_keyword = #{Keyword4} OR news_keyword = #{Keyword5})
+			  and member_age_range = '60대이상'
+			 group by news_keyword
+	</select>
+	
 	
   </mapper>

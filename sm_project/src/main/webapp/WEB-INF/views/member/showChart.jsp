@@ -29,12 +29,12 @@
       function drawVisualization() {
         // 5+ 1개 평균 나오는거라 6번째는 무조건 선 그래프 로 들어감
         var data = google.visualization.arrayToDataTable([
-          ['기능 없음', 		'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'],
-          ['20대이하',  		165,      938,         522,             998,           450,      614.6],
-          ['30대 ', 			135,      1120,        599,             1268,          288,      682],
-          ['40대', 		 		157,      1167,        587,             807,           397,      623],
-          ['50대',  			139,      1110,        615,             968,           215,      609.4],
-          ['60대 이상',  		136,      691,         629,             1026,          366,      569.6]
+          ['기능 없음', '${chartMain[0].news_keyword}', '${chartMain[1].news_keyword}', '${chartMain[2].news_keyword}', '${chartMain[3].news_keyword}', '${chartMain[4].news_keyword}'],
+          ['20대이하', ${chartKeyword20[0].cnt}, ${chartKeyword20[1].cnt}, ${chartKeyword20[2].cnt},${chartKeyword20[3].cnt}, ${chartKeyword20[4].cnt}],
+          ['30대', ${chartKeyword30[0].cnt}, ${chartKeyword30[1].cnt}, ${chartKeyword30[2].cnt},${chartKeyword30[3].cnt}, ${chartKeyword30[4].cnt}],
+          ['40대', ${chartKeyword40[0].cnt}, ${chartKeyword40[1].cnt}, ${chartKeyword40[2].cnt},${chartKeyword40[3].cnt}, ${chartKeyword40[4].cnt}],
+          ['50대', ${chartKeyword50[0].cnt}, ${chartKeyword50[1].cnt}, ${chartKeyword50[2].cnt},${chartKeyword50[3].cnt}, ${chartKeyword50[4].cnt}],
+          ['60대 이상', ${chartKeyword60[0].cnt}, ${chartKeyword60[1].cnt}, ${chartKeyword60[2].cnt},${chartKeyword60[3].cnt}, ${chartKeyword60[4].cnt}],
         ]);
 
         var options = {
@@ -50,30 +50,34 @@
       }
 </script>
 
-<script type="text/javascript"> 
-	google.charts.load('current', {'packages':['corechart']});
-	google.charts.setOnLoadCallback(drawVisualization2);
-      function drawVisualization2() {
-          // 5+ 1개 평균 나오는거라 6번째는 무조건 선 그래프 로 들어감
-          var data = google.visualization.arrayToDataTable([
-            ['기능 없음', 		'Bolivia', 'Ecuador', 'Madagascar', 'Papua New Guinea', 'Rwanda', 'Average'],
-            ['남성 선호 키워드',  136,      691,         629,             1026,          366,      569.6],
-            ['여성 선호 키워드',  136,      691,         629,             1026,          366,      569.6]
-          ]);
+<script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          [ '${chartMain[0].news_keyword}',  	 ${chartMain[0].cnt}],
+          [ '${chartMain[1].news_keyword}',  	 ${chartMain[1].cnt}],
+          [ '${chartMain[2].news_keyword}', 	${chartMain[2].cnt}],
+          [ '${chartMain[3].news_keyword}',		${chartMain[3].cnt}],
+          [ '${chartMain[4].news_keyword}',  	${chartMain[4].cnt}],
+          [ '${chartMain[5].news_keyword}',  	 ${chartMain[5].cnt}],
+          [ '${chartMain[6].news_keyword}',  	 ${chartMain[6].cnt}],
+          [ '${chartMain[7].news_keyword}', 	${chartMain[7].cnt}],
+          [ '${chartMain[8].news_keyword}',		${chartMain[8].cnt}],
+          [ '${chartMain[9].news_keyword}',  	${chartMain[9].cnt}]
+        ]);
 
-          var options = {
-            title : '테스트 1',
-           // vAxis: {title: 'Y축 여기'},
-           // hAxis: {title: 'X축 여기'},
-            seriesType: 'bars',
-            //여기서 5개 지정 +1개는 라인인듯?
-            series: {5: {type: 'line'}}
-          };
-  		// 여기 이름으로 쏴줌
-          var chart = new google.visualization.ComboChart(document.getElementById('chart_div2'));
-          chart.draw(data, options);
-        }
-</script>
+        var options = {
+          title: '메인 키워드 순위 TOP 10',
+          pieHole: 0.5,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+ </script>
+
   <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart1);
@@ -355,12 +359,11 @@
 			<div class="row">
 				<div class="col-lg-12 col-md-8">
 					<div class="row">
-						<div id="chart_div1" style="width: 900px; height: 500px;"></div>
+						<div id="chart_div1" class ='col-lg-12' style= "height: 900px;"></div>						
+						<div id="donutchart" class ='col-lg-12' style= "height: 900px;"></div>
 						
-						<div id="chart_div2" style="width: 900px; height: 500px;"></div>	
-						
-						<div id="piechart1" style="width: 550px; height: 500px;"></div>	
-						<div id="piechart2" style="width: 550px; height: 500px;"></div>					
+						<div id="piechart1" class ='col-lg-6' style="height: 500px;"></div>	
+						<div id="piechart2" class ='col-lg-6' style="height: 500px;"></div>					
 					</div>
 					<!-- row 끝 -->
 				</div>

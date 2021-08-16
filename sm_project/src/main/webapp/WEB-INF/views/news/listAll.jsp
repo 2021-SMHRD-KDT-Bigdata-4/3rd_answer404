@@ -11,12 +11,16 @@
 <meta name="keywords" content="Ogani, unica, creative, html">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>응답하라 404</title>
+<title>응답하라 404 :: 검색 페이지</title>
 
 <!-- Google Font -->
 <link
 	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
 	rel="stylesheet">
+
+<!-- Awesome Font -->
+<script src="https://kit.fontawesome.com/b6d424ac83.js"
+	crossorigin="anonymous"></script>
 
 <!-- Css Styles -->
 <link rel="stylesheet" href="${cpath}/resources/css/bootstrap.min.css"
@@ -75,10 +79,10 @@
 	border: 1px solid #f40;
 	background-color: #f40;
 }
+
 .nice-select {
 	height: 48px;
 	border-radius: 0;
-	
 }
 </style>
 
@@ -147,7 +151,7 @@
 	</div>
 	<!-- Humberger End -->
 
-	
+
 	<!-- Header Section Begin -->
 	<header class="header">
 		<div class="container">
@@ -162,14 +166,19 @@
 					<nav class="header__menu">
 						<ul>
 							<li class="active"><a href="./list">Home</a></li>
-                     <li><a href="${capth}./econo_category?news_category=경제&&pagingNum=1">경제</a></li>
-                     <li><a href="${capth}./econo_category?news_category=사회&&pagingNum=1">사회</a></li>
-                     <li><a href="${capth}./econo_category?news_category=정치&&pagingNum=1">정치</a></li>
-                     <li><a href="${capth}./econo_categorys?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
+							<li><a
+								href="${capth}./econo_category?news_category=경제&&pagingNum=1">경제</a></li>
+							<li><a
+								href="${capth}./econo_category?news_category=사회&&pagingNum=1">사회</a></li>
+							<li><a
+								href="${capth}./econo_category?news_category=정치&&pagingNum=1">정치</a></li>
+							<li><a
+								href="${capth}./econo_category?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
 						</ul>
 					</nav>
 				</div>
-				<div class="col-lg-3">
+				<div class="col-lg-3"
+					style="display: flex; align-items: center; justify-content: space-evenly;">
 					<c:if test="${member == null}">
 						<div class="header__top__right__auth">
 							<a href="#" onclick="loginPopUp()"><i class="fa fa-user"></i>
@@ -179,15 +188,15 @@
 
 					<c:if test="${member != null}">
 						<div class="header__top__right__auth">
-							<a href="#" onclick="logout()"><i class="fa fa-user"></i>
-								Logout</a>
+							<a href="#" onclick="scrap()"> <i class="fas fa-clipboard"></i>Scrap
+							</a>
 						</div>
 					</c:if>
 
 					<c:if test="${member != null}">
 						<div class="header__top__right__auth">
-							<a href="#" onclick="scrap()"> <i class="fa fa-user"></i>Scrap(임시)
-							</a>
+							<a href="#" onclick="logout()"><i class="fas fa-user-slash"></i>
+								Logout</a>
 						</div>
 					</c:if>
 
@@ -260,7 +269,7 @@
 					<div class="breadcrumb__text">
 						<h2>검색결과</h2>
 						<div class="breadcrumb__option">
-							<a href="./index.html">Home</a> <span>Shopping Cart</span>
+							<span>응답하라 404</span>
 						</div>
 					</div>
 				</div>
@@ -275,12 +284,12 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="shoping__cart__table">
-
 						<table>
 							<thead>
 								<tr>
 									<th class="shoping__product">제목</th>
-									<th>조회수</th>
+									<th
+										style="text-align: center; font-weight: 700; color: #6c757d;">조회수</th>
 								</tr>
 							</thead>
 							<c:forEach var="list" items="${list}">
@@ -288,19 +297,20 @@
 									<tr>
 										<td class="shoping__cart__item"><img
 											style="max-width: 15%; height: auto;"
-											src="${list.news_image}">
+											src="${list.news_image}" onclick='detail(${list.news_index})'>
 											<h5>
 												<a href="/news/detailView?news_index=${list.news_index}">
 													<c:out value="${list.news_title}" />
 												</a>
 											</h5></td>
-										<td class="shoping__cart__total"><c:out
-												value="${list.news_count}" /></td>
+										<td class="shoping__cart__total"
+											style="text-align: center; font-weight: 700; color: #6c757d;">
+											${list.news_count}</td>
 									</tr>
 								</tbody>
 							</c:forEach>
 						</table>
-						<div class="pagenation">
+						<div class="pagenation" style="margin-top: 30px;">
 							<ul>
 								<c:if test="${pageMaker.prev}">
 									<li><a style="width: 50px !important"
@@ -309,7 +319,9 @@
 
 								<c:forEach begin="${pageMaker.startPage}"
 									end="${pageMaker.endPage}" var="idx">
-									<li><a href="listAll${pageMaker.makeSearch(idx)}">${idx}</a></li>
+									<li><a
+										style="color: #fff; background-color: #0857C3; border: 1px solid #0857C3"
+										href="listAll${pageMaker.makeSearch(idx)}">${idx}</a></li>
 								</c:forEach>
 
 								<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
@@ -318,39 +330,6 @@
 								</c:if>
 							</ul>
 						</div>
-
-
-
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="shoping__cart__btns">
-						<a href="#" class="primary-btn cart-btn">CONTINUE SHOPPING</a> <a
-							href="#" class="primary-btn cart-btn cart-btn-right"><span
-							class="icon_loading"></span> Upadate Cart</a>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="shoping__continue">
-						<div class="shoping__discount">
-							<h5>Discount Codes</h5>
-							<form action="#">
-								<input type="text" placeholder="Enter your coupon code">
-								<button type="submit" class="site-btn">APPLY COUPON</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="shoping__checkout">
-						<h5>Cart Total</h5>
-						<ul>
-							<li>Subtotal <span>$454.98</span></li>
-							<li>Total <span>$454.98</span></li>
-						</ul>
-						<a href="#" class="primary-btn">PROCEED TO CHECKOUT</a>
 					</div>
 				</div>
 			</div>
@@ -358,85 +337,66 @@
 	</section>
 	<!-- Shoping Cart Section End -->
 
+	<!-- Footer Section start -->
 	<footer class="footer spad">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-md-6 col-sm-6">
-					<div class="footer__about">
-						<div class="footer__about__logo">
-							<a href="./index.html"><img
-								src="${cpath}/resources/img/logo_trans.png" alt=""></a>
-						</div>
+				<div
+					style="display: flex; justify-content: space-evenly; align-items: center;"
+					class="col-lg-12 col-sm-6">
+					<div class="footer__about__logo">
+						<a href="./index.html"><img style="padding-right: 50px;"
+							src="${cpath}/resources/img/logo_trans.png" alt=""></a>
+					</div>
+					<div>
 						<ul>
-							<li>Address: 60-49 Road 11378 New York</li>
-							<li>Phone: +65 11.188.888</li>
-							<li>Email: hello@colorlib.com</li>
+							<li>팀장 : 김성은</li>
+							<li>팀원 : 손민호</li>
+							<li>팀원 : 장경진</li>
+							<li>팀원 : 이길수</li>
+							<li>팀원 : 노현규</li>
+
 						</ul>
 					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-					<div class="footer__widget">
-						<h6>Useful Links</h6>
+					<div>
 						<ul>
-							<li><a href="#">About Us</a></li>
-							<li><a href="#">About Our Shop</a></li>
-							<li><a href="#">Secure Shopping</a></li>
-							<li><a href="#">Delivery infomation</a></li>
-							<li><a href="#">Privacy Policy</a></li>
-							<li><a href="#">Our Sitemap</a></li>
+							<li><a href=https://github.com/kimvkffkd83>깃허브주소 :
+									https://github.com/kimvkffkd83</a></li>
+							<li><a href="https://github.com/thsalsgh1234">깃허브주소 :
+									https://github.com/thsalsgh1234</a></li>
+							<li><a href="https://github.com/GyungJin">깃허브주소 :
+									https://github.com/GyungJin</a></li>
+							<li><a href="https://github.com/lee198745123">깃허브주소 :
+									https://github.com/lee198745123</a></li>
+							<li><a href="https://github.com/psm1936">깃허브주소 :
+									https://github.com/psm1936</a></li>
 						</ul>
-						<ul>
-							<li><a href="#">Who We Are</a></li>
-							<li><a href="#">Our Services</a></li>
-							<li><a href="#">Projects</a></li>
-							<li><a href="#">Contact</a></li>
-							<li><a href="#">Innovation</a></li>
-							<li><a href="#">Testimonials</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-12">
-					<div class="footer__widget">
-						<h6>Join Our Newsletter Now</h6>
-						<p>Get E-mail updates about our latest shop and special
-							offers.</p>
-						<form action="#">
-							<input type="text" placeholder="Enter your mail">
-							<button type="submit" class="site-btn">Subscribe</button>
-						</form>
-						<div class="footer__widget__social">
-							<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
-								class="fa fa-instagram"></i></a> <a href="#"><i
-								class="fa fa-twitter"></i></a> <a href="#"><i
-								class="fa fa-pinterest"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="footer__copyright">
-						<div class="footer__copyright__text">
-							<p>
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;
-								<script>
-									document.write(new Date().getFullYear());
-								</script>
-								All rights reserved | This template is made with <i
-									class="fa fa-heart" aria-hidden="true"></i> by <a
-									href="https://colorlib.com" target="_blank">Colorlib</a>
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							</p>
-						</div>
-						<div class="footer__copyright__payment">
-							<img src="img/payment-item.png" alt="">
-						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</footer>
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="footer__copyright"
+				style="display: flex; justify-content: center;">
+				<div style="text-align: center;" class="footer__copyright__text ">
+					<p>
+						Copyright &copy;
+						<script>
+                           document.write(new Date().getFullYear());
+                        </script>
+						All rights reserved | 스마트인재개발원 3차프로젝트 <br> 개인투자자들을 위한 맞춤형
+						뉴스기사 요약 및 전문용어 해석 서비스 <i class="fa fa-heart" aria-hidden="true"></i>
+						by <a
+							href="https://github.com/2021-SMHRD-KDT-Bigdata-4/3rd_answer404"
+							target="_blank">응답하라404</a>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- Footer Section End -->
 
 	<!-- Js Plugins -->
@@ -449,11 +409,11 @@
 	<script src="${cpath}/resources/js/owl.carousel.min.js"></script>
 	<script src="${cpath}/resources/js/main.js"></script>
 
-	
+
 	<script type="text/javascript">
 
 	function loginPopUp(){
-	   window.open("/member/login", "login", "width=500, height=643, left=660, top=200");
+	   window.open("/member/login", "login", "width=500, height=678, left=660, top=200");
 	}
 
 	function logout(){
@@ -467,6 +427,9 @@
 	function scrap(){
 	   location.href="/member/scrap?member_id=${member.member_id}&&pagingNum=1"
 	}
+	 function detail(new_index){
+		 location.href ="${cpath}/news/detailView?news_index="+new_index;		
+	} 
 	</script>
 </body>
 

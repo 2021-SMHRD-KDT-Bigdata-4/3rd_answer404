@@ -54,4 +54,23 @@ public class MemberServiceimpl implements MemberService{
 	public List<ChartVO> showChartM() throws Exception{
 		return dao.showChartM();
 	}
+	public List<ChartVO> chartMain() throws Exception{
+		return dao.chartMain();
+	}
+	
+	public List<ChartVO> chartkeyword20(String Keyword1,String Keyword2,String Keyword3,String Keyword4,String Keyword5) throws Exception{
+		return dao.chartkeyword20(Keyword1, Keyword2, Keyword3, Keyword4, Keyword5);
+	}
+	public List<ChartVO> chartkeyword30(String Keyword1,String Keyword2,String Keyword3,String Keyword4,String Keyword5) throws Exception{
+		return dao.chartkeyword30(Keyword1, Keyword2, Keyword3, Keyword4, Keyword5);
+	}
+	public List<ChartVO> chartkeyword40(String Keyword1,String Keyword2,String Keyword3,String Keyword4,String Keyword5) throws Exception{
+		return dao.chartkeyword40(Keyword1, Keyword2, Keyword3, Keyword4, Keyword5);
+	}
+	public List<ChartVO> chartkeyword50(String Keyword1,String Keyword2,String Keyword3,String Keyword4,String Keyword5) throws Exception{
+		return dao.chartkeyword50(Keyword1, Keyword2, Keyword3, Keyword4, Keyword5);
+	}
+	public List<ChartVO> chartkeyword60(String Keyword1,String Keyword2,String Keyword3,String Keyword4,String Keyword5) throws Exception{
+		return dao.chartkeyword60(Keyword1, Keyword2, Keyword3, Keyword4, Keyword5);
+	}
 }
