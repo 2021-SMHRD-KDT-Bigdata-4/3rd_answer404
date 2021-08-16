@@ -165,7 +165,7 @@
 				<div class="col-lg-6">
 					<nav class="header__menu">
 						<ul>
-							<li class="active"><a href="./list">Home</a></li>
+							<li ><a href="./list">Home</a></li>
 							<li><a
 								href="${capth}./econo_category?news_category=경제&&pagingNum=1">경제</a></li>
 							<li><a
