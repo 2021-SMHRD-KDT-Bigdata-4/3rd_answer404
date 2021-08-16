@@ -87,7 +87,7 @@
    	
    	</select>
    	
-    <!-- 높은조회수 최신순으로 가져오기 -->
+    <!-- 높은조회수 최신순으로 가져오기 --> 
    	<select id="countStatistics" resultType="kr.co.summary.domain.NewsVO">  		
    	select * from
 	(select rownum as snum, s.* from
