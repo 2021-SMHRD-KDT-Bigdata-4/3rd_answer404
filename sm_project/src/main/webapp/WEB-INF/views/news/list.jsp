@@ -552,12 +552,12 @@ $( document ).ready(function() {
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-6" style="text-align: center;">
 					<div class="banner__pic">
-						<img src="${cpath}/resources/img/banner/smart1.png" alt="">
+						<a href=https://www.smhrd.or.kr/curriculum1><img src="${cpath}/resources/img/banner/smart1.png" alt=""></a>
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6" style="text-align: center;">
 					<div class="banner__pic">
-						<img src="${cpath}/resources/img/banner/smart2.png" alt="">
+						<a href=https://www.smhrd.or.kr/curriculum2><img src="${cpath}/resources/img/banner/smart2.png" alt=""></a>
 					</div>
 				</div>
 			</div>
