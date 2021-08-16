@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import kr.co.summary.domain.ChartVO;
 import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.ScrapVO;
 
@@ -24,4 +25,7 @@ public interface MemberService {
 	public void scrapInsert(ScrapVO scrapvo) throws Exception;
 	
 	public void scrapMemoUpdate(ScrapVO scrapvo) throws Exception;
+	
+	public List<ChartVO> showChartFM() throws Exception;
+	public List<ChartVO> showChartM() throws Exception;
 }

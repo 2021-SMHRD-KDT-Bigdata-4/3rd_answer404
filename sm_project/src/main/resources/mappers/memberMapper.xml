@@ -10,7 +10,7 @@
   	</insert>
   	
   	<select id="memberLogin" resultType="kr.co.summary.domain.MemberVO">
-		select * from member where member_id = #{member_id}
+		select * from member where member_id = #{member_id} and member_password = #{member_password}
 	</select>
 	
 	<select id="scrapShow" parameterType="hashMap" resultType="kr.co.summary.domain.ScrapVO">
@@ -34,4 +34,20 @@
 	<update id="scrapMemoUpdate">
 		update scrap set scrap_memo =#{scrap_memo} where member_id = #{member_id} and scrap_index= #{scrap_index}
 	</update>
+	
+	<select id="showChartFM" resultType="kr.co.summary.domain.ChartVO">
+			select * from
+			(select rownum as rnum, s.* from
+			(select news_keyword ,count(*) cnt from statistics
+			where member_gender = '여자' group by news_keyword order by cnt desc) s)
+			where rnum between 1 and 5
+	</select>
+	<select id="showChartM" resultType="kr.co.summary.domain.ChartVO">
+			select * from
+			(select rownum as rnum, s.* from
+			(select news_keyword ,count(*) cnt from statistics
+			where member_gender = '남자' group by news_keyword order by cnt desc) s)
+			where rnum between 1 and 5
+	</select>
+	
   </mapper>

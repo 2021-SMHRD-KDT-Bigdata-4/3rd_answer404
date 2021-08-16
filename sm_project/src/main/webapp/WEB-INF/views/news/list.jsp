@@ -217,6 +217,9 @@ $( document ).ready(function() {
                </nav>
             </div>
             <div class="col-lg-3">
+            
+            	<a href="#" onclick="showChart()"><i class="fa fa-user"></i>chart</a>
+            	
                <c:if test="${member == null}">
                   <div class="header__top__right__auth">
                      <a href="#" onclick="loginPopUp()"><i class="fa fa-user"></i>
@@ -608,7 +611,10 @@ $( document ).ready(function() {
    }
 
    function scrap(){
-      location.href="/member/scrap?member_id=${member.member_id}&&pagingNum=1"
+      location.href="/member/scrap?member_id=${member.member_id}&&pagingNum=1";
+   }
+   function showChart(){
+	   location.href="/member/showChart";
    }
    </script>
 

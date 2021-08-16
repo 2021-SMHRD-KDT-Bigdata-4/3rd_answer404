@@ -126,9 +126,11 @@ public class NewsController {
 	public String detail(NewsVO newsVO, Model model) throws Exception {
 		logger.info("detail");
 		
-		service.plusCnt(newsVO.getNews_index());
-		
+		service.plusCnt(newsVO.getNews_index());		
 		NewsVO newsvo = service.detail(newsVO.getNews_index());
+		model.addAttribute("detail", newsvo);
+
+		
 		String news_category = newsvo.getNews_category();
 		String news_summary = newsvo.getNews_summary();
 		
@@ -137,11 +139,9 @@ public class NewsController {
 		 for(int i=0; i< keywordSplit.length; i++) {
 			 System.out.println(keywordSplit[i]+"-------------------------------------");
 		 }
-		model.addAttribute("keywordSplit", keywordSplit);
 		 
 		model.addAttribute("detail", newsvo);
-		
-		
+		model.addAttribute("keywordSplit", keywordSplit);		 				
 		model.addAttribute("category", news_category);
 		
 		List<NewsVO> categoryStatistictitle = service.categoryStatistictitle(news_category);
@@ -165,9 +165,30 @@ public class NewsController {
 	      NewsVO newsvo =service.detail(newsVO.getNews_index());
 	      model.addAttribute("detail", newsvo);
 	      
+			String news_category = newsvo.getNews_category();
+			String news_summary = newsvo.getNews_summary();
+			
+			String[] keywordSplit = news_summary.split("/");
+			
+			 for(int i=0; i< keywordSplit.length; i++) {
+				 System.out.println("-------------------------------------"+keywordSplit[i]);
+			 }
+			 
+			model.addAttribute("detail", newsvo);
+			model.addAttribute("keywordSplit", keywordSplit);		 				
+			model.addAttribute("category", news_category);
+			
+			List<NewsVO> categoryStatistictitle = service.categoryStatistictitle(news_category);
+			List<StatisticsVO> categoryStatisticUp= service.categoryStatisticUp(news_category);
+			List<StatisticsVO> categoryStatisticDown= service.categoryStatisticDown(news_category);
+			
+			model.addAttribute("categoryStatistictitle", categoryStatistictitle);
+			model.addAttribute("categoryStatisticUp", categoryStatisticUp);
+			model.addAttribute("categoryStatisticDown", categoryStatisticDown);
 	      //-----------------------------------------------------------------------------
+	      
 	      String keyword = newsvo.getNews_keyword();
-	      System.out.println("뉴스VO에는이게담겨있음"+newsVO);
+	      System.out.println("뉴스VO에는이게담겨있음"+newsvo);
 	      
 	      MemberVO membervo = new MemberVO();
 	      
@@ -175,11 +196,22 @@ public class NewsController {
 	      String membervo_age_range= membervo.getMember_age_range();
 	      String membervo_gender = membervo.getMember_gender();
 	      
-	      System.out.println("뉴스keyword->"+keyword);
-	      String[] keywordSplit = keyword.split(".");
-	      for(int i=0; i< keywordSplit.length; i++) {
-	         service.StatisticsUpdate(membervo_age_range, membervo_gender, keywordSplit[i]);
+	      System.out.println("뉴스keyword->"+ keyword);
+	      
+	      String[] NewsKeywordSplit = keyword.split("\\.");
+	      System.out.println(NewsKeywordSplit[0]);
+	      System.out.println(NewsKeywordSplit[1]);
+	      System.out.println(NewsKeywordSplit[2]);
+	      System.out.println(NewsKeywordSplit[3]);
+	      System.out.println(NewsKeywordSplit[4]);
+	      	      
+	      for(int i=0; i< NewsKeywordSplit.length; i++) {
+	         service.StatisticsUpdate(membervo_age_range, membervo_gender, NewsKeywordSplit[i]);
+	         System.out.println(NewsKeywordSplit[i]);
 	      }
+	      
+	      
+	      
 	      
 	      return "news/detailView";
 	   }

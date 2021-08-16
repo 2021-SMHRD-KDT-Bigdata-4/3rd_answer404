@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import kr.co.summary.dao.MemberDAO;
+import kr.co.summary.domain.ChartVO;
 import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.ScrapVO;
 
@@ -46,5 +47,11 @@ public class MemberServiceimpl implements MemberService{
 	}
 	public void scrapMemoUpdate(ScrapVO scrapvo) throws Exception{
 		dao.scrapMemoUpdate(scrapvo);
+	}
+	public List<ChartVO> showChartFM() throws Exception{
+		return dao.showChartFM();
+	}
+	public List<ChartVO> showChartM() throws Exception{
+		return dao.showChartM();
 	}
 }

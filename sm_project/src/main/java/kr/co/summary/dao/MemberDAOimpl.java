@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import kr.co.summary.domain.ChartVO;
 import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.ScrapVO;
 
@@ -60,5 +61,11 @@ public class MemberDAOimpl implements MemberDAO {
 	public void scrapMemoUpdate(ScrapVO scrapvo) throws Exception{
 
 		sqlSession.update("memberMapper.scrapMemoUpdate",scrapvo);
+	}
+	public List<ChartVO> showChartFM() throws Exception{
+		return sqlSession.selectList("memberMapper.showChartFM");
+	}
+	public List<ChartVO> showChartM() throws Exception{
+		return sqlSession.selectList("memberMapper.showChartM");
 	}
 }

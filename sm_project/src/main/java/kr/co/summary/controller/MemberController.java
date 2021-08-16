@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.co.summary.domain.ChartVO;
 import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.NewsVO;
 import kr.co.summary.domain.ScrapVO;
@@ -149,6 +150,7 @@ private static final org.slf4j.Logger logger =  LoggerFactory.getLogger(NewsCont
 				memberservice.scrapInsert(scrapvo);
 		return "redirect:/member/scrap?member_id="+scrapvo.getMember_id()+"&&pagingNum="+1;
 	}
+	
 	//스크랩햇던것들을 전부 보여주기 +페이징
 	@RequestMapping("scrap")
 	public String scrap(Model model, String member_id, @RequestParam("pagingNum") int pagingNum) throws Exception{
@@ -210,8 +212,21 @@ private static final org.slf4j.Logger logger =  LoggerFactory.getLogger(NewsCont
 		// 현재 페이지
 		model.addAttribute("select", pagingNum);
 		
-		return "member/scrap";			
+		return "member/scrap";	
+		
+		
 	}
 	
+	//-------------------------- 차트 구현  리턴 안적으면 자기알아서 요청이름.jsp로 간다
+	@RequestMapping("showChart")	
+	public void showChart(Model model) throws Exception{
+		//1개만 테스트
+		List<ChartVO> corechartlistFM = memberservice.showChartFM();
+		List<ChartVO> corechartlistM = memberservice.showChartM();
+		System.out.println(corechartlistFM);
+		System.out.println(corechartlistM);
+		model.addAttribute("corechartlistFM", corechartlistFM);
+		model.addAttribute("corechartlistM", corechartlistM);
+	}
 
 }
