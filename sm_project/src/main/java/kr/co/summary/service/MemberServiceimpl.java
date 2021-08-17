@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import kr.co.summary.dao.MemberDAO;
+import kr.co.summary.domain.ChartVO;
 import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.ScrapVO;
 
@@ -46,5 +47,30 @@ public class MemberServiceimpl implements MemberService{
 	}
 	public void scrapMemoUpdate(ScrapVO scrapvo) throws Exception{
 		dao.scrapMemoUpdate(scrapvo);
+	}
+	public List<ChartVO> showChartFM() throws Exception{
+		return dao.showChartFM();
+	}
+	public List<ChartVO> showChartM() throws Exception{
+		return dao.showChartM();
+	}
+	public List<ChartVO> chartMain() throws Exception{
+		return dao.chartMain();
+	}
+	
+	public List<ChartVO> chartkeyword20(String Keyword1,String Keyword2,String Keyword3,String Keyword4,String Keyword5) throws Exception{
+		return dao.chartkeyword20(Keyword1, Keyword2, Keyword3, Keyword4, Keyword5);
+	}
+	public List<ChartVO> chartkeyword30(String Keyword1,String Keyword2,String Keyword3,String Keyword4,String Keyword5) throws Exception{
+		return dao.chartkeyword30(Keyword1, Keyword2, Keyword3, Keyword4, Keyword5);
+	}
+	public List<ChartVO> chartkeyword40(String Keyword1,String Keyword2,String Keyword3,String Keyword4,String Keyword5) throws Exception{
+		return dao.chartkeyword40(Keyword1, Keyword2, Keyword3, Keyword4, Keyword5);
+	}
+	public List<ChartVO> chartkeyword50(String Keyword1,String Keyword2,String Keyword3,String Keyword4,String Keyword5) throws Exception{
+		return dao.chartkeyword50(Keyword1, Keyword2, Keyword3, Keyword4, Keyword5);
+	}
+	public List<ChartVO> chartkeyword60(String Keyword1,String Keyword2,String Keyword3,String Keyword4,String Keyword5) throws Exception{
+		return dao.chartkeyword60(Keyword1, Keyword2, Keyword3, Keyword4, Keyword5);
 	}
 }

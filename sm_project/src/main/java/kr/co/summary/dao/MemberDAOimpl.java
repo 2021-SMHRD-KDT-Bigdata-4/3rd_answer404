@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import kr.co.summary.domain.ChartVO;
 import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.ScrapVO;
 
@@ -60,5 +61,60 @@ public class MemberDAOimpl implements MemberDAO {
 	public void scrapMemoUpdate(ScrapVO scrapvo) throws Exception{
 
 		sqlSession.update("memberMapper.scrapMemoUpdate",scrapvo);
+	}
+	public List<ChartVO> showChartFM() throws Exception{
+		return sqlSession.selectList("memberMapper.showChartFM");
+	}
+	public List<ChartVO> showChartM() throws Exception{
+		return sqlSession.selectList("memberMapper.showChartM");
+	}
+	public List<ChartVO> chartMain() throws Exception{
+		return sqlSession.selectList("memberMapper.chartMain");
+	}
+	
+	public List<ChartVO> chartkeyword20(String Keyword1,String Keyword2,String Keyword3,String Keyword4,String Keyword5) throws Exception{
+		HashMap data = new HashMap();
+		data.put("Keyword1", Keyword1);
+		data.put("Keyword2", Keyword2);
+		data.put("Keyword3", Keyword3);
+		data.put("Keyword4", Keyword4);
+		data.put("Keyword5", Keyword5);
+		return sqlSession.selectList("memberMapper.chartkeyword20",data);
+	}
+	public List<ChartVO> chartkeyword30(String Keyword1,String Keyword2,String Keyword3,String Keyword4,String Keyword5) throws Exception{
+		HashMap data = new HashMap();
+		data.put("Keyword1", Keyword1);
+		data.put("Keyword2", Keyword2);
+		data.put("Keyword3", Keyword3);
+		data.put("Keyword4", Keyword4);
+		data.put("Keyword5", Keyword5);
+		return sqlSession.selectList("memberMapper.chartkeyword30",data);
+	}
+	public List<ChartVO> chartkeyword40(String Keyword1,String Keyword2,String Keyword3,String Keyword4,String Keyword5) throws Exception{
+		HashMap data = new HashMap();
+		data.put("Keyword1", Keyword1);
+		data.put("Keyword2", Keyword2);
+		data.put("Keyword3", Keyword3);
+		data.put("Keyword4", Keyword4);
+		data.put("Keyword5", Keyword5);
+		return sqlSession.selectList("memberMapper.chartkeyword40",data);
+	}
+	public List<ChartVO> chartkeyword50(String Keyword1,String Keyword2,String Keyword3,String Keyword4,String Keyword5) throws Exception{
+		HashMap data = new HashMap();
+		data.put("Keyword1", Keyword1);
+		data.put("Keyword2", Keyword2);
+		data.put("Keyword3", Keyword3);
+		data.put("Keyword4", Keyword4);
+		data.put("Keyword5", Keyword5);
+		return sqlSession.selectList("memberMapper.chartkeyword50",data);
+	}
+	public List<ChartVO> chartkeyword60(String Keyword1,String Keyword2,String Keyword3,String Keyword4,String Keyword5) throws Exception{
+		HashMap data = new HashMap();
+		data.put("Keyword1", Keyword1);
+		data.put("Keyword2", Keyword2);
+		data.put("Keyword3", Keyword3);
+		data.put("Keyword4", Keyword4);
+		data.put("Keyword5", Keyword5);
+		return sqlSession.selectList("memberMapper.chartkeyword60",data);
 	}
 }

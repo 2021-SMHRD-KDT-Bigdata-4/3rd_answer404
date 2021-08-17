@@ -73,7 +73,7 @@
    </select>
 
 	 <insert id="StatisticsUpdate">
-   		insert into member(statistics_index ,member_age_range, member_gender, news_keyword)
+   		insert into statistics(statistics_index ,member_age_range, member_gender, news_keyword)
 		values(STATISTICS_INDEX_SEQ.nextval,#{membervo_age_range},#{membervo_gender},#{news_keyword})
    	</insert>
    	
@@ -87,7 +87,7 @@
    	
    	</select>
    	
-    <!-- 높은조회수 최신순으로 가져오기 -->
+    <!-- 높은조회수 최신순으로 가져오기 --> 
    	<select id="countStatistics" resultType="kr.co.summary.domain.NewsVO">  		
    	select * from
 	(select rownum as snum, s.* from

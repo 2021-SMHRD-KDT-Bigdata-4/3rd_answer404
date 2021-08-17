@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.co.summary.domain.ChartVO;
 import kr.co.summary.domain.MemberVO;
 import kr.co.summary.domain.NewsVO;
 import kr.co.summary.domain.ScrapVO;
@@ -149,6 +150,7 @@ private static final org.slf4j.Logger logger =  LoggerFactory.getLogger(NewsCont
 				memberservice.scrapInsert(scrapvo);
 		return "redirect:/member/scrap?member_id="+scrapvo.getMember_id()+"&&pagingNum="+1;
 	}
+	
 	//스크랩햇던것들을 전부 보여주기 +페이징
 	@RequestMapping("scrap")
 	public String scrap(Model model, String member_id, @RequestParam("pagingNum") int pagingNum) throws Exception{
@@ -177,6 +179,7 @@ private static final org.slf4j.Logger logger =  LoggerFactory.getLogger(NewsCont
 		
 		int pageNum_cnt =10; // 한번에 표시할 페이징 번호 갯수
 		int endPageNum = (int)(Math.ceil((double)pagingNum / (double)pageNum_cnt) * pageNum_cnt);
+		
 		System.out.println("------------------"+endPageNum+"------------------");
 		// endPageNum 표시되는 페이징 마지막 수 ex)) 4페이지라면 10을
 		int startPageNum =1;
@@ -210,8 +213,46 @@ private static final org.slf4j.Logger logger =  LoggerFactory.getLogger(NewsCont
 		// 현재 페이지
 		model.addAttribute("select", pagingNum);
 		
-		return "member/scrap";			
+		return "member/scrap";	
+		
+		
 	}
 	
+	//-------------------------- 차트 구현  리턴 안적으면 자기알아서 요청이름.jsp로 간다
+	@RequestMapping("showChart")	
+	public void showChart(Model model) throws Exception{
+		//1개만 테스트
+		List<ChartVO> chartMain = memberservice.chartMain();
+		List<ChartVO> corechartlistFM = memberservice.showChartFM();
+		List<ChartVO> corechartlistM = memberservice.showChartM();
+		System.out.println(corechartlistFM);
+		System.out.println(corechartlistM);
+		
+		String Keyword1 = chartMain.get(1).getNews_keyword();
+		String Keyword2 =chartMain.get(2).getNews_keyword();
+		String Keyword3 =chartMain.get(3).getNews_keyword();
+		String Keyword4 =chartMain.get(4).getNews_keyword();
+		String Keyword5 =chartMain.get(5).getNews_keyword();
+		List<ChartVO> chartKeyword20 = memberservice.chartkeyword20(Keyword1,Keyword2,Keyword3,Keyword4,Keyword5);
+		List<ChartVO> chartKeyword30 = memberservice.chartkeyword30(Keyword1,Keyword2,Keyword3,Keyword4,Keyword5);
+		List<ChartVO> chartKeyword40 = memberservice.chartkeyword40(Keyword1,Keyword2,Keyword3,Keyword4,Keyword5);
+		List<ChartVO> chartKeyword50 = memberservice.chartkeyword50(Keyword1,Keyword2,Keyword3,Keyword4,Keyword5);
+		List<ChartVO> chartKeyword60 = memberservice.chartkeyword60(Keyword1,Keyword2,Keyword3,Keyword4,Keyword5);
+		
+		System.out.println(chartKeyword20);
+		System.out.println(chartKeyword30);
+		System.out.println(chartKeyword40);
+		System.out.println(chartKeyword50);
+		System.out.println(chartKeyword60);
+		model.addAttribute("chartKeyword20", chartKeyword20);
+		model.addAttribute("chartKeyword30", chartKeyword30);
+		model.addAttribute("chartKeyword40", chartKeyword40);
+		model.addAttribute("chartKeyword50", chartKeyword50);
+		model.addAttribute("chartKeyword60", chartKeyword60);
+		
+		model.addAttribute("chartMain", chartMain);
+		model.addAttribute("corechartlistFM", corechartlistFM);
+		model.addAttribute("corechartlistM", corechartlistM);
+	}
 
 }

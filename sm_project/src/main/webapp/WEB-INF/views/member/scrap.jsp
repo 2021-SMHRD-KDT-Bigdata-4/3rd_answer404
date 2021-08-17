@@ -210,26 +210,13 @@
 				<div class="col-lg-3">
 					<div class="hero__categories">
 						<div class="hero__categories__all">
-							<i class="fa fa-bars"></i> <span>All departments</span>
+							<a onclick="showChart()">키워드 통계 보기</a>
 						</div>
-						<ul>
-							<li><a href="#">Fresh Meat</a></li>
-							<li><a href="#">Vegetables</a></li>
-							<li><a href="#">Fruit & Nut Gifts</a></li>
-							<li><a href="#">Fresh Berries</a></li>
-							<li><a href="#">Ocean Foods</a></li>
-							<li><a href="#">Butter & Eggs</a></li>
-							<li><a href="#">Fastfood</a></li>
-							<li><a href="#">Fresh Onion</a></li>
-							<li><a href="#">Papayaya & Crisps</a></li>
-							<li><a href="#">Oatmeal</a></li>
-							<li><a href="#">Fresh Bananas</a></li>
-						</ul>
 					</div>
 				</div>
 				<div class="col-lg-9">
 					<div class="hero__search__form">
-						<form action="listAll">
+						<form action="/news/listAll">
 							<select name="searchType">
 								<option value="t"
 									<c:out value="${scri.searchType eq 't' ? 'selected' : ''}"/>>제목</option>
@@ -279,7 +266,7 @@
 								<div class="blog__item">
 									<div class="blog__item__pic">
 										<%--  <img src="${cpath}/resources/img/blog/blog-2.jpg" alt=""> --%>
-										<img src="${list.news_image}" alt="">
+										<a href="/news/detailView?news_index=${list.news_index}"><img src="${list.news_image}" alt=""></a>
 									</div>
 									<div class="blog__item__text"
 										style="display: flex; flex-direction: column; flex-wrap: wrap;">
@@ -288,12 +275,11 @@
 												<c:out value="${list.news_title}" />
 											</a>
 										</h5>
-										<textarea class="form-control" rows="3" id='memo' name="memo">${list.scrap_memo}</textarea>
-										<input type="hidden" id='index' name="index"
-											value="${list.scrap_index}" /> <br>
+										<textarea class="form-control" rows="3" id='${list.scrap_index}' name="memo">${list.scrap_memo}</textarea>
+										 <br>
 										<div class="col-lg-12"
 											style="flex-direction: row; display: flex; justify-content: space-around;">
-											<a onclick="scrapMemoUpdate()" class="blog__btn"
+											<a onclick="scrapMemoUpdate('${list.scrap_index}')" class="blog__btn"
 												style="padding: 10px 8px;">스크랩 수정 <span
 												class="arrow_right"></span>
 											</a> <a
@@ -344,7 +330,6 @@
 				</div>
 
 			</div>
-		</div>
 		</div>
 	</section>
 	<!-- Blog Section End -->
@@ -439,15 +424,18 @@
 			location.href = "/member/scrap?member_id=${member.member_id}&&pagingNum=1"
 
 		}
-		function scrapMemoUpdate() {
-			var memo = $('#memo').val();
-			var index = $('#index').val();
+		function scrapMemoUpdate(indexz) {
+			var memo = $('#'+indexz).val();
+			var index = indexz;
 			alert(memo);
 			alert(index);
 			location.href = "/member/scrapMemoUpdate?member_id=${member.member_id}&&scrap_memo="
 					+ memo + "&&scrap_index=" + index;
 
 		}
+		   function showChart(){
+			   location.href="/member/showChart";
+		   }
 	</script>
 
 </body>
