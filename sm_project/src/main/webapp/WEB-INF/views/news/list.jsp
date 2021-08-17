@@ -39,6 +39,13 @@
 <link rel="stylesheet" href="${cpath}/resources/css/style.css"
 	type="text/css">
 </head>
+<style>
+ul,li{
+overflow: inherit;
+}
+
+
+</style>
 
 
 <script
@@ -303,14 +310,14 @@ $( document ).ready(function() {
 						</form>
 					</div>
 					<div class="hero__item set-bg"
-						data-setbg="https://imgnews.pstatic.net/image/023/2021/08/11/0003632999_001_20210811144003855.jpg?type=w647">
+						data-setbg="${cpath}/resources/img/vaccine.jpg">
 						<div class="hero__text">
-							<span>배너</span> <a
-								href="https://news.naver.com/main/ranking/read.naver?mode=LSD&mid=shm&sid1=001&oid=023&aid=0003632999&rankingType=RANKING">
+							 <a
+								href="/news/detailView?news_index=719">
 								<h3 style="color: white; opacity: 0.8;">
 									文대통령, 확진자 2000명 넘어서자<br> “세계적인 현상”
 								</h3>
-							</a> <a href="#" class="primary-btn">임시로해놨음</a>
+							
 						</div>
 					</div>
 				</div>

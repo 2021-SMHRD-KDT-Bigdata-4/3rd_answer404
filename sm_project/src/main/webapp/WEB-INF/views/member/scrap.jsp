@@ -94,7 +94,7 @@
 
 			<c:if test="${member != null}">
 				<div class="header__top__right__auth">
-					<a href="#" onclick="scrap()"> <i class="fa fa-user"></i>Scrap(임시)
+					<a href="#" onclick="scrap()"> <i class="fa fa-user"></i>Scrap
 					</a>
 				</div>
 			</c:if>
@@ -209,8 +209,8 @@
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="hero__categories">
-						<div class="hero__categories__all">
-							<a onclick="showChart()">키워드 통계 보기</a>
+						<div onclick="showChart()" class="hero__categories__all">
+							<a onclick="showChart()"><span>주요 통계 보기</span></a>
 						</div>
 					</div>
 				</div>
