@@ -30,7 +30,7 @@
         // 5+ 1개 평균 나오는거라 6번째는 무조건 선 그래프 로 들어감
         var data = google.visualization.arrayToDataTable([
           ['기능 없음', '${chartMain[0].news_keyword}', '${chartMain[1].news_keyword}', '${chartMain[2].news_keyword}', '${chartMain[3].news_keyword}', '${chartMain[4].news_keyword}'],
-          ['20대이하', ${chartKeyword20[0].cnt}, ${chartKeyword20[1].cnt}, ${chartKeyword20[2].cnt},${chartKeyword20[3].cnt}, ${chartKeyword20[4].cnt}],
+          ['20대 이하', ${chartKeyword20[0].cnt}, ${chartKeyword20[1].cnt}, ${chartKeyword20[2].cnt},${chartKeyword20[3].cnt}, ${chartKeyword20[4].cnt}],
           ['30대', ${chartKeyword30[0].cnt}, ${chartKeyword30[1].cnt}, ${chartKeyword30[2].cnt},${chartKeyword30[3].cnt}, ${chartKeyword30[4].cnt}],
           ['40대', ${chartKeyword40[0].cnt}, ${chartKeyword40[1].cnt}, ${chartKeyword40[2].cnt},${chartKeyword40[3].cnt}, ${chartKeyword40[4].cnt}],
           ['50대', ${chartKeyword50[0].cnt}, ${chartKeyword50[1].cnt}, ${chartKeyword50[2].cnt},${chartKeyword50[3].cnt}, ${chartKeyword50[4].cnt}],
@@ -244,7 +244,7 @@
                      <li><a href="../news/econo_category?news_category=경제&&pagingNum=1">경제</a></li>
                      <li><a href="../news/econo_category?news_category=사회&&pagingNum=1">사회</a></li>
                      <li><a href="../news/econo_category?news_category=정치&&pagingNum=1">정치</a></li>
-                     <li><a href="../news/econo_categorys?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
+                     <li><a href="../news/econo_category?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
                   </ul>
                </nav>
                     </div>
