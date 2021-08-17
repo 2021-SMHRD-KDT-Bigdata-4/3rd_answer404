@@ -60,7 +60,7 @@
 	<select id="chartkeyword20" parameterType="hashMap" resultType="kr.co.summary.domain.ChartVO">
 			select news_keyword ,count(*) cnt from statistics 
 			 where (news_keyword = #{Keyword1} OR news_keyword = #{Keyword2} OR news_keyword = #{Keyword3} OR news_keyword = #{Keyword4} OR news_keyword = #{Keyword5})
-			  and member_age_range = '20대이하'
+			  and member_age_range = '20대 이하'
 			 group by news_keyword
 	</select>
 	<select id="chartkeyword30" parameterType="hashMap" resultType="kr.co.summary.domain.ChartVO">
@@ -84,7 +84,7 @@
 	<select id="chartkeyword60" parameterType="hashMap" resultType="kr.co.summary.domain.ChartVO">
 			select news_keyword ,count(*) cnt from statistics 
 			 where (news_keyword = #{Keyword1} OR news_keyword = #{Keyword2} OR news_keyword = #{Keyword3} OR news_keyword = #{Keyword4} OR news_keyword = #{Keyword5})
-			  and member_age_range = '60대이상'
+			  and member_age_range = '60대 이상'
 			 group by news_keyword
 	</select>
 	

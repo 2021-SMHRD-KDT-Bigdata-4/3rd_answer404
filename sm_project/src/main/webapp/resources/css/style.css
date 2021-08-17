@@ -629,7 +629,7 @@ ul, ol {
 	list-style: none;
 	text-overflow: ellipsis;
 	text-align: left;
-	overflow: hidden;
+	
 	word-wrap: break-word;
 	white-space: normal; 
 	width: 100%; 
@@ -643,7 +643,7 @@ ul, ol {
 	list-style: none;
 	text-overflow: ellipsis;
 	text-align: left;
-	overflow: hidden;
+	
 	word-wrap: break-word;
 	white-space: normal; 
 	width: 100%; 

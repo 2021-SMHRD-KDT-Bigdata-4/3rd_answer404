@@ -45,6 +45,12 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
+	
+function showChart(){
+	   location.href="/member/showChart";
+}
+
+
    function viewStyle(obj) {
       while (true) {
          if ((obj = obj.nextSibling).nodeName == "DIV") {
@@ -192,10 +198,9 @@
 					<nav class="header__menu">
 						<ul>
 
-					
 
 							<li><a href="./list">Home</a></li>
-							<li ><a
+							<li><a
 								href="${capth}./econo_category?news_category=경제&&pagingNum=1">경제</a></li>
 							<li><a
 								href="${capth}./econo_category?news_category=사회&&pagingNum=1">사회</a></li>
@@ -205,7 +210,9 @@
 								href="${capth}./econo_category?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
 
 
-				</ul>
+
+						</ul>
+
 					</nav>
 				</div>
 				<div class="col-lg-3"
@@ -251,22 +258,9 @@
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="hero__categories">
-						<div class="hero__categories__all">
-							<i class="fa fa-bars"></i> <span>All departments</span>
+						<div onclick="showChart()" class="hero__categories__all">
+							<a onclick="showChart()"><span>주요 통계 보기</span></a>
 						</div>
-						<ul>
-							<li><a href="#">Fresh Meat</a></li>
-							<li><a href="#">Vegetables</a></li>
-							<li><a href="#">Fruit & Nut Gifts</a></li>
-							<li><a href="#">Fresh Berries</a></li>
-							<li><a href="#">Ocean Foods</a></li>
-							<li><a href="#">Butter & Eggs</a></li>
-							<li><a href="#">Fastfood</a></li>
-							<li><a href="#">Fresh Onion</a></li>
-							<li><a href="#">Papayaya & Crisps</a></li>
-							<li><a href="#">Oatmeal</a></li>
-							<li><a href="#">Fresh Bananas</a></li>
-						</ul>
 					</div>
 				</div>
 				<div class="col-lg-9">
@@ -293,12 +287,16 @@
 	<!-- Hero Section End -->
 
 	<!-- section start -->
-	<section style="margin-bottom: 40px;">
+	<section class="breadcrumb-section set-bg"
+		data-setbg="${cpath}/resources/img/finance.png">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-12" style="background-color: #f8f9fa">
-					<div class="section-title" style="margin-top: 30px;">
+				<div class="col-lg-12 text-center">
+					<div class="breadcrumb__text">
 						<h2>${category}뉴스</h2>
+						<div class="breadcrumb__option">
+							<span>응답하라 404</span>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -365,7 +363,7 @@
 						<h3>
 							<c:out value="${detail.news_title}" />
 						</h3>
-						<h5 style="text-align: right; font-weight:400; color:#6c757d;">
+						<h5 style="text-align: right; font-weight: 400; color: #6c757d;">
 							조회수
 							<c:out value="${detail.news_count}" />
 						</h5>
@@ -414,14 +412,15 @@
 								<div class="blog__details__author">
 									<div class="blog__details__author__text">
 										<h5>${detail.news_company}</h5>
-										<h6 style="color:#6c757d;">Admin</h6>
+										<h6 style="color: #6c757d;">Admin</h6>
 									</div>
 								</div>
 							</div>
 							<div class="col-lg-6">
 								<c:if test="${member != null}">
 									<div class="blog__details__widget" style="text-align: right;">
-										<button class="btn-primary btn-lg" style="border:0px;"onclick='saveScrap()'>스크랩</button>
+										<button class="btn-primary btn-lg" style="border: 0px;"
+											onclick='saveScrap()'>스크랩</button>
 									</div>
 								</c:if>
 							</div>

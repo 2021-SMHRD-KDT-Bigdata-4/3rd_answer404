@@ -23,6 +23,21 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <script type="text/javascript">
+
+function loginPopUp(){
+    window.open("/member/login", "login", "width=500, height=678, left=660, top=200");
+ }
+
+ function logout(){
+    location.href="/member/logout";
+ }
+
+
+ function scrap(){
+    location.href="/member/scrap?member_id=${member.member_id}&&pagingNum=1";
+ }
+
+
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawVisualization);
 
@@ -183,7 +198,7 @@
 
          <c:if test="${member != null}">
             <div class="header__top__right__auth">
-               <a href="#" onclick="scrap()"> <i class="fa fa-user"></i>Scrap(임시)
+               <a  href="#" onclick="scrap()"> <i class="fa fa-user"></i>Scrap
                </a>
             </div>
          </c:if>
@@ -267,7 +282,7 @@
 
                <c:if test="${member != null}">
                   <div class="header__top__right__auth">
-                     <a href="#" onclick="scrap()"> <i class="fa fa-user"></i>
+                     <a style="padding-right: 15px;" href="#" onclick="scrap()"> <i class="fa fa-user"></i>
                      Scrap </a>
                   </div>
                </c:if>
@@ -295,22 +310,10 @@
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="hero__categories">
-						<div class="hero__categories__all">
-							<i class="fa fa-bars"></i> <span>All departments</span>
+						<div onclick="showChart()" class="hero__categories__all">
+							<a onclick="showChart()"><span>주요 통계 보기</span></a>
 						</div>
-						<ul>
-							<li><a href="#">Fresh Meat</a></li>
-							<li><a href="#">Vegetables</a></li>
-							<li><a href="#">Fruit & Nut Gifts</a></li>
-							<li><a href="#">Fresh Berries</a></li>
-							<li><a href="#">Ocean Foods</a></li>
-							<li><a href="#">Butter & Eggs</a></li>
-							<li><a href="#">Fastfood</a></li>
-							<li><a href="#">Fresh Onion</a></li>
-							<li><a href="#">Papayaya & Crisps</a></li>
-							<li><a href="#">Oatmeal</a></li>
-							<li><a href="#">Fresh Bananas</a></li>
-						</ul>
+						
 					</div>
 				</div>
 				<div class="col-lg-9">
@@ -342,9 +345,9 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="breadcrumb__text">
-						<h2>CHART</h2>
+						<h2>스크랩</h2>
 						<div class="breadcrumb__option">
-							<a href="./index.html">응답하라</a> <span>404</span>
+							<span>응답하라 404</span>
 						</div>
 					</div>
 				</div>
