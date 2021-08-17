@@ -21,12 +21,13 @@
 	
 	<!-- 카테고리별 뉴스 가져오기 -->
 	<select id="category" resultType="kr.co.summary.domain.NewsVO">
-		select * from
-		(select rownum as rnum, n.* 
-		from news n where news_category = #{news_category} 
-		order by n.news_index desc)
-		where rnum between #{displayPost} and #{displayPostEnd}
+		
+		select * from(select rownum as rnum, n.* from(select * from news where news_category = #{news_category} order by news_index desc) n)  where rnum between #{displayPost} and #{displayPostEnd}
 	</select>
+	
+	<select id="selectCategory" resultType="kr.co.summary.domain.NewsVO">  		
+		select * from(select rownum as rnum, n.* from(select * from news where news_category = #{news_category} order by news_index desc) n)  where rnum between 1 and 8
+   	</select>
    
   
    <!-- 페이지네이션 -->
@@ -78,14 +79,7 @@
    	</insert>
    	
    	
-   	<select id="selectCategory" resultType="kr.co.summary.domain.NewsVO">  		
-   	select * from
-	(select rownum as rnum, n.* 
-	from news n where news_category = #{news_category}
-	order by n.news_index desc)
-	where rnum between 1 and 8
    	
-   	</select>
    	
     <!-- 높은조회수 최신순으로 가져오기 --> 
    	<select id="countStatistics" resultType="kr.co.summary.domain.NewsVO">  		
@@ -134,7 +128,7 @@
    	select * from
 	(select rownum as rnum, s.* from
 	(select news_keyword ,count(*) cnt from statistics
-	where member_age_range = '20대이하' group by news_keyword order by cnt desc) s)
+	where member_age_range = '20대 이하' group by news_keyword order by cnt desc) s)
 	where rnum between 1 and 5 	
    	</select>
    	<select id="countStatistic30" resultType="kr.co.summary.domain.StatisticsVO">
@@ -162,7 +156,7 @@
    	select * from
 	(select rownum as rnum, s.* from
 	(select news_keyword ,count(*) cnt from statistics
-	where member_age_range = '60대이상' group by news_keyword order by cnt desc) s)
+	where member_age_range = '60대 이상' group by news_keyword order by cnt desc) s)
 	where rnum between 1 and 5  	
    	</select>
    	<select id="countStatistictotalUp" resultType="kr.co.summary.domain.StatisticsVO">

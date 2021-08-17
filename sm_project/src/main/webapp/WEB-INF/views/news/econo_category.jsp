@@ -42,7 +42,15 @@
 	type="text/css">
 
 
+
 </head>
+<script type="text/javascript">
+
+function showChart(){
+	   location.href="/member/showChart";
+}
+
+</script>
 
 <body>
 	<!-- Page Preloder -->
@@ -206,22 +214,9 @@
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="hero__categories">
-						<div class="hero__categories__all">
-							<i class="fa fa-bars"></i> <span>All departments</span>
+						<div onclick="showChart()"  class="hero__categories__all">
+							<a onclick="showChart()"><span>주요 통계 보기</span></a>
 						</div>
-						<ul>
-							<li><a href="#">Fresh Meat</a></li>
-							<li><a href="#">Vegetables</a></li>
-							<li><a href="#">Fruit & Nut Gifts</a></li>
-							<li><a href="#">Fresh Berries</a></li>
-							<li><a href="#">Ocean Foods</a></li>
-							<li><a href="#">Butter & Eggs</a></li>
-							<li><a href="#">Fastfood</a></li>
-							<li><a href="#">Fresh Onion</a></li>
-							<li><a href="#">Papayaya & Crisps</a></li>
-							<li><a href="#">Oatmeal</a></li>
-							<li><a href="#">Fresh Bananas</a></li>
-						</ul>
 					</div>
 				</div>
 				<div class="col-lg-9">
@@ -253,7 +248,7 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="breadcrumb__text">
-						<h2>일일 ${category} 뉴스</h2>
+						<h2> ${category} 뉴스</h2>
 						<div class="breadcrumb__option">
 							<span>응답하라 404</span>
 						</div>

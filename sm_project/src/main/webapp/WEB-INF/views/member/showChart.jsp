@@ -23,6 +23,21 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <script type="text/javascript">
+
+function loginPopUp(){
+    window.open("/member/login", "login", "width=500, height=678, left=660, top=200");
+ }
+
+ function logout(){
+    location.href="/member/logout";
+ }
+
+
+ function scrap(){
+    location.href="/member/scrap?member_id=${member.member_id}&&pagingNum=1";
+ }
+
+
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawVisualization);
 
@@ -30,7 +45,7 @@
         // 5+ 1개 평균 나오는거라 6번째는 무조건 선 그래프 로 들어감
         var data = google.visualization.arrayToDataTable([
           ['기능 없음', '${chartMain[0].news_keyword}', '${chartMain[1].news_keyword}', '${chartMain[2].news_keyword}', '${chartMain[3].news_keyword}', '${chartMain[4].news_keyword}'],
-          ['20대이하', ${chartKeyword20[0].cnt}, ${chartKeyword20[1].cnt}, ${chartKeyword20[2].cnt},${chartKeyword20[3].cnt}, ${chartKeyword20[4].cnt}],
+          ['20대 이하', ${chartKeyword20[0].cnt}, ${chartKeyword20[1].cnt}, ${chartKeyword20[2].cnt},${chartKeyword20[3].cnt}, ${chartKeyword20[4].cnt}],
           ['30대', ${chartKeyword30[0].cnt}, ${chartKeyword30[1].cnt}, ${chartKeyword30[2].cnt},${chartKeyword30[3].cnt}, ${chartKeyword30[4].cnt}],
           ['40대', ${chartKeyword40[0].cnt}, ${chartKeyword40[1].cnt}, ${chartKeyword40[2].cnt},${chartKeyword40[3].cnt}, ${chartKeyword40[4].cnt}],
           ['50대', ${chartKeyword50[0].cnt}, ${chartKeyword50[1].cnt}, ${chartKeyword50[2].cnt},${chartKeyword50[3].cnt}, ${chartKeyword50[4].cnt}],
@@ -183,7 +198,7 @@
 
          <c:if test="${member != null}">
             <div class="header__top__right__auth">
-               <a href="#" onclick="scrap()"> <i class="fa fa-user"></i>Scrap(임시)
+               <a  href="#" onclick="scrap()"> <i class="fa fa-user"></i>Scrap
                </a>
             </div>
          </c:if>
@@ -244,7 +259,7 @@
                      <li><a href="../news/econo_category?news_category=경제&&pagingNum=1">경제</a></li>
                      <li><a href="../news/econo_category?news_category=사회&&pagingNum=1">사회</a></li>
                      <li><a href="../news/econo_category?news_category=정치&&pagingNum=1">정치</a></li>
-                     <li><a href="../news/econo_categorys?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
+                     <li><a href="../news/econo_category?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
                   </ul>
                </nav>
                     </div>
@@ -267,7 +282,7 @@
 
                <c:if test="${member != null}">
                   <div class="header__top__right__auth">
-                     <a href="#" onclick="scrap()"> <i class="fa fa-user"></i>
+                     <a style="padding-right: 15px;" href="#" onclick="scrap()"> <i class="fa fa-user"></i>
                      Scrap </a>
                   </div>
                </c:if>
@@ -295,22 +310,10 @@
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="hero__categories">
-						<div class="hero__categories__all">
-							<i class="fa fa-bars"></i> <span>All departments</span>
+						<div onclick="showChart()" class="hero__categories__all">
+							<a onclick="showChart()"><span>주요 통계 보기</span></a>
 						</div>
-						<ul>
-							<li><a href="#">Fresh Meat</a></li>
-							<li><a href="#">Vegetables</a></li>
-							<li><a href="#">Fruit & Nut Gifts</a></li>
-							<li><a href="#">Fresh Berries</a></li>
-							<li><a href="#">Ocean Foods</a></li>
-							<li><a href="#">Butter & Eggs</a></li>
-							<li><a href="#">Fastfood</a></li>
-							<li><a href="#">Fresh Onion</a></li>
-							<li><a href="#">Papayaya & Crisps</a></li>
-							<li><a href="#">Oatmeal</a></li>
-							<li><a href="#">Fresh Bananas</a></li>
-						</ul>
+						
 					</div>
 				</div>
 				<div class="col-lg-9">
@@ -342,9 +345,9 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="breadcrumb__text">
-						<h2>CHART</h2>
+						<h2>스크랩</h2>
 						<div class="breadcrumb__option">
-							<a href="./index.html">응답하라</a> <span>404</span>
+							<span>응답하라 404</span>
 						</div>
 					</div>
 				</div>
