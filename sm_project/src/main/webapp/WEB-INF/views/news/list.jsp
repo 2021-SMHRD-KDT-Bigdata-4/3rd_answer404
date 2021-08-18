@@ -82,7 +82,7 @@ $( document ).ready(function() {
               views+="<div class='col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood'>";
               views+="<div class='featured__item'>";
               views+="<div class='featured__item__pic set-bg'>";
-           views+="<img style='cursor: pointer;'class='featured__item__pic' src='"+obj.news_image+"' onclick='detail("+obj.news_index+")' >"
+           	  views+="<img style='cursor: pointer;'class='featured__item__pic' src='"+obj.news_image+"' onclick='detail("+obj.news_index+")' >"
               views+="<ul class='featured__item__pic__hover'>";
               views+="<li><a href='#'><i class='fa fa-heart'></i></a></li>";
               views+="</ul>";

@@ -44,7 +44,31 @@
 </head>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+.highlight {
+	color: black;
+	font: bold;
+	background-color: yellow;
+}
+</style>
 <script>
+   $(document).ready(function(){
+	var mystring = "${detail.news_contents}";
+	var find = "${keywordSplit[0]}";
+	var regex = new RegExp(find, "g");
+	mystring=mystring.replace(regex, "<span class='highlight'>" + find + "</span>");
+	var find = "${keywordSplit[1]}";
+	var regex = new RegExp(find, "g");
+	mystring=mystring.replace(regex, "<span class='highlight'>" + find + "</span>");
+	var find = "${keywordSplit[2]}";
+	var regex = new RegExp(find, "g");
+	mystring=mystring.replace(regex, "<span class='highlight'>" + find + "</span>");
+	$("#contentshi").html(mystring);
+	 
+
+}); 
+
+
 	
 function showChart(){
 	   location.href="/member/showChart";
@@ -199,7 +223,6 @@ function showChart(){
 						<ul>
 
 
-
 							<li><a href="./list">Home</a></li>
 							<li><a
 								href="${capth}./econo_category?news_category=경제&&pagingNum=1">경제</a></li>
@@ -209,7 +232,6 @@ function showChart(){
 								href="${capth}./econo_category?news_category=정치&&pagingNum=1">정치</a></li>
 							<li><a
 								href="${capth}./econo_category?news_category=IT/과학&&pagingNum=1">IT/과학</a></li>
-
 
 
 
@@ -289,16 +311,12 @@ function showChart(){
 	<!-- Hero Section End -->
 
 	<!-- section start -->
-	<section class="breadcrumb-section set-bg"
-		data-setbg="${cpath}/resources/img/finance.png">
+	<section style="margin-bottom: 40px;">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-12 text-center">
-					<div class="breadcrumb__text">
+				<div class="col-lg-12" style="background-color: #f8f9fa">
+					<div class="section-title" style="margin-top: 30px;">
 						<h2>${category}뉴스</h2>
-						<div class="breadcrumb__option">
-							<span>응답하라 404</span>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -403,9 +421,7 @@ function showChart(){
 								<i class="fas fa-chevron-right"></i>본문보기
 							</h5></a>
 						<div style="display: none">
-							<h5>
-								<c:out value="${detail.news_contents}" />
-							</h5>
+							<h5 id="contentshi">${detail.news_contents}</h5>
 						</div>
 					</div>
 					<div class="blog__details__content">

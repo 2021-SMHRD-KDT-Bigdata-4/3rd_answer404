@@ -53,7 +53,7 @@ function loginPopUp(){
         ]);
 
         var options = {
-          title : '테스트 2',
+          title : '연령대별 상위 키워드',
          // vAxis: {title: 'Y축 여기'},
          // hAxis: {title: 'X축 여기'},
           seriesType: 'bars',

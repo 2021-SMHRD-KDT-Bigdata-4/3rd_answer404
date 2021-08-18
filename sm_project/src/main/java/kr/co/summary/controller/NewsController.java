@@ -134,12 +134,17 @@ public class NewsController {
 		String news_category = newsvo.getNews_category();
 		String news_summary = newsvo.getNews_summary();
 		
+		
+		
+		
 		String[] keywordSplit = news_summary.split("/");
 		
 		 for(int i=0; i< keywordSplit.length; i++) {
 			 System.out.println(keywordSplit[i]+"-------------------------------------");
 		 }
-		 
+		
+		
+		System.out.println(newsvo.getNews_contents());
 		model.addAttribute("detail", newsvo);
 		model.addAttribute("keywordSplit", keywordSplit);		 				
 		model.addAttribute("category", news_category);
