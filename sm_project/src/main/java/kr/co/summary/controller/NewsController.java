@@ -125,24 +125,28 @@ public class NewsController {
 	@RequestMapping(value = "/detailView", method = RequestMethod.GET)
 	public String detail(NewsVO newsVO, Model model) throws Exception {
 		logger.info("detail");
-		
+		String match = "[^\uAC00-\uD7A3xfe0-9a-zA-Z\\s]";
 		service.plusCnt(newsVO.getNews_index());		
 		NewsVO newsvo = service.detail(newsVO.getNews_index());
-		model.addAttribute("detail", newsvo);
-
+		
+		
 		
 		String news_category = newsvo.getNews_category();
 		String news_summary = newsvo.getNews_summary();
 		
 		
+		newsvo.setNews_contents(newsvo.getNews_contents().replaceAll(match, ""));
 		
 		
-		String[] keywordSplit = news_summary.split("/");
-		
-		 for(int i=0; i< keywordSplit.length; i++) {
-			 System.out.println(keywordSplit[i]+"-------------------------------------");
-		 }
-		
+		 String[] keywordSplits = news_summary.split("/");
+	     String[] keywordSplit = new String[keywordSplits.length];
+	      
+	      for(int i=0; i< keywordSplits.length; i++) {
+	    	  keywordSplit[i] = keywordSplits[i].replaceAll(match, "");
+	    	  System.out.println(keywordSplit[i]+"-------------------------------------");
+	      }
+		 
+		     
 		
 		System.out.println(newsvo.getNews_contents());
 		model.addAttribute("detail", newsvo);

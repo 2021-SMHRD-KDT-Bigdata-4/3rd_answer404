@@ -52,7 +52,7 @@
 }
 </style>
 <script>
-   $(document).ready(function(){
+    $(document).ready(function(){
 	var mystring = "${detail.news_contents}";
 	var find = "${keywordSplit[0]}";
 	var regex = new RegExp(find, "g");
@@ -88,7 +88,7 @@ function showChart(){
    
    //스크랩 버튼 펑션
    function saveScrap() {
-      location.href = "${cpath}/member/scrapInsert?member_id=${member.member_id}&&news_index=${detail.news_index}&&news_title=${detail.news_title.replace("\"", "")}&&news_image=${detail.news_image}";
+      location.href = "${cpath}/member/scrapInsert?member_id=${member.member_id}&&news_index=${detail.news_index}&&news_title=${detail.news_title.replace("\"", "").replace("[","").replace("]","")}&&news_image=${detail.news_image}";
    }
    
    //전문용어 검색 펑션
